@@ -1,0 +1,21 @@
+﻿.payHis_page {
+    text-align: center;
+    width: 65%;
+}
+
+.payHis_page_title {
+    text-align: center;
+    color: white;
+    letter-spacing: 5px;
+    margin-top: 120px;
+}
+
+.payHis_gv {
+    border-bottom: 1px solid #ccc;
+}
+
+.payHis_gv_item {
+    border-top: 1px solid #ccc;
+    letter-spacing: 2px;
+    height: 50px;
+}

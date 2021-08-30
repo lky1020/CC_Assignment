@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="" title="Quad-Core ASG"  description="">
+    <siteMapNode url="~/Homepage.aspx" title="Homepage"  description="Homepage">
+      <siteMapNode url="~/Login.aspx" title="Login"  description="Login" />
+      <siteMapNode url="~/Registration.aspx" title="Registration"  description="Registration" />
+      <siteMapNode url="~/ForgotPassword.aspx" title="Forgot Password"  description="Forgot Password" />
+      <siteMapNode url="~/Profile.aspx" title="Profile"  description="Profile" />
+    </siteMapNode>
+
+    <siteMapNode url="~/PostArts.aspx" title="Artist"  description="Artist">
+      <siteMapNode url="~/Art.aspx" title="Art"  description="Art" />
+      <siteMapNode url="~/ArtistGallery.aspx" title="Gallery"  description="Gallery" />
+    </siteMapNode>
+    
+    <siteMapNode url="~/ArtWorks.aspx" title="Customer"  description="Customer">
+      <siteMapNode url="~/WishList.aspx" title="WishList"  description="WishList" />
+      <siteMapNode url="~/Cart.aspx" title="Cart"  description="Cart" />
+      <siteMapNode url="~/PayHistory.aspx" title="Payment History"  description="Purchase History" />
+    </siteMapNode>
+    
+  </siteMapNode>
+</siteMap>

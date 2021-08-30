@@ -1,0 +1,364 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="WAD.master.cs" Inherits="CC_Assignment.WAD" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Artwork Sales and Display Gallery</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="css/master.css" />
+    <link rel="stylesheet" href="css/home.css" />
+    <link rel="stylesheet" href="css/login_register.css" />
+    <link rel="stylesheet" href="css/forgotPassword.css" />
+    <link rel="stylesheet" href="css/profile.css" />
+    <link rel="stylesheet" href="css/Art.css"/>
+    <link rel="stylesheet" href="css/ArtGallery.css"/>
+    <link rel="stylesheet" href="css/PostArt.css"/>
+    <link rel="stylesheet" href="css/cart.css"/>
+    <link rel="stylesheet" href="css/payment.css"/>
+    <link rel="stylesheet" href="css/payHistory.css"/>
+    <link rel="stylesheet" href="css/wishlist.css"/>
+    <link rel="stylesheet" href="css/artworks.css"/>
+    <link rel="stylesheet" href="css/artworkdetails.css"/>
+
+    <script src= 
+        "https://code.jquery.com/jquery-3.4.0.min.js"> 
+    </script> 
+
+    <meta http-equiv="pragma" content="no-cache" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <div class="siteMenuBar" id="siteMenuBar">
+                <div class="siteMenuContent" id="siteMenuContent">
+                    <asp:Menu ID="siteMenu" runat="server" CssClass="siteMenu" StaticSubMenuIndent="16px" Orientation="Horizontal" StaticEnableDefaultPopOutImage="false">
+                        <StaticMenuItemStyle  VerticalPadding="10px" HorizontalPadding="30px" CssClass="staticMenuItem"/>
+                    </asp:Menu>
+                </div>
+
+                <div class="menuBtn" id="menuBtn"></div>
+            </div>
+            
+            <div class="siteMap" id="siteMap">
+                <div class="siteMapPath">
+                    <asp:SiteMapPath ID="SiteMapPath1" runat="server" RenderCurrentNodeAsLink="false" 
+                        CurrentNodeStyle-ForeColor="#ff0157" NodeStyle-Font-Underline="false"></asp:SiteMapPath>
+                </div>
+
+                <div class="siteBtn" id="siteBtn"></div>
+            </div>
+
+            <header id="header">
+                <a href="Homepage.aspx#" class='logo' id="logo">Quad-Core ASG<span>.</span></a>
+
+                <div class="headerMenu">
+                    <ul class='navigation' id="navigation">
+                        <li><a href="#banner"">Home</a></li>
+                        <li><a href="#about"">About</a></li>
+                        <li><a href="#artworks"">Artworks</a></li>
+                        <li><a href="#contact"">Contact</a></li>
+                    </ul>
+
+                    <div class="siteMenuBar" id="headerSiteMenuBar">
+                        <div class="siteMenuContent" id="headerSiteMenuContent">
+                            <asp:Menu ID="headerSiteMenu" runat="server" CssClass="siteMenu" StaticSubMenuIndent="16px" Orientation="Horizontal" StaticEnableDefaultPopOutImage="false">
+                                <StaticMenuItemStyle  VerticalPadding="10px" HorizontalPadding="30px" CssClass="staticMenuItem"/>
+                            </asp:Menu>
+                        </div>
+                    </div>
+
+                    <div class="toggle" id="toggle"></div>
+                </div>
+            </header>
+        </div>
+        
+        <div class="showcase">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                
+            </asp:ContentPlaceHolder>
+
+            <div class="sideBar" id="sideBar">
+                <div class="content">
+                    <div class="profile">
+                        <div class="profileBox" id="profileBox">
+                            <div class="imgBox">
+                                <img id="profileImg" src="img/userPic/user_default.png" alt="Profile Picture">
+                            </div>
+                            <div class="text">
+                                <p id="name"> 
+                                    <asp:Label ID="lblLoginName" runat="server" Text=""></asp:Label>
+                                </p>
+                            </div>
+                        </div>
+
+                        <a href="Login.aspx" ID="btnLogin" class="profileBtn">Login</a>
+                        <asp:Button ID="btnLogout" CssClass="profileBtn" runat="server" Text="Logout" OnClick="btnLogout_Click" EnableViewState="False"
+                            CausesValidation="False"></asp:Button>
+                        <a href="Profile.aspx" ID="btnProfile" class="profileBtn">Manage Profile</a>
+
+                    </div>
+
+                    <div class="sideBarMenu">
+                        <asp:SiteMapDataSource ID="SiteMapDataSource_Home" runat="server" />
+
+                        <div class="treeView">
+                            <asp:TreeView ID="tvMenu" runat="server" DataSourceID="SiteMapDataSource_Home" ExpandDepth="1"  ExpandImageUrl ="~/img/treeView/right-arrow.png" CollapseImageUrl="~/img/treeView/down-arrow.png">
+                                <RootNodeStyle CssClass="tvMenuItem"/>
+                                <LeafNodeStyle CssClass="tvMenuItem"/>
+                                <ParentNodeStyle CssClass="tvMenuItem"/>
+                            </asp:TreeView>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="copyrightText">
+            <p>Copyright 2021 <a href="Homepage.aspx">Quad-Core Team</a>. All Right reserved</p>
+        </div>
+    </form>
+
+    <script type="text/javascript">
+
+        // Assign sticky class to the header when window scroll to make the css
+        window.addEventListener('scroll', function(){
+            const header = document.querySelector('header');
+            const sideBar = document.querySelector('.sideBar');
+            const siteMap = document.querySelector('.siteMap');
+            const siteMenu = document.querySelector('.siteMenuBar');
+
+            header.classList.toggle("sticky", window.scrollY > 0 && window.innerWidth > 1020)
+            sideBar.classList.toggle("sticky", window.scrollY > 0 && window.innerWidth > 1020)
+            siteMap.classList.toggle("sticky", window.scrollY > 0 && window.innerWidth > 1020)
+            siteMenu.classList.toggle("sticky", window.scrollY > 0 && window.innerWidth > 1020)
+
+            //MenuBar
+            if (window.scrollY == 0 && siteMenu.classList.contains('displayed')) {
+                document.getElementById("siteMap").style.top = "0px";
+                document.getElementById("siteMenuBar").style.top = "85px";
+
+            } else if (window.scrollY != 0 && siteMenu.classList.contains('displayed')){
+                document.getElementById("siteMap").style.top = "0px";
+                document.getElementById("siteMenuBar").style.top = "65px";
+            }
+
+            //SiteMapPath
+            if (window.scrollY == 0 && siteMap.classList.contains('displayed')) {
+                document.getElementById("siteMap").style.top = "85px";
+                document.getElementById("siteMenuBar").style.top = "0px";
+
+            } else if (window.scrollY != 0 && siteMap.classList.contains('displayed')){
+                document.getElementById("siteMap").style.top = "65px";
+                document.getElementById("siteMenuBar").style.top = "0px";
+            }
+        });
+
+        //Resize of window
+        window.addEventListener("resize", function () {
+            //Get website name
+            var path = window.location.pathname;
+            var page = path.split("/").pop();
+
+            if (page != "Homepage.aspx") {
+                if (window.innerWidth < 1080) {
+                    document.getElementById("headerSiteMenuBar").style.display = "none";
+                    document.getElementById("navigation").style.display = "none"; 
+                }
+                else {
+                    document.getElementById("headerSiteMenuBar").style.display = "inline-block";
+                    document.getElementById("navigation").style.display = "none";
+                }
+
+            } else if (page == "Homepage.aspx") {
+                if (window.innerWidth < 1020) {
+                    document.getElementById("navigation").style.display = "none";
+                    document.getElementById("headerSiteMenuBar").style.display = "none";
+                }
+                else {
+                    document.getElementById("navigation").style.display = "flex";
+                    document.getElementById("headerSiteMenuBar").style.display = "none";
+                }
+            }
+        });
+
+        // To prevent refresh and the sidebar appear
+        window.addEventListener("load", function () {
+            document.getElementById("sideBar").style.display = "none";
+            document.getElementById("headerSiteMenuBar").style.display = "none";
+            document.getElementById("siteMenuBar").style.display = "none";
+
+            //Get website name
+            var path = window.location.pathname;
+            var page = path.split("/").pop();
+
+            //Set other page's header UI
+            if (page != "Homepage.aspx") {
+                document.getElementById("navigation").style.display = "none";
+                document.getElementById("menuBtn").style.display = "none";
+                document.getElementById("siteBtn").style.display = "none";
+
+                if (window.innerWidth > 1080) {
+                    document.getElementById("headerSiteMenuBar").style.display = "inline-block";
+                    //document.getElementById("siteMenuBar").style.display = "block";
+                }
+
+                if (window.innerWidth < 1020) {
+                    document.querySelector('.siteMenuBar').classList.remove("sticky");
+                }
+                
+            } else if (page == "Homepage.aspx") {
+                document.getElementById("headerSiteMenuBar").style.display = "none";
+                document.getElementById("navigation").style.display = "flex";
+            }
+
+            //Undisplay the profile box
+            document.getElementById("profileBox").style.display = "none";
+            document.getElementById("btnLogout").style.display = "none";
+            document.getElementById("btnProfile").style.display = "none";
+
+            if (!document.getElementById('<%=lblLoginName.ClientID%>').innerHTML == "") {
+
+                activateProfileUI();
+
+            } else {
+                deactiveProfileUI();
+            }
+        });
+
+        //Set up the profile UI for active status
+        function activateProfileUI() {
+
+            //Undisplay the login btn
+            document.getElementById("btnLogin").style.display = "none";
+
+            //Display the profile box
+            document.getElementById("profileBox").style.display = "flex";
+            document.getElementById("btnLogout").style.display = "block";
+            document.getElementById("btnProfile").style.display = "block";
+
+            //Undisplay the login btn
+            document.getElementById("btnLogin").style.display = "none";
+        }
+
+        //Set up the profile UI for deactive status
+        function deactiveProfileUI() {
+            //Display the login btn
+            document.getElementById("btnLogin").style.display = "block";
+
+            //Undisplay the profile box
+            document.getElementById("profileBox").style.display = "none";
+            document.getElementById("btnLogout").style.display = "none";
+            document.getElementById("btnProfile").style.display = "none";
+        }
+
+        // Toggle btn and show sidebar function
+        const menuToggle = document.querySelector('.toggle');
+        const showcase = document.querySelector('.showcase');
+        const header = document.querySelector('header');
+        const sideBar = document.querySelector('.sideBar');
+        const siteMap = document.querySelector('.siteMap');
+        const siteMenu = document.querySelector('.siteMenuBar');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            showcase.classList.toggle('active');
+            header.classList.toggle('activeSticky');
+            sideBar.classList.toggle('active');
+            siteMap.classList.toggle('active');
+            siteMenu.classList.toggle('active');
+
+            // Allow to perfrom action in sideBar
+            if (sideBar.classList.contains('active')) {
+
+                var delayInMilliseconds = 1000; //1.0 second
+
+                document.getElementById("sideBar").style.display = "block";
+                document.getElementById("sideBar").style.right = "0px";
+
+                setTimeout(function () {
+                    document.getElementById("sideBar").style.zIndex = "0";
+                }, delayInMilliseconds);
+
+                document.getElementById("siteMap").style.display = "inline";
+
+                if (window.innerWidth < 1020) {
+                    header.classList.remove("sticky")
+                    sideBar.classList.remove("sticky")
+                    siteMap.classList.remove("sticky")
+                    siteMenu.classList.remove("sticky")
+                }
+
+                if (window.innerWidth > 1020) {
+                    document.getElementById("siteMenuBar").style.visibility = "hidden";
+                    document.getElementById("siteMenuBar").style.display = "block";
+                }
+
+                if (siteMenu.classList.contains('displayed')) {
+                    document.getElementById("siteMap").style.visibility = "hidden";
+                    document.getElementById("siteMenuBar").style.visibility = "visible";
+                } else {
+                    setTimeout(function () {
+                        document.getElementById("siteMenuBar").style.visibility = "visible";
+                    }, delayInMilliseconds);
+                }
+            } 
+
+            if (!sideBar.classList.contains('active')) {
+
+                document.getElementById("sideBar").style.zIndex = "-2";
+                document.getElementById("sideBar").style.right = "-300px";
+                document.getElementById("sideBar").style.display = "none";
+                document.getElementById("siteMap").style.display = "none";
+
+                document.getElementById("siteMenuBar").style.display = "none";
+
+                //Remove the active for the siteBtn & menuBtn
+                //document.getElementById("siteMap").remove('displayed');
+                //document.getElementById("siteMenuBar").remove('displayed');
+            }
+
+        });
+
+        // Switch between the siteMap and menu (siteMap)
+        const siteBtn = document.querySelector('.siteBtn');
+        const menuBtn = document.querySelector('.menuBtn');
+
+        siteBtn.addEventListener('click', () => {
+
+            siteMenu.classList.add('displayed');
+            siteMap.classList.remove('displayed');
+
+            if (window.scrollY == 0) {
+                document.getElementById("siteMap").style.top = "0px";
+                document.getElementById("siteMenuBar").style.top = "85px";
+
+            } else {
+                document.getElementById("siteMap").style.top = "0px";
+                document.getElementById("siteMenuBar").style.top = "65px";
+            }
+
+        });
+
+        menuBtn.addEventListener('click', () => {
+
+            siteMap.classList.add('displayed');
+            siteMenu.classList.remove('displayed');
+
+            document.getElementById("siteMap").style.visibility = "visible";
+
+            if (window.scrollY == 0) {
+                document.getElementById("siteMap").style.top = "85px";
+                document.getElementById("siteMenuBar").style.top = "0px";
+
+            } else {
+                document.getElementById("siteMap").style.top = "65px";
+                document.getElementById("siteMenuBar").style.top = "0px";
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>

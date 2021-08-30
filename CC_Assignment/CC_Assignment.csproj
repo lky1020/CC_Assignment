@@ -1,0 +1,401 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DCDC1016-BB0B-4D1F-8299-BD9DFF3ED1D6}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CC_Assignment</RootNamespace>
+    <AssemblyName>CC_Assignment</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44336</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.2, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.2\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\SyasyaDb.mdf" />
+    <Content Include="App_Data\SyasyaDb_log.ldf">
+      <DependentUpon>SyasyaDb.mdf</DependentUpon>
+    </Content>
+    <Content Include="Art.aspx" />
+    <Content Include="ArtistGallery.aspx" />
+    <Content Include="ArtWorkDetails.aspx" />
+    <Content Include="ArtWorks.aspx" />
+    <Content Include="Cart.aspx" />
+    <Content Include="css\Art.css" />
+    <Content Include="css\ArtGallery.css" />
+    <Content Include="css\artworkdetails.css" />
+    <Content Include="css\artworks.css" />
+    <Content Include="css\cart.css" />
+    <Content Include="css\forgotPassword.css" />
+    <Content Include="css\login_register.css" />
+    <Content Include="css\payHistory.css" />
+    <Content Include="css\payment.css" />
+    <Content Include="css\PostArt.css" />
+    <Content Include="css\profile.css" />
+    <Content Include="css\wishlist.css" />
+    <Content Include="ErrorPages\FileNotFound.htm" />
+    <Content Include="ForgotPassword.aspx" />
+    <Content Include="ForgotPasswordControl.ascx" />
+    <Content Include="Global.asax" />
+    <Content Include="img\Artist\1180w-463h_010920-riviera-art-gallery-780x440.jpg" />
+    <Content Include="img\Artist\a1.jpg" />
+    <Content Include="img\Artist\a2.jpg" />
+    <Content Include="img\Artist\a3.jpg" />
+    <Content Include="img\Artist\a5.jpg" />
+    <Content Include="img\Artist\a6.jpg" />
+    <Content Include="img\Artist\add.png" />
+    <Content Include="img\Artist\ar1.jpg" />
+    <Content Include="img\Artist\ar2.jpg" />
+    <Content Include="img\Artist\ar3.jpg" />
+    <Content Include="img\Artist\ar4.jpg" />
+    <Content Include="img\Artist\art-auction-10e3hqz.jpg" />
+    <Content Include="img\Artist\asia-best-places-to-visit-mount-fuji-japan.jpg" />
+    <Content Include="img\Artist\autumn.jpg" />
+    <Content Include="img\Artist\bedroom.gif" />
+    <Content Include="img\Artist\bg1.jpg" />
+    <Content Include="img\Artist\btn-bg1.png" />
+    <Content Include="img\Artist\cancel-icon.png" />
+    <Content Include="img\Artist\CIMB logo - web_0.jpg" />
+    <Content Include="img\Artist\city-skyline-of-Sydney-Australia.jpg" />
+    <Content Include="img\Artist\cust.jpg" />
+    <Content Include="img\Artist\customer-service-bot-support.png" />
+    <Content Include="img\Artist\d1.jpg" />
+    <Content Include="img\Artist\d2.jpg" />
+    <Content Include="img\Artist\d3.png" />
+    <Content Include="img\Artist\d4.jpg" />
+    <Content Include="img\Artist\delete-symbol-png-7.png" />
+    <Content Include="img\Artist\download %281%29.jpg" />
+    <Content Include="img\Artist\download.jpg" />
+    <Content Include="img\Artist\e1.jpg" />
+    <Content Include="img\Artist\e2.jpg" />
+    <Content Include="img\Artist\e3.jpg" />
+    <Content Include="img\Artist\e4.jpg" />
+    <Content Include="img\Artist\edit.png" />
+    <Content Include="img\Artist\hl1.jpg" />
+    <Content Include="img\Artist\hl2.jpg" />
+    <Content Include="img\Artist\hl3.jpg" />
+    <Content Include="img\Artist\hl4.jpg" />
+    <Content Include="img\Artist\hl5.jpg" />
+    <Content Include="img\Artist\hl6.jpg" />
+    <Content Include="img\Artist\hl7.jpg" />
+    <Content Include="img\Artist\hl8.jpg" />
+    <Content Include="img\Artist\hl9.jpg" />
+    <Content Include="img\Artist\Hotel 1.jpg" />
+    <Content Include="img\Artist\jbCNvTM4gwr2qV8X8fW3ZB.png" />
+    <Content Include="img\Artist\limestone-rock-phang-nga-1-Beautiful-limestone-rock-in-the-ocean.jpg" />
+    <Content Include="img\Artist\mexico-top-places-cancun-mayan-riviera.jpg" />
+    <Content Include="img\Artist\mountain.jpg" />
+    <Content Include="img\Artist\o1.jpg" />
+    <Content Include="img\Artist\o2.jpg" />
+    <Content Include="img\Artist\o4.jpg" />
+    <Content Include="img\Artist\o5.jpg" />
+    <Content Include="img\Artist\pbe.png" />
+    <Content Include="img\Artist\report.png" />
+    <Content Include="img\Artist\Santorini-Greece %281%29.jpg" />
+    <Content Include="img\Artist\save.png" />
+    <Content Include="img\Artist\shutterstock_1398074603.jpg" />
+    <Content Include="img\Artist\spring1.jpg" />
+    <Content Include="img\Artist\summer.png" />
+    <Content Include="img\Artist\winter.jpg" />
+    <Content Include="img\artwork\art_about.jpg" />
+    <Content Include="img\artwork\header_bg.jpg" />
+    <Content Include="img\artwork\icons8-artist.png" />
+    <Content Include="img\artwork\icons8-cancel-hover.png" />
+    <Content Include="img\artwork\icons8-cancel.png" />
+    <Content Include="img\artwork\icons8-paint-brush.png" />
+    <Content Include="img\header\up-down.png" />
+    <Content Include="img\homepage\artWork\africa_elephant.jpg" />
+    <Content Include="img\homepage\artWork\beautiful_women.jpg" />
+    <Content Include="img\homepage\artWork\boat.jpg" />
+    <Content Include="img\homepage\artWork\forest.jpg" />
+    <Content Include="img\homepage\artWork\sky_boat.jpg" />
+    <Content Include="img\homepage\artWork\window.jpg" />
+    <Content Include="img\header\close.png" />
+    <Content Include="css\home.css" />
+    <Content Include="css\master.css" />
+    <Content Include="Homepage.aspx" />
+    <Content Include="img\homepage\aboutUs\aboutUs.jpg" />
+    <Content Include="img\homepage\contact\artWork_gallery.jpg" />
+    <Content Include="img\icon\done.png" />
+    <Content Include="img\icon\dusbin.png" />
+    <Content Include="img\icon\edit.png" />
+    <Content Include="img\icon\minus.png" />
+    <Content Include="img\icon\plus.png" />
+    <Content Include="img\icon\repair.png" />
+    <Content Include="img\login_register\nightCity_Login.jpg" />
+    <Content Include="img\login_register\nightCity_Register.jpg" />
+    <Content Include="img\login_register\user_default.png" />
+    <Content Include="img\Profile\edit.png" />
+    <Content Include="img\Profile\grey_texture.jpg" />
+    <Content Include="img\Profile\white_texture.jpg" />
+    <Content Include="img\userPic\lky1020.jpg" />
+    <Content Include="img\userPic\user_default.png" />
+    <Content Include="img\video\sky.mp4" />
+    <Content Include="img\treeView\down-arrow.png" />
+    <Content Include="img\treeView\right-arrow.png" />
+    <Content Include="img\wishlist\heart-icon-active.png" />
+    <Content Include="img\wishlist\heart-icon-inactive.png" />
+    <Content Include="img\wishlist\icons8-delete-hover.png" />
+    <Content Include="img\wishlist\icons8-delete.png" />
+    <Content Include="img\wishlist\icons8-edit-64.png" />
+    <Content Include="img\wishlist\icons8-edit-hover.png" />
+    <Content Include="img\wishlist\wishlist_header.png" />
+    <Content Include="js\jquery.elevateZoom-3.0.8.min.js" />
+    <Content Include="js\jquery.min.js" />
+    <Content Include="Login.aspx" />
+    <Content Include="img\header\menu.png" />
+    <Content Include="LoginControl.ascx" />
+    <Content Include="PayHistory.aspx" />
+    <Content Include="Payment.aspx" />
+    <Content Include="PostArts.aspx" />
+    <Content Include="Profile.aspx" />
+    <Content Include="Registration.aspx" />
+    <Content Include="RegistrationControl.ascx" />
+    <Content Include="Web.config" />
+    <Content Include="WishList.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Art.aspx.cs">
+      <DependentUpon>Art.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Art.aspx.designer.cs">
+      <DependentUpon>Art.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ArtistGallery.aspx.cs">
+      <DependentUpon>ArtistGallery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ArtistGallery.aspx.designer.cs">
+      <DependentUpon>ArtistGallery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ArtWorkDetails.aspx.cs">
+      <DependentUpon>ArtWorkDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ArtWorkDetails.aspx.designer.cs">
+      <DependentUpon>ArtWorkDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ArtWorks.aspx.cs">
+      <DependentUpon>ArtWorks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ArtWorks.aspx.designer.cs">
+      <DependentUpon>ArtWorks.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cart.aspx.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cart.aspx.designer.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ForgotPassword.aspx.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ForgotPassword.aspx.designer.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ForgotPasswordControl.ascx.cs">
+      <DependentUpon>ForgotPasswordControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ForgotPasswordControl.ascx.designer.cs">
+      <DependentUpon>ForgotPasswordControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Homepage.aspx.cs">
+      <DependentUpon>Homepage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Homepage.aspx.designer.cs">
+      <DependentUpon>Homepage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoginControl.ascx.cs">
+      <DependentUpon>LoginControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginControl.ascx.designer.cs">
+      <DependentUpon>LoginControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="PayHistory.aspx.cs">
+      <DependentUpon>PayHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PayHistory.aspx.designer.cs">
+      <DependentUpon>PayHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Payment.aspx.cs">
+      <DependentUpon>Payment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Payment.aspx.designer.cs">
+      <DependentUpon>Payment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PostArts.aspx.cs">
+      <DependentUpon>PostArts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PostArts.aspx.designer.cs">
+      <DependentUpon>PostArts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profile.aspx.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profile.aspx.designer.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registration.aspx.cs">
+      <DependentUpon>Registration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registration.aspx.designer.cs">
+      <DependentUpon>Registration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrationControl.ascx.cs">
+      <DependentUpon>RegistrationControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrationControl.ascx.designer.cs">
+      <DependentUpon>RegistrationControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WAD.Master.cs">
+      <DependentUpon>WAD.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WAD.Master.designer.cs">
+      <DependentUpon>WAD.Master</DependentUpon>
+    </Compile>
+    <Compile Include="WishList.aspx.cs">
+      <DependentUpon>WishList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WishList.aspx.designer.cs">
+      <DependentUpon>WishList.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="img\Artist\a4.webp" />
+    <None Include="packages.config" />
+    <Content Include="WAD.Master" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <Content Include="Web.sitemap" />
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>53118</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44336/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

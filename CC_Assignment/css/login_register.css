@@ -1,0 +1,400 @@
+﻿body {
+    min-height: unset;
+    background-color: rgba(40, 40, 40, 1.0);
+}
+
+/*Login*/
+.loginbox {
+    background: rgba(0,0,0,0.65);
+    color: white;
+    width: 450px;
+    height: 550px;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: 20px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 40px 35px;
+}
+
+.userPic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: relative;
+    background: url('../img/login_register/user_default.png');
+    background-size: cover;
+    left: calc(50% - 50px);
+    animation: animate 5s linear infinite;
+}
+
+@keyframes animate {
+    0%, 100% {
+        border-radius: 64% 36% 27% 73% / 55% 58% 42% 45%;
+    }
+
+    25% {
+        border-radius: 73% 27% 26% 38% / 73% 36% 64% 27%;
+    }
+
+    50% {
+        border-radius: 28% 72% 44% 56% / 49% 40% 60% 51%;
+    }
+
+    75% {
+        border-radius: 40% 60% 70% 30% / 47% 62% 38% 53%;
+    }
+}
+
+.loginbox p {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 0;
+    margin: 15px 0px 0px 0px;
+    text-align: center;
+}
+
+.loginbox input {
+    width: 92%;
+    margin-bottom: 20px;
+    text-align: center;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    height: 40px;
+    font-size: 16px;
+    border-bottom: 1px solid silver;
+}
+
+.loginbox i {
+    position: absolute;
+    margin-top: 10px;
+    cursor: pointer;
+    color: red;
+}
+
+.loginbox input[type=submit] {
+    border: none;
+    outline: none;
+    height: 40px;
+    background-color: blueviolet;
+    font-size: 18px;
+    color: white;
+    border-radius: 15px;
+    width: 100%;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.loginbox input[type=submit]:hover {
+    background-color: #ff0157;
+    transition: 0.5s;
+    letter-spacing: 4px;
+    cursor: pointer;
+}
+
+.loginbox a {
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 20px;
+    color: #999999;
+}
+
+.loginbox a:hover {
+    transition: 0.5s;
+    letter-spacing: 2px;
+    color: #ff0157;
+}
+
+.loginFormContent .loginValidation{
+    color: red;
+}
+
+/*Registration*/
+.registerbox {
+    width: 50%;
+    border-radius: 20px;
+    background-color: rgba(0,0,0,0.65);
+    color: white;
+    box-sizing: border-box;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+    padding: 70px 30px 40px 30px;
+    margin-top: 100px;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: 180px;
+    left: calc(50% - 50px);
+    background: url('../img/login_register/user_default.png');
+    background-size: cover;
+    animation: animate 5s linear infinite;
+}
+
+@keyframes animate {
+    0%, 100% {
+        border-radius: 64% 36% 27% 73% / 55% 58% 42% 45%;
+    }
+
+    25% {
+        border-radius: 73% 27% 26% 38% / 73% 36% 64% 27%;
+    }
+
+    50% {
+        border-radius: 28% 72% 44% 56% / 49% 40% 60% 51%;
+    }
+
+    75% {
+        border-radius: 40% 60% 70% 30% / 47% 62% 38% 53%;
+    }
+}
+
+.registerbox h1 {
+    margin: 0;
+    margin-top: 25px;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.registerForm div{
+    margin-bottom: 15px;
+}
+
+.registerForm .registerLabel {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+.registerForm .registerValidation {
+    color: red;
+}
+
+.registerForm .txtStyle {
+    resize: none;
+    height: 25px;
+    margin-top: 10px;
+}
+
+.registerForm input {
+    border: none;
+    border-bottom: 1px solid grey;
+    background-color: transparent;
+    outline: none;
+    height: 40px;
+    width: 94%;
+    color: white;
+    font-size: 16px;
+}
+
+.registerForm i {
+    cursor: pointer;
+    color: red;
+}
+
+/*Gender*/
+.registerForm .gender .registerRadio {
+    display: none;
+}
+
+.registerForm .gender .registerGenderLabel {
+    color: white;
+    box-sizing: border-box;
+    padding: 5px 15px 5px 50px;
+    margin: 10px;
+    display: inline-block;
+    position: relative;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.registerForm .gender .registerGenderLabel:hover {
+    background-color: blueviolet;
+    letter-spacing: 2px;
+}
+
+.registerForm .gender .registerGenderLabel::before {
+    content: "";
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    border: 2px solid grey;
+    border-radius: 50%;
+    position: absolute;
+    left: 16px;
+    top: 4px;
+}
+
+.registerForm .gender .registerGenderLabel.checked {
+    padding: 5px 15px;
+    background-color: #ff0157;
+    border-radius: 2px;
+    color: white;
+}
+
+.registerForm .gender .registerGenderLabel.checked::before {
+    display: none;
+}
+
+/*Role*/
+.registerForm .role .registerRadio {
+    display: none;
+}
+
+.registerForm .role .registerRoleLabel {
+    color: white;
+    box-sizing: border-box;
+    padding: 5px 15px 5px 50px;
+    margin: 10px;
+    display: inline-block;
+    position: relative;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.registerForm .role .registerRoleLabel:hover {
+    background-color: blueviolet;
+    letter-spacing: 2px;
+}
+
+.registerForm .role .registerRoleLabel::before {
+    content: "";
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    border: 2px solid grey;
+    border-radius: 50%;
+    position: absolute;
+    left: 16px;
+    top: 4px;
+}
+
+.registerForm .role .registerRoleLabel.checked {
+    padding: 5px 15px;
+    background-color: #ff0157;
+    border-radius: 2px;
+    color: white;
+}
+
+.registerForm .role .registerRoleLabel.checked::before {
+    display: none;
+}
+
+.registerForm .btnStyle {
+    width: 100%;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+    height: 40px;
+    background-color: transparent;
+}
+
+.registerForm input[type=submit] {
+    background-color: blueviolet;
+}
+
+.registerForm input[type=submit]:hover {
+    cursor: pointer;
+    background-color: #ff0157;
+    letter-spacing: 4px;
+    transition: 0.5s;
+}
+
+.registerbox a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #999999;
+}
+
+.registerbox a:hover {
+    color: #ff0157;
+    letter-spacing: 4px;
+    transition: 0.75s;
+}
+
+/*IsLogin*/
+.proceedContent {
+    display: flex;
+    flex-direction: column;
+}
+
+.isLogin .btnProceedStyle {
+    font-size: 1em;
+    color: #fff;
+    background: #ff0157;
+    padding: 10px 30px;
+    margin-top: 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 2px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.isLogin .btnHomepage {
+    background-color: blueviolet;
+}
+
+.isLogin .btnProceedStyle:hover {
+    letter-spacing: 4px;
+}
+
+
+@media (max-width: 1368px) {
+    .registerbox.active {
+        width: 65%;
+    }
+}
+
+@media (max-width: 1168px) {
+    .registerbox.active {
+        width: 75%;
+    }
+}
+
+@media (max-width: 1080px) {
+    .registerbox.active {
+        width: 85%;
+        margin-top: 150px;
+    }
+
+    .registerbox.active .avatar{
+        top: 250px;
+    }
+}
+
+@media (max-width: 1060px) {
+    .registerbox.active .avatar {
+        top: 175px;
+    }
+}
+
+@media (max-width: 1020px) {
+
+    .registerForm .gender .registerGenderLabel {
+        padding: 5px 0px 5px 50px;
+    }
+
+    .registerForm .role .registerRoleLabel {
+        padding: 5px 0px 5px 50px;
+    }
+}
+
+@media (max-width: 900px) {
+    .registerbox.active .registerForm .txtStyle {
+        width: 90%;
+    }
+}

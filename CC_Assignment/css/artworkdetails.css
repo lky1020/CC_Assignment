@@ -1,0 +1,159 @@
+﻿/* Art Work Details */
+.art-details-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    filter: brightness(35%);
+}
+
+.details-container {
+    width: 100%;
+    position: relative;
+    display: flex;
+    padding-top: 10%;
+    height: 720px;
+}
+
+/* Left part */
+.details-left {
+    width: 60%;
+    margin-bottom: 4%;
+}
+
+/* Image */
+.details-image {
+    width: 70%;
+    height: 420px;
+    object-fit: cover;
+    margin-left: 18%;
+}
+
+/* Right part */
+.details-right {
+    height: 420px;
+    padding: 2em;
+}
+
+/* Name, price */
+.details-artname {
+    font-size: 45px;
+    letter-spacing: 2px;
+}
+
+.details-price-str {
+    margin-top: 15px;
+    font-size: 18px;
+    letter-spacing: 2px;
+    font-weight: 500;
+}
+
+.details-price {
+    font-size: 35px;
+    letter-spacing: 2px;
+}
+
+.details-btn {
+    width: 50%;
+    margin-top: 10%;
+}
+
+/* Art Description */
+.details-box {
+    width: 100%;
+    padding-top: 25px;
+    padding-bottom: 100px;
+}
+
+.details-box-border {
+    margin: 5px 5% 5px 5%;
+    padding: 10px 20px 10px 10px;
+    height: 400px;
+}
+
+.details-about {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.details-about img {
+    width: 50px;
+    height: 50px;
+    margin: 10px 10px 10px 15px;
+}
+
+.details-about td {
+    font-size: 35px;
+    letter-spacing: 3px;
+}
+
+.details-about span {
+    color: #F2AA4CFF;
+    font-weight: bold;
+    font-size: 55px;
+    margin-left: 15px;
+}
+
+.details-artabout {
+    letter-spacing: 1px;
+    line-height: 35px;
+}
+
+.details-desc-box {
+    text-align: center;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-top: 3%;
+}
+
+/* Artist */
+
+/* Artist Image */
+.details-artist-img {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Artist Name */
+.details-artist-name {
+    font-size: 30px;
+    letter-spacing: 2px;
+    color: #F2AA4CFF;
+}
+
+/* Bio */
+.details-bio {
+    line-height: 5px;
+    letter-spacing: 1px;
+}
+
+/* Cancel Button */
+.cancel-btn {
+    height: 50px;
+    width: 50px;
+}
+
+/* quantity label control */
+.d-qty-control {
+    font-size: 30px;
+    margin-left: 20px;
+    margin-right: 5px;
+    color: white;
+    border: none;
+    background: none;
+    width: 30px;
+}
+
+.details-stock-str {
+    opacity: 0.8;
+    font-size: 15px;
+    color: white;
+}
+
+.margin-l10 {
+    margin-left: 10px;
+}
