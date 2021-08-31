@@ -174,12 +174,12 @@
             document.getElementById('<%= btnUpdatePassword.ClientID %>').style.cursor = "default";
         }
 
-        //display manage art btn when role == artist
+        //display manage art btn when role == Management
         function displayManageArt() {
             document.getElementById('<%= btnManageArt.ClientID %>').style.display = "inline-block";
         }
 
-        //undisplay manage art btn when role != artist
+        //undisplay manage art btn when role != Management
         function undisplayManageArt() {
             document.getElementById('<%= btnManageArt.ClientID %>').style.display = "none";
         }

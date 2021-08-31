@@ -4,15 +4,15 @@
     <%-- Background --%>
     <section class="banner" id="banner">
         <div class="content">
-            <h2>Always Choose The Best</h2>
+            <h2>Score the Latest Trends!</h2>
             <p>
                 In the road to capture all the best moments in the life.
                 The best moments in life always surround us, helping us, supporting us, and giving us strength.
             </p>
-            <a href="#artworks" class='btn'>Our ArtWorks</a>
+            <a href="#apparel" class='btn'>Our Apparel</a>
         </div>
 
-        <video src="img/video/sky.mp4" muted loop autoplay></video>
+        <img src="img/video/sky.gif"/>
     </section>
 
     <%-- About --%>
@@ -21,33 +21,33 @@
             <div class="col50">
                 <h2 class="titleText"><span>A</span>bout Us</h2>
                 <p> &emsp;&emsp;&emsp;
-                    Quad-Core ArtWork Sales and Display Gallery
-                    is a company that provides a platform for all
-                    artists around the world to launch their artworks, 
-                    explore the beauty of artworks and collect them.
-                    Quad-Core ArtWork Sales and Display Gallery intend
-                    to collect and capture all the beauty moments in
-                    the life to promote to all the world. 
+                    Syasha Design is an online shop selling plus size 
+                    apparel for women. Syasha Design are using Microsoft
+                    Azure to support its daily business. Syasha Design intend 
+                    selling plus size apparel for women to promote to all the world. 
+                    In addition, Syasha Design also intent to launch their plus size apparel
+                    to lets the world explore the beauty of plus size apparel and
+                    purchase them.
                 </p>
 
                 <br/><br/>
 
                 <p> &emsp;&emsp;&emsp;
-                    Quad-Core ArtWork Sales and Display Gallery (ASG)
-                    is founder by 4 students which is Lim Kah Yee, Joan Hau, 
-                    Cheong Yin Lam & Lee Ling. Currently, we are studying in
-                    the software engineering course (RSF) of Tunku Abdul Rahman 
-                    University College (TARUC).
+                    Syasha Design is founder by Syasya and it is design by 
+                    5 students which is Lim Kah Yee, Joan Hau, 
+                    Cheong Yin Lam, Lee Ling and Hiew Long Shun. 
+                    Currently, we are studying in the software engineering 
+                    course (RSF) of Tunku Abdul Rahman University College (TARUC).
                 </p>
 
                 <br/><br/>
 
                 <p> &emsp;&emsp;&emsp;
-                    This Quad-Core ASG. website is one of our assignment in RSF2 Year 2 
-                    Sem 3. This website is used to apply all the things that we learn 
-                    about the Asp.Net website. In this website, it is about the Artworks
-                    Sales and Display gallery which is to promote Artwork and also offers 
-                    the opportunity for Art Lover to purchase them.
+                    This Syasha Design website is one of our assignment in RSF2 Year 3 
+                    Sem 1. This website is used to selling plus size apparel for women. 
+                    In this website, it is about the Apparel which is to promote plus size 
+                    apparel for women. All of the data in the Syasha Design will store in
+                    Microsoft Azure.
                 </p>
             </div>
 
@@ -59,13 +59,13 @@
         </div>
     </section>
 
-    <%-- Artwork --%>
-    <section class="artworks" id="artworks">
+    <%-- Apparel --%>
+    <section class="apparel" id="apparel">
         <div class="title">
             <h2 class="titleText"><span>A</span>rtWorks</h2>
 
             <p> 
-                The best ArtWorks that launched by Artists. Captured the 
+                The best apparel that launched by Syasha. Captured the 
                 best moment in our life.
             </p>
         </div>

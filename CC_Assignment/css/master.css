@@ -234,6 +234,7 @@ header.activeSticky .headerMenu .toggle {
 /*SiteMenu - static menu item*/
 .siteMenuBar .staticMenuItem {
     width: 150px;
+    padding: 10px 30px 10px 10px;
     text-align: center;
     background-color: blueviolet;
     color: white;

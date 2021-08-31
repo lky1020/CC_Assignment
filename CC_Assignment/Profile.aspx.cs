@@ -38,8 +38,8 @@ namespace CC_Assignment
             //Update the Profile Pic for change pic
             ScriptManager.RegisterStartupScript(Page, this.GetType(), "UpdateBrowsePic", "document.getElementById('previewPic').src ='" + Session["userPicPath"].ToString() + "';", true);
 
-            //Display manage art btn when role == artist
-            if (Session["userRole"].ToString().Equals("Artist")){
+            //Display manage art btn when role == Management
+            if (Session["userRole"].ToString().Equals("Management")){
 
                 ScriptManager.RegisterStartupScript(Page, this.GetType(), "DisplayManageArtBtn", "displayManageArt();", true);
             }

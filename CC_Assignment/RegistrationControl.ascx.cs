@@ -32,9 +32,9 @@ namespace CC_Assignment
                 }
 
                 //Initialize the Role
-                if (rdArtist.Checked)
+                if (rdManagement.Checked)
                 {
-                    ScriptManager.RegisterStartupScript(Page, this.GetType(), "initializeRole", "selectArtist();", true);
+                    ScriptManager.RegisterStartupScript(Page, this.GetType(), "initializeRole", "selectManagement();", true);
                 }
                 else if (rdCustomer.Checked)
                 {
@@ -85,9 +85,9 @@ namespace CC_Assignment
 
             string role;
 
-            if (rdArtist.Checked)
+            if (rdManagement.Checked)
             {
-                role = "Artist";
+                role = "Management";
             }
             else
             {

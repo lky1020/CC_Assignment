@@ -125,7 +125,7 @@ namespace CC_Assignment
             if (Session["userRole"] != null)
             {
                 //Direct to gallery
-                if (Session["userRole"].ToString().Equals("Artist"))
+                if (Session["userRole"].ToString().Equals("Management"))
                 {
                     Response.Write("<script>window.location = 'ArtistGallery.aspx';</script>");
                 }

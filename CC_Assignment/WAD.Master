@@ -4,7 +4,7 @@
 
 <html>
 <head runat="server">
-    <title>Artwork Sales and Display Gallery</title>
+    <title>Syasha Design</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"/>
     <link rel="stylesheet" href="css/master.css" />
     <link rel="stylesheet" href="css/home.css" />
@@ -33,7 +33,7 @@
             <div class="siteMenuBar" id="siteMenuBar">
                 <div class="siteMenuContent" id="siteMenuContent">
                     <asp:Menu ID="siteMenu" runat="server" CssClass="siteMenu" StaticSubMenuIndent="16px" Orientation="Horizontal" StaticEnableDefaultPopOutImage="false">
-                        <StaticMenuItemStyle  VerticalPadding="10px" HorizontalPadding="30px" CssClass="staticMenuItem"/>
+                        <StaticMenuItemStyle CssClass="staticMenuItem"/>
                     </asp:Menu>
                 </div>
 
@@ -50,20 +50,20 @@
             </div>
 
             <header id="header">
-                <a href="Homepage.aspx#" class='logo' id="logo">Quad-Core ASG<span>.</span></a>
+                <a href="Homepage.aspx#" class='logo' id="logo">Syasha Design<span>.</span></a>
 
                 <div class="headerMenu">
                     <ul class='navigation' id="navigation">
                         <li><a href="#banner"">Home</a></li>
                         <li><a href="#about"">About</a></li>
-                        <li><a href="#artworks"">Artworks</a></li>
+                        <li><a href="#apparel"">Apparel</a></li>
                         <li><a href="#contact"">Contact</a></li>
                     </ul>
 
                     <div class="siteMenuBar" id="headerSiteMenuBar">
                         <div class="siteMenuContent" id="headerSiteMenuContent">
                             <asp:Menu ID="headerSiteMenu" runat="server" CssClass="siteMenu" StaticSubMenuIndent="16px" Orientation="Horizontal" StaticEnableDefaultPopOutImage="false">
-                                <StaticMenuItemStyle  VerticalPadding="10px" HorizontalPadding="30px" CssClass="staticMenuItem"/>
+                                <StaticMenuItemStyle CssClass="staticMenuItem"/>
                             </asp:Menu>
                         </div>
                     </div>
@@ -115,7 +115,7 @@
         </div>
 
         <div class="copyrightText">
-            <p>Copyright 2021 <a href="Homepage.aspx">Quad-Core Team</a>. All Right reserved</p>
+            <p>Copyright 2021 <a href="Homepage.aspx">Syasha Design</a>. All Right reserved</p>
         </div>
     </form>
 

@@ -186,9 +186,9 @@ namespace CC_Assignment
         private void SetUpNavigationMenu()
         {
 
-            if (Session["userRole"].ToString().Equals("Artist"))
+            if (Session["userRole"].ToString().Equals("Management"))
             {
-                ActiveArtistNavigation();
+                ActiveManagementNavigation();
             }
             else
             {
@@ -254,13 +254,13 @@ namespace CC_Assignment
             }
         }
 
-        private void ActiveArtistNavigation()
+        private void ActiveManagementNavigation()
         {
             try
             {
                 using (SqlConnection con = new SqlConnection(cs))
                 {
-                    SqlCommand cmd = new SqlCommand("sp_ActiveArtist", con);
+                    SqlCommand cmd = new SqlCommand("sp_ActiveManagement", con);
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     con.Open();

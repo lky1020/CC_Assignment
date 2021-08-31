@@ -191,6 +191,7 @@
     <Content Include="img\Profile\white_texture.jpg" />
     <Content Include="img\userPic\lky1020.jpg" />
     <Content Include="img\userPic\user_default.png" />
+    <Content Include="img\video\sky.gif" />
     <Content Include="img\video\sky.mp4" />
     <Content Include="img\treeView\down-arrow.png" />
     <Content Include="img\treeView\right-arrow.png" />
