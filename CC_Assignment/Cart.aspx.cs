@@ -38,9 +38,9 @@ namespace CC_Assignment
                 //pass data into grid
                 SqlConnection con = new SqlConnection(cs);
                 con.Open();
-                String queryGetData = "Select a.ArtId, a.ArtName, a.ArtImage, a.Price, a.ArtDescription,o.orderDetailId, o.qtySelected, o.Subtotal from [Cart] c " +
+                String queryGetData = "Select o.ApparelId, a.ArtName, a.ArtImage, a.Price, a.ArtDescription,o.orderDetailId, o.qtySelected, o.Subtotal from [Cart] c " +
                     "INNER JOIN [OrderDetails] o on c.CartId = o.CartId " +
-                    "INNER JOIN [Artist] a on o.ArtId = a.ArtId  " + 
+                    "INNER JOIN [Artist] a on o.ApparelId = a.ArtId  " + 
                     "Where c.UserId = @userid AND c.status = 'cart'";
                 SqlCommand cmd = new SqlCommand(queryGetData, con);
                 cmd.Parameters.AddWithValue("@userid", Session["userID"]);
@@ -85,7 +85,7 @@ namespace CC_Assignment
 
             for (int i = 0; i < gvCart.Rows.Count; i++)
             {
-                string queryArtAvailable = "SELECT Availability FROM Artist WHERE ArtId = (SELECT ArtId FROM OrderDetails WHERE OrderDetailId = @od_Id); ";
+                string queryArtAvailable = "SELECT Availability FROM Artist WHERE ArtId = (SELECT ApparelId FROM OrderDetails WHERE OrderDetailId = @od_Id); ";
 
                 using (SqlCommand cmdArtAvailable = new SqlCommand(queryArtAvailable, con))
                 {
@@ -108,7 +108,7 @@ namespace CC_Assignment
 
             for (int i = 0; i < gvCart.Rows.Count; i++)
             {
-                string queryArtAvailable = "SELECT Quantity FROM Artist WHERE ArtId = (SELECT ArtId FROM OrderDetails WHERE OrderDetailId = @od_Id); ";
+                string queryArtAvailable = "SELECT Quantity FROM Artist WHERE ArtId = (SELECT ApparelId FROM OrderDetails WHERE OrderDetailId = @od_Id); ";
 
                 using (SqlCommand cmdArtAvailable = new SqlCommand(queryArtAvailable, con))
                 {
@@ -154,7 +154,7 @@ namespace CC_Assignment
                 int qty = 0;
 
                 //retrieve qty left
-                string queryArtQty = "SELECT Quantity FROM Artist WHERE ArtId = (SELECT ArtId FROM OrderDetails WHERE OrderDetailId = @od_Id); ";
+                string queryArtQty = "SELECT Quantity FROM Artist WHERE ArtId = (SELECT ApparelId FROM OrderDetails WHERE OrderDetailId = @od_Id); ";
 
                 using (SqlCommand cmdArtQty = new SqlCommand(queryArtQty, con))
                 {
@@ -443,9 +443,9 @@ namespace CC_Assignment
         protected void cart_artImg_click(object sender, ImageClickEventArgs e)
         {
             ImageButton imgButton = sender as ImageButton;
-            Int32 artID = Convert.ToInt32(imgButton.CommandArgument.ToString());
+            Int32 apparelID = Convert.ToInt32(imgButton.CommandArgument.ToString());
 
-            Response.Redirect("ArtWorkDetails.aspx?ArtId=" + artID);
+            Response.Redirect("ArtWorkDetails.aspx?ArtId=" + apparelID);
         }
 
 

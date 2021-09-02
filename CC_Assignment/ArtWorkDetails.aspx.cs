@@ -81,7 +81,7 @@ namespace CC_Assignment.ArtWorks
                     con.Open();
 
                     //Check wishlist
-                    string query = "SELECT WishlistId FROM [dbo].[Wishlist] WHERE UserId = '" + Session["userId"] + "' AND ArtId ='" + Request.QueryString["ArtId"] + "'";
+                    string query = "SELECT WishlistId FROM [dbo].[Wishlist] WHERE UserId = '" + Session["userId"] + "' AND ApparelID ='" + Request.QueryString["ArtId"] + "'";
                     using (SqlCommand cmdUser = new SqlCommand(query, con))
                     {
                         wishlistID = ((Int32?)cmdUser.ExecuteScalar()) ?? 0;
@@ -143,7 +143,7 @@ namespace CC_Assignment.ArtWorks
                         con.Open();
 
                         //check existing art in wishlist
-                        string query = "SELECT WishlistId FROM [dbo].[Wishlist] WHERE UserId = '" + Session["userId"] + "' AND ArtId ='" + Request.QueryString["ArtId"] + "'";
+                        string query = "SELECT WishlistId FROM [dbo].[Wishlist] WHERE UserId = '" + Session["userId"] + "' AND ApparelID ='" + Request.QueryString["ArtId"] + "'";
                         using (SqlCommand cmdUser = new SqlCommand(query, con))
                         {
                             wishlistID = ((Int32?)cmdUser.ExecuteScalar()) ?? 0;
@@ -152,7 +152,7 @@ namespace CC_Assignment.ArtWorks
                         if (wishlistID == 0)
                         {
                             //Insert Art into Wishlist
-                            string sql = "INSERT into Wishlist (ArtId, UserId, DateAdded) values('" + Request.QueryString["ArtId"] + "', '" + Session["userId"] + "', '" + DateTime.Now.ToString("MM/dd/yyyy") + "')";
+                            string sql = "INSERT into Wishlist (ApparelID, UserId, DateAdded) values('" + Request.QueryString["ArtId"] + "', '" + Session["userId"] + "', '" + DateTime.Now.ToString("MM/dd/yyyy") + "')";
 
                             SqlCommand cmd = new SqlCommand();
 
@@ -287,9 +287,9 @@ namespace CC_Assignment.ArtWorks
 
                                     con.Open();
 
-                                    SqlCommand cmdOrderDetailID = new SqlCommand("SELECT OrderDetailId, qtySelected, Subtotal from [OrderDetails] Where CartId = @CartId AND ArtId = @ArtId", con);
+                                    SqlCommand cmdOrderDetailID = new SqlCommand("SELECT OrderDetailId, qtySelected, Subtotal from [OrderDetails] Where CartId = @CartId AND ApparelId = @ApparelId", con);
                                     cmdOrderDetailID.Parameters.AddWithValue("@CartId", cartID);
-                                    cmdOrderDetailID.Parameters.AddWithValue("@ArtId", Request.QueryString["ArtId"]);
+                                    cmdOrderDetailID.Parameters.AddWithValue("@ApparelId", Request.QueryString["ArtId"]);
 
                                     SqlDataReader dtrOrderDetail = cmdOrderDetailID.ExecuteReader();
                                     if (dtrOrderDetail.HasRows)
@@ -313,7 +313,7 @@ namespace CC_Assignment.ArtWorks
                                         qtyOrderDetail += qtySelected;
                                         subtotalOrderDetail += subtotal;
 
-                                        string sqlUpdatetOrder = "UPDATE  OrderDetails SET qtySelected = " + qtyOrderDetail + ", Subtotal = " + subtotalOrderDetail + " WHERE OrderDetailId = " + orderDetailID;
+                                        string sqlUpdatetOrder = "UPDATE OrderDetails SET qtySelected = " + qtyOrderDetail + ", Subtotal = " + subtotalOrderDetail + " WHERE OrderDetailId = " + orderDetailID;
 
                                         SqlCommand cmdInsertOrder = new SqlCommand();
 
@@ -328,7 +328,7 @@ namespace CC_Assignment.ArtWorks
                                     {
                                         //insert order details based on cartid
 
-                                        string sqlInsertOrder = "INSERT into OrderDetails (CartId, ArtId, qtySelected, Subtotal) values('" + cartID + "', '" + Request.QueryString["ArtId"] + "', '" + qtySelected + "', '" + subtotal + "')";
+                                        string sqlInsertOrder = "INSERT into OrderDetails (CartId, ApparelId, qtySelected, Subtotal) values('" + cartID + "', '" + Request.QueryString["ArtId"] + "', '" + qtySelected + "', '" + subtotal + "')";
 
                                         SqlCommand cmdInsertOrder = new SqlCommand();
 

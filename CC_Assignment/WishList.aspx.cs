@@ -32,7 +32,7 @@ namespace CC_Assignment
 
                 SqlConnection con = new SqlConnection(cs);
                 con.Open();
-                String query = "Select w.WishlistId, w.UserId, w.ArtId, w.DateAdded, a.ArtName, a.ArtImage, a.Price, a.Quantity, a.ArtDescription, a.Availability from [WishList] w INNER JOIN [Artist] a on w.ArtId = a.ArtId Where w.UserId = @userid ORDER BY w.WishlistId DESC";
+                String query = "Select w.WishlistId, w.UserId, w.ApparelID, w.DateAdded, a.ArtName, a.ArtImage, a.Price, a.Quantity, a.ArtDescription, a.Availability from [WishList] w INNER JOIN [Artist] a on w.ApparelId = a.ArtId Where w.UserId = @userid ORDER BY w.WishlistId DESC";
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@userid", Session["userId"]);
 
@@ -78,7 +78,7 @@ namespace CC_Assignment
 
             for (int i = 0; i < gvWishList.Rows.Count; i++)
             {
-                string queryArtAvailable = "SELECT Availability, Quantity FROM Artist WHERE ArtId = (SELECT ArtId FROM WishList WHERE WishlistId = @WishlistId)";
+                string queryArtAvailable = "SELECT Availability, Quantity FROM Artist WHERE ArtId = (SELECT ApparelId FROM WishList WHERE WishlistId = @WishlistId)";
 
                 using (SqlCommand cmdArtAvailable = new SqlCommand(queryArtAvailable, con))
                 {
@@ -217,9 +217,9 @@ namespace CC_Assignment
         protected void wl_artImg_Click(object sender, ImageClickEventArgs e)
         {
             ImageButton imgButton = sender as ImageButton;
-            Int32 artID = Convert.ToInt32(imgButton.CommandArgument.ToString());
+            Int32 apparelID = Convert.ToInt32(imgButton.CommandArgument.ToString());
 
-            Response.Redirect("ArtWorkDetails.aspx?ArtId="+ artID);
+            Response.Redirect("ArtWorkDetails.aspx?ArtId="+ apparelID);
  
         }
 
@@ -240,7 +240,7 @@ namespace CC_Assignment
             }
         }
 
-        protected void insertCart(Int32 artID, decimal unitPrice)
+        protected void insertCart(Int32 apparelId, decimal unitPrice)
         {
             Int32 cartID = 0;
             Int32 orderDetailID = 0;
@@ -293,9 +293,9 @@ namespace CC_Assignment
 
             conn.Open();
 
-            SqlCommand cmdOrderDetailID = new SqlCommand("SELECT OrderDetailId, qtySelected, Subtotal from [OrderDetails] Where CartId = @CartId AND ArtId = @ArtId", conn);
+            SqlCommand cmdOrderDetailID = new SqlCommand("SELECT OrderDetailId, qtySelected, Subtotal from [OrderDetails] Where CartId = @CartId AND ArtId = @ApparelID", conn);
             cmdOrderDetailID.Parameters.AddWithValue("@CartId", cartID);
-            cmdOrderDetailID.Parameters.AddWithValue("@ArtId", artID);
+            cmdOrderDetailID.Parameters.AddWithValue("@ApparelID", apparelId);
 
             SqlDataReader dtrOrderDetail = cmdOrderDetailID.ExecuteReader();
             if (dtrOrderDetail.HasRows)
@@ -334,7 +334,7 @@ namespace CC_Assignment
             {
                 //insert order details based on cartid
 
-                string sqlInsertOrder = "INSERT into OrderDetails (CartId, ArtId, qtySelected, Subtotal) values('" + cartID + "', '" + artID + "', '" + 1 + "', '" + unitPrice + "')";
+                string sqlInsertOrder = "INSERT into OrderDetails (CartId, ApparelId, qtySelected, Subtotal) values('" + cartID + "', '" + apparelId + "', '" + 1 + "', '" + unitPrice + "')";
 
                 SqlCommand cmdInsertOrder = new SqlCommand();
 
@@ -386,14 +386,14 @@ namespace CC_Assignment
 
                         //get artID
                         ImageButton artImg = (ImageButton)gvWishList.Rows[i].Cells[0].FindControl("wl_artImg");
-                        Int32 artID = Convert.ToInt32(artImg.CommandArgument.ToString());
+                        Int32 apparelID = Convert.ToInt32(artImg.CommandArgument.ToString());
 
                         //get unit price
                         Label lblPrice = (Label)gvWishList.Rows[i].Cells[0].FindControl("wl_price");
                         decimal unitPrice = Convert.ToDecimal(lblPrice.Text);
                         try
                         {
-                            insertCart(artID, unitPrice);
+                            insertCart(apparelID, unitPrice);
                             removeItem(wishlistID);
                         }
                         catch (Exception ex)

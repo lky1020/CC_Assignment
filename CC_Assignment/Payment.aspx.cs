@@ -49,8 +49,8 @@ namespace CC_Assignment
                 //assign selected item to gridview
                 SqlConnection con = new SqlConnection(cs);
                 con.Open();
-                String queryGetData = "Select a.ArtId, a.ArtName, a.Price, o.OrderDetailId, o.qtySelected, o.Subtotal from [OrderDetails] o " +
-                        "INNER JOIN [Artist] a on o.ArtId = a.ArtId INNER JOIN [Cart] c on o.CartId = c.CartId Where c.UserId = @userid AND c.status = 'cart' AND o.Checked = 'True'";
+                String queryGetData = "Select o.ApparelId, a.ArtName, a.Price, o.OrderDetailId, o.qtySelected, o.Subtotal from [OrderDetails] o " +
+                        "INNER JOIN [Artist] a on o.ApparelId = a.ArtId INNER JOIN [Cart] c on o.CartId = c.CartId Where c.UserId = @userid AND c.status = 'cart' AND o.Checked = 'True'";
                 SqlCommand cmd = new SqlCommand(queryGetData, con);
                 cmd.Parameters.AddWithValue("@userid", Session["userID"]);
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
@@ -158,7 +158,7 @@ namespace CC_Assignment
                     for (int i = 0; i < gvPayment.Rows.Count; i++)
                     {
                         quantity = 0;
-                        string queryArtQty = "SELECT Quantity FROM Artist WHERE ArtId = (SELECT ArtId FROM OrderDetails WHERE OrderDetailId = @od_Id); ";
+                        string queryArtQty = "SELECT Quantity FROM Artist WHERE ArtId = (SELECT ApparelId FROM OrderDetails WHERE OrderDetailId = @od_Id); ";
 
                         using (SqlCommand cmdArtQty = new SqlCommand(queryArtQty, con))
                         {
@@ -169,7 +169,7 @@ namespace CC_Assignment
                         }
 
                         //update art qty left 
-                        String queryUpdateQty = "Update Artist SET Quantity = @qty WHERE ArtId = (SELECT ArtId FROM OrderDetails WHERE OrderDetailId = @od_Id);";
+                        String queryUpdateQty = "Update Artist SET Quantity = @qty WHERE ArtId = (SELECT ApparelId FROM OrderDetails WHERE OrderDetailId = @od_Id);";
                         SqlCommand cmdUpdateArtQty = new SqlCommand(queryUpdateQty, con);
 
                         cmdUpdateArtQty.Parameters.AddWithValue("@qty", quantity);
