@@ -9,9 +9,9 @@
             <div id="wishlist-header-text" class="wishlist-header-text">
                 WishList
             </div>
-            <p class="wishlist-header-quoto">Art is a line around your thoughts.</p>
-            <!-- Continue Add Art -->
-            <asp:Button ID="btnContinueWL" runat="server" Text="View Art" CssClass="btn-wlArt" OnClick="btnContinueWL_Click" />
+            <p class="wishlist-header-quoto">Life is short. Make every outfit count.</p>
+            <!-- Continue Add Apparel -->
+            <asp:Button ID="btnContinueWL" runat="server" Text="View Apparel" CssClass=".btn-wlApparel" OnClick="btnContinueWL_Click" />
         </div>
 
 
@@ -51,27 +51,27 @@
                                 </ItemTemplate>
                             </asp:TemplateField>
 
-                            <%-- GridView ArtImage --%>
-                            <asp:TemplateField HeaderText="Art" ItemStyle-Width="20%" HeaderStyle-Width="20%" HeaderStyle-Height="50px" HeaderStyle-Font-Size="Large" HeaderStyle-BackColor="#484848" ItemStyle-HorizontalAlign="Center" ItemStyle-VerticalAlign="Middle">
+                            <%-- GridView ApparelImage --%>
+                            <asp:TemplateField HeaderText="Apparel" ItemStyle-Width="20%" HeaderStyle-Width="20%" HeaderStyle-Height="50px" HeaderStyle-Font-Size="Large" HeaderStyle-BackColor="#484848" ItemStyle-HorizontalAlign="Center" ItemStyle-VerticalAlign="Middle">
                                 <ItemTemplate>
-                                        <asp:ImageButton ID="wl_artImg" runat="server"  ImageUrl='<%# Eval("ArtImage")%>' Height="160" Width="160" OnClick="wl_artImg_Click" CommandArgument='<%# Eval("ApparelID")%>' CommandName="viewdetails" CssClass="art-image"/>
+                                        <asp:ImageButton ID="wl_apparelImg" runat="server"  ImageUrl='<%# Eval("ArtImage")%>' Height="160" Width="160" OnClick="wl_apparelImg_Click" CommandArgument='<%# Eval("ApparelID")%>' CommandName="viewdetails" CssClass="apparel-image"/>
                                 </ItemTemplate>
                             </asp:TemplateField>
 
-                            <%-- GridView ArtName & Desc --%>
+                            <%-- GridView ApparelName & Desc --%>
                             <asp:TemplateField HeaderText="Description" HeaderStyle-Width="40%" ItemStyle-Width="40%" HeaderStyle-Height="50px" HeaderStyle-Font-Size="Large" HeaderStyle-BackColor="#484848" ItemStyle-HorizontalAlign="Center">
                                 <ItemTemplate>
-                                    <asp:Label ID="wl_artName" runat="server"> 
+                                    <asp:Label ID="wl_apparelName" runat="server"> 
                                 <h3><%#Eval("ArtName")%></h3>
                                     </asp:Label>
                                     <br />
-                                    <asp:Label ID="wl_artDes" runat="server"> 
+                                    <asp:Label ID="wl_apparelDes" runat="server"> 
                                 <%#Eval("ArtDescription")%>
                                     </asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
 
-                            <%-- GridView Art Price --%>
+                            <%-- GridView Apparel Price --%>
                             <asp:TemplateField HeaderText="Price" HeaderStyle-Width="15%" ItemStyle-Width="15%" HeaderStyle-Height="50px" HeaderStyle-Font-Size="Large" HeaderStyle-BackColor="#484848" ItemStyle-HorizontalAlign="Center">
                                 <ItemTemplate>
                                     RM <asp:Label ID="wl_price" Text='<%# Eval("Price", "{0:0.00}") %>' runat="server"></asp:Label>

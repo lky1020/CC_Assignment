@@ -68,7 +68,7 @@ namespace CC_Assignment
                     totalPrice.Visible = false;
                     cart_orderBtn.Visible = false;
                 }
-                checkArtAvailability();
+                checkApparelAvailability();
             }catch(Exception)
             {
                 ScriptManager.RegisterStartupScript(Page, this.GetType(), "CartDenied",
@@ -76,8 +76,8 @@ namespace CC_Assignment
             }
         }
 
-        //detect art product availability
-        private void checkArtAvailability()
+        //detect apparel product availability
+        private void checkApparelAvailability()
         {
             SqlConnection con = new SqlConnection(cs);
             con.Open();
@@ -85,12 +85,12 @@ namespace CC_Assignment
 
             for (int i = 0; i < gvCart.Rows.Count; i++)
             {
-                string queryArtAvailable = "SELECT Availability FROM Artist WHERE ArtId = (SELECT ApparelId FROM OrderDetails WHERE OrderDetailId = @od_Id); ";
+                string queryApparelAvailable = "SELECT Availability FROM Artist WHERE ArtId = (SELECT ApparelId FROM OrderDetails WHERE OrderDetailId = @od_Id); ";
 
-                using (SqlCommand cmdArtAvailable = new SqlCommand(queryArtAvailable, con))
+                using (SqlCommand cmdApparelAvailable = new SqlCommand(queryApparelAvailable, con))
                 {
-                    cmdArtAvailable.Parameters.AddWithValue("@od_Id", gvCart.DataKeys[i].Value.ToString());
-                    availability = (Boolean)((cmdArtAvailable.ExecuteScalar()) ?? '0');
+                    cmdApparelAvailable.Parameters.AddWithValue("@od_Id", gvCart.DataKeys[i].Value.ToString());
+                    availability = (Boolean)((cmdApparelAvailable.ExecuteScalar()) ?? '0');
 
                     if (!availability)
                     {
@@ -108,12 +108,12 @@ namespace CC_Assignment
 
             for (int i = 0; i < gvCart.Rows.Count; i++)
             {
-                string queryArtAvailable = "SELECT Quantity FROM Artist WHERE ArtId = (SELECT ApparelId FROM OrderDetails WHERE OrderDetailId = @od_Id); ";
+                string queryApparelAvailable = "SELECT Quantity FROM Artist WHERE ArtId = (SELECT ApparelId FROM OrderDetails WHERE OrderDetailId = @od_Id); ";
 
-                using (SqlCommand cmdArtAvailable = new SqlCommand(queryArtAvailable, con))
+                using (SqlCommand cmdApparelAvailable = new SqlCommand(queryApparelAvailable, con))
                 {
-                    cmdArtAvailable.Parameters.AddWithValue("@od_Id", gvCart.DataKeys[i].Value.ToString());
-                    qtyAvailable = (int)((cmdArtAvailable.ExecuteScalar()) ?? 0);
+                    cmdApparelAvailable.Parameters.AddWithValue("@od_Id", gvCart.DataKeys[i].Value.ToString());
+                    qtyAvailable = (int)((cmdApparelAvailable.ExecuteScalar()) ?? 0);
 
                     if (qtyAvailable == 0)
                     {
@@ -129,7 +129,7 @@ namespace CC_Assignment
         }
 
 
-        //edit art qty fn (based on row)
+        //edit cart qty fn (based on row)
         protected void gvCart_RowEditing(object sender, GridViewEditEventArgs e)
         {
 
@@ -154,12 +154,12 @@ namespace CC_Assignment
                 int qty = 0;
 
                 //retrieve qty left
-                string queryArtQty = "SELECT Quantity FROM Artist WHERE ArtId = (SELECT ApparelId FROM OrderDetails WHERE OrderDetailId = @od_Id); ";
+                string queryApparelQty = "SELECT Quantity FROM Artist WHERE ArtId = (SELECT ApparelId FROM OrderDetails WHERE OrderDetailId = @od_Id); ";
 
-                using (SqlCommand cmdArtQty = new SqlCommand(queryArtQty, con))
+                using (SqlCommand cmdApparelQty = new SqlCommand(queryApparelQty, con))
                 {
-                    cmdArtQty.Parameters.AddWithValue("@od_Id", gvCart.DataKeys[e.RowIndex].Value.ToString());
-                    qty = ((Int32?)cmdArtQty.ExecuteScalar()) ?? 0;
+                    cmdApparelQty.Parameters.AddWithValue("@od_Id", gvCart.DataKeys[e.RowIndex].Value.ToString());
+                    qty = ((Int32?)cmdApparelQty.ExecuteScalar()) ?? 0;
 
                 }
                 con.Close();
@@ -188,7 +188,7 @@ namespace CC_Assignment
                         SqlCommand cmd = new SqlCommand(query, con);
 
                         int itemQty = int.Parse((gvCart.Rows[e.RowIndex].FindControl("cart_qtySelect") as TextBox).Text.Trim());
-                        double price = double.Parse((gvCart.Rows[e.RowIndex].FindControl("cart_artPrice") as TextBox).Text.Trim());
+                        double price = double.Parse((gvCart.Rows[e.RowIndex].FindControl("cart_apparelPrice") as TextBox).Text.Trim());
 
                         double subTotal = price * itemQty;
 
@@ -226,7 +226,7 @@ namespace CC_Assignment
 
                 refreshdata();
 
-                Response.Write("<script>alert('Art Information Deleted Successfully')</script>");
+                Response.Write("<script>alert('Apparel Information Deleted from Cart Successfully')</script>");
             }
         }
 
@@ -392,7 +392,7 @@ namespace CC_Assignment
 
                 if (chkb.Checked && gvCart.Rows[i].Cells[0].Enabled == true)
                 {
-                    totalSelectPrice += double.Parse((gvCart.Rows[i].FindControl("cart_artSubPrice") as TextBox).Text.ToString());
+                    totalSelectPrice += double.Parse((gvCart.Rows[i].FindControl("cart_apparelSubPrice") as TextBox).Text.ToString());
                     
                 }
                 else if (chckheader.Checked == true && chkb.Checked == false && gvCart.Rows[i].Cells[0].Enabled == true)
@@ -440,7 +440,7 @@ namespace CC_Assignment
 
         }
 
-        protected void cart_artImg_click(object sender, ImageClickEventArgs e)
+        protected void cart_apparelImg_click(object sender, ImageClickEventArgs e)
         {
             ImageButton imgButton = sender as ImageButton;
             Int32 apparelID = Convert.ToInt32(imgButton.CommandArgument.ToString());

@@ -99,7 +99,7 @@ namespace CC_Assignment
                                 CheckBox chkbox = gvWishList.Rows[i].FindControl("chkItems") as CheckBox;
                                 chkbox.Enabled = false;
 
-                                Label lblDescription = gvWishList.Rows[i].FindControl("wl_artDes") as Label;
+                                Label lblDescription = gvWishList.Rows[i].FindControl("wl_apparelDes") as Label;
                                 lblDescription.Text = "Item is not available";
 
                             }
@@ -129,7 +129,7 @@ namespace CC_Assignment
                     cmd.ExecuteNonQuery();
                     refreshdata();
 
-                    Response.Write("<script>alert('Congratulation, this art had remove from your wishlist successfully')</script>");
+                    Response.Write("<script>alert('Congratulation, this apparel had remove from your wishlist successfully')</script>");
 
                 }
             }
@@ -214,7 +214,7 @@ namespace CC_Assignment
             Response.Redirect("ArtWorks.aspx");
         }
 
-        protected void wl_artImg_Click(object sender, ImageClickEventArgs e)
+        protected void wl_apparelImg_Click(object sender, ImageClickEventArgs e)
         {
             ImageButton imgButton = sender as ImageButton;
             Int32 apparelID = Convert.ToInt32(imgButton.CommandArgument.ToString());
@@ -293,7 +293,7 @@ namespace CC_Assignment
 
             conn.Open();
 
-            SqlCommand cmdOrderDetailID = new SqlCommand("SELECT OrderDetailId, qtySelected, Subtotal from [OrderDetails] Where CartId = @CartId AND ArtId = @ApparelID", conn);
+            SqlCommand cmdOrderDetailID = new SqlCommand("SELECT OrderDetailId, qtySelected, Subtotal from [OrderDetails] Where CartId = @CartId AND ApparelID = @ApparelID", conn);
             cmdOrderDetailID.Parameters.AddWithValue("@CartId", cartID);
             cmdOrderDetailID.Parameters.AddWithValue("@ApparelID", apparelId);
 
@@ -385,8 +385,8 @@ namespace CC_Assignment
                         Int32 wishlistID = Convert.ToInt32(lblWishlist.Text);
 
                         //get artID
-                        ImageButton artImg = (ImageButton)gvWishList.Rows[i].Cells[0].FindControl("wl_artImg");
-                        Int32 apparelID = Convert.ToInt32(artImg.CommandArgument.ToString());
+                        ImageButton apparelImg = (ImageButton)gvWishList.Rows[i].Cells[0].FindControl("wl_apparelImg");
+                        Int32 apparelID = Convert.ToInt32(apparelImg.CommandArgument.ToString());
 
                         //get unit price
                         Label lblPrice = (Label)gvWishList.Rows[i].Cells[0].FindControl("wl_price");
@@ -414,7 +414,7 @@ namespace CC_Assignment
             if (haveItemChk)
             {
                 //print successfully message
-                Response.Write("<script>alert('Congratulation, Art in Wishlist Deleted Successfully')</script>");
+                Response.Write("<script>alert('Congratulation, Apparel add to the cart successfully.')</script>");
                 refreshdata();
             }
             else
