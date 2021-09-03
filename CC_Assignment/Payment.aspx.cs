@@ -49,8 +49,8 @@ namespace CC_Assignment
                 //assign selected item to gridview
                 SqlConnection con = new SqlConnection(cs);
                 con.Open();
-                String queryGetData = "Select a.ArtId, a.ArtName, a.Price, o.OrderDetailId, o.qtySelected, o.Subtotal from [OrderDetails] o " +
-                        "INNER JOIN [Artist] a on o.ArtId = a.ArtId INNER JOIN [Cart] c on o.CartId = c.CartId Where c.UserId = @userid AND c.status = 'cart' AND o.Checked = 'True'";
+                String queryGetData = "Select a.ApparelId, a.ApparelName, a.Price, o.OrderDetailId, o.qtySelected, o.Subtotal from [OrderDetails] o " +
+                        "INNER JOIN [Seller] a on o.ApparelId = a.ApparelId INNER JOIN [Cart] c on o.CartId = c.CartId Where c.UserId = @userid AND c.status = 'cart' AND o.Checked = 'True'";
                 SqlCommand cmd = new SqlCommand(queryGetData, con);
                 cmd.Parameters.AddWithValue("@userid", Session["userID"]);
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
@@ -158,24 +158,24 @@ namespace CC_Assignment
                     for (int i = 0; i < gvPayment.Rows.Count; i++)
                     {
                         quantity = 0;
-                        string queryArtQty = "SELECT Quantity FROM Artist WHERE ArtId = (SELECT ArtId FROM OrderDetails WHERE OrderDetailId = @od_Id); ";
+                        string queryApparelQty = "SELECT Quantity FROM Seller WHERE ApparelId = (SELECT ApparelId FROM OrderDetails WHERE OrderDetailId = @od_Id); ";
 
-                        using (SqlCommand cmdArtQty = new SqlCommand(queryArtQty, con))
+                        using (SqlCommand cmdApparelQty = new SqlCommand(queryApparelQty, con))
                         {
-                            cmdArtQty.Parameters.AddWithValue("@od_Id", gvPayment.DataKeys[i].Value.ToString());
-                            quantity = ((Int32?)cmdArtQty.ExecuteScalar()) ?? 0;
+                            cmdApparelQty.Parameters.AddWithValue("@od_Id", gvPayment.DataKeys[i].Value.ToString());
+                            quantity = ((Int32?)cmdApparelQty.ExecuteScalar()) ?? 0;
                             quantity -= int.Parse((gvPayment.Rows[i].FindControl("item_order_summary_qty") as TextBox).Text.Trim());
 
                         }
 
                         //update art qty left 
-                        String queryUpdateQty = "Update Artist SET Quantity = @qty WHERE ArtId = (SELECT ArtId FROM OrderDetails WHERE OrderDetailId = @od_Id);";
-                        SqlCommand cmdUpdateArtQty = new SqlCommand(queryUpdateQty, con);
+                        String queryUpdateQty = "Update Seller SET Quantity = @qty WHERE ApparelId = (SELECT ApparelId FROM OrderDetails WHERE OrderDetailId = @od_Id);";
+                        SqlCommand cmdUpdateApparelQty = new SqlCommand(queryUpdateQty, con);
 
-                        cmdUpdateArtQty.Parameters.AddWithValue("@qty", quantity);
-                        cmdUpdateArtQty.Parameters.AddWithValue("@od_Id", gvPayment.DataKeys[i].Value.ToString());
+                        cmdUpdateApparelQty.Parameters.AddWithValue("@qty", quantity);
+                        cmdUpdateApparelQty.Parameters.AddWithValue("@od_Id", gvPayment.DataKeys[i].Value.ToString());
 
-                        cmdUpdateArtQty.ExecuteNonQuery();
+                        cmdUpdateApparelQty.ExecuteNonQuery();
 
                         gvPayment.EditIndex = -1;
                         
@@ -220,7 +220,7 @@ namespace CC_Assignment
                         artName = (gvPayment.Rows[i].FindControl("artItem_Name") as TextBox).Text.Trim();
                         unitPrice = (gvPayment.Rows[i].FindControl("item_order_summary_price") as TextBox).Text.Trim();
                         qty = (gvPayment.Rows[i].FindControl("item_order_summary_qty") as TextBox).Text.Trim();
-                        emailOrderInfo += "<br/><br/>" + (i + 1).ToString() + ". Art Name : " + artName + "<br/>&nbsp;&nbsp;&nbsp;&nbsp;Details  : RM " + unitPrice + " x " + qty;
+                        emailOrderInfo += "<br/><br/>" + (i + 1).ToString() + ". Apparel Name : " + artName + "<br/>&nbsp;&nbsp;&nbsp;&nbsp;Details  : RM " + unitPrice + " x " + qty;
 
                     }
                     using (StringWriter sw = new StringWriter())
@@ -250,12 +250,12 @@ namespace CC_Assignment
                                 memoryStream.Close();
 
                                 MailMessage mm = new MailMessage("quadCoreTest@gmail.com", "quadCoreTest@gmail.com");
-                                mm.Subject = "Quad-Core Art Gallery Receipt";
+                                mm.Subject = "Quad-Core Apparel Gallery Receipt";
                                 mm.Body = "Thanks for your order!! <br/>Your total payment is: " + total_payment.Text +
                                     "<br/><br/>Details of the Payment Information is in the pdf below." +
                                 "<br/><br/><br/>  Thank you!" +
                                 "<br/><br/> Receipt Generated By: QUAD-CORE AUTO SYSTEM"; ;
-                                mm.Attachments.Add(new Attachment(new MemoryStream(bytes), "Quad-Core_Art_Gallery_Receipt.pdf"));
+                                mm.Attachments.Add(new Attachment(new MemoryStream(bytes), "Quad-Core_Apparel_Gallery_Receipt.pdf"));
                                 mm.IsBodyHtml = true;
                                 SmtpClient smtp = new SmtpClient();
                                 smtp.Host = "smtp.gmail.com";

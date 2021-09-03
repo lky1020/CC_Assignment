@@ -16,8 +16,8 @@
                                 <ItemTemplate>
                                     <div class="pay_gvItem1">
                                         <strong>  
-                                            <asp:Label runat="server" ID="artItem_Name1" Text='<%# Eval("ArtName") %>' Width="60%"></asp:Label>
-                                             <asp:TextBox runat="server"  ID="artItem_Name" Text='<%# Eval("ArtName") %>' Visible="false"></asp:TextBox>
+                                            <asp:Label runat="server" ID="artItem_Name1" Text='<%# Eval("ApparelName") %>' Width="60%"></asp:Label>
+                                             <asp:TextBox runat="server"  ID="artItem_Name" Text='<%# Eval("ApparelName") %>' Visible="false"></asp:TextBox>
                                            
                                         </strong>
 
@@ -50,7 +50,7 @@
                         <table>
                             <tr>
                                 <td>
-                                    <asp:Label runat="server" style="color:antiquewhite">Total Art Price</asp:Label>
+                                    <asp:Label runat="server" style="color:antiquewhite">Total Apparel Price</asp:Label>
                                 </td>
 
                                 <td>

@@ -35,7 +35,7 @@ namespace CC_Assignment
                 con.Open();
                 String query = "Select p.paymentId, o.OrderDetailId, a.ArtName, a.Price, o.qtySelected, o.Subtotal, p.datePaid from [Payment] p " +
                     "INNER JOIN [Cart] c on p.CartId = c.CartId INNER JOIN [OrderDetails] o on o.CartId = c.CartId " +
-                    "INNER JOIN [Artist] a on o.ArtId = a.ArtId " +
+                    "INNER JOIN [Seller] a on o.ApparelId = a.ApparelId " +
                     "Where c.UserId = @id " +
                     "ORDER BY p.paymentId DESC";
                 SqlCommand cmd = new SqlCommand(query, con);

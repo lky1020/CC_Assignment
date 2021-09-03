@@ -8,22 +8,22 @@
         </div>
         <br /> <br />
         <%-- Payment History GridView (Table) --%>
-        <asp:Label ID ="historyEmpty" runat="server" Text="No Payment History ... You haven't purchase any art yet" Visible="false">  </asp:Label>
+        <asp:Label ID ="historyEmpty" runat="server" Text="No Payment History ... You haven't purchase any apparel yet" Visible="false">  </asp:Label>
 
         <asp:GridView ID="gvPayHistory" runat="server"  AutoGenerateColumns="false" ForeColor="White" DataKeyNames="paymentId" ShowHeaderWhenEmpty="false"
              GridLines ="none" CssClass="payHis_gv">
             <Columns>
-                <%-- GridView ArtImage --%>
+                <%-- GridView ApparelImage --%>
                 <asp:TemplateField ItemStyle-Width="10%" HeaderText="Date Paid" HeaderStyle-Height="50px" HeaderStyle-Font-Size="Large" HeaderStyle-BackColor="#484848" 
                     ItemStyle-HorizontalAlign="Center" ItemStyle-CssClass="payHis_gv_item">
                     <ItemTemplate >  
-                        <asp:Label ID="his_artImg" runat="server">
+                        <asp:Label ID="his_apparelImg" runat="server">
                             <%# Eval("datePaid", "{0:MM/dd/yyyy}") %>
                         </asp:Label>  
                     </ItemTemplate>
                 </asp:TemplateField> 
 
-                <%-- GridView ArtImage --%>
+                <%-- GridView ApparelImage --%>
                 <asp:TemplateField ItemStyle-Width="10%" HeaderText="Tracking Number" HeaderStyle-Height="50px" HeaderStyle-Font-Size="Large" HeaderStyle-BackColor="#484848" 
                     ItemStyle-HorizontalAlign="Center" ItemStyle-CssClass="payHis_gv_item">
                     <ItemTemplate >  
@@ -35,12 +35,12 @@
                     </ItemTemplate>
                 </asp:TemplateField> 
 
-                <%-- Art Name --%>
-                <asp:TemplateField ItemStyle-Width="20%" HeaderText="Art Name" HeaderStyle-Height="50px" HeaderStyle-Font-Size="Large" HeaderStyle-BackColor="#484848" 
+                <%-- Apparel Name --%>
+                <asp:TemplateField ItemStyle-Width="20%" HeaderText="Apparel Name" HeaderStyle-Height="50px" HeaderStyle-Font-Size="Large" HeaderStyle-BackColor="#484848" 
                     ItemStyle-HorizontalAlign="Center" ItemStyle-CssClass="payHis_gv_item">
                     <ItemTemplate>
-                        <asp:Label ID="his_artName" runat="server"> 
-                            <p style="font-size:18px"><%#Eval("ArtName")%></p>
+                        <asp:Label ID="his_apparelName" runat="server"> 
+                            <p style="font-size:18px"><%#Eval("ApparelName")%></p>
                         </asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
@@ -66,7 +66,7 @@
                 </asp:TemplateField>
 
                
-                <%-- GridView Art Subtotal --%>
+                <%-- GridView Apparel Subtotal --%>
                 <asp:TemplateField ItemStyle-Width="11%" HeaderText="Paid Amount" HeaderStyle-Font-Size="Large" HeaderStyle-BackColor="#484848" 
                     ItemStyle-HorizontalAlign="Center" ItemStyle-CssClass="payHis_gv_item">
                     <ItemTemplate>
