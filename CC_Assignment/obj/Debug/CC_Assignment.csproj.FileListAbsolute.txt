@@ -122,3 +122,4 @@ C:\Users\User\Desktop\CC_Assignment\CC_Assignment\obj\Debug\CC_Assignment.csproj
 C:\Users\User\Desktop\CC_Assignment\CC_Assignment\obj\Debug\CC_Assignment.csproj.CopyComplete
 C:\Users\User\Desktop\CC_Assignment\CC_Assignment\obj\Debug\CC_Assignment.dll
 C:\Users\User\Desktop\CC_Assignment\CC_Assignment\obj\Debug\CC_Assignment.pdb
+D:\DegreeY3S1\BAIT3273 Cloud Computing\Assignment\CC_Assignment\CC_Assignment\obj\Debug\CC_Assignment.csproj.CoreCompileInputs.cache
