@@ -32,7 +32,7 @@ namespace CC_Assignment
 
                 SqlConnection con = new SqlConnection(cs);
                 con.Open();
-                String query = "Select w.WishlistId, w.UserId, w.ApparelID, w.DateAdded, a.ArtName, a.ArtImage, a.Price, a.Quantity, a.ArtDescription, a.Availability from [WishList] w INNER JOIN [Artist] a on w.ApparelId = a.ArtId Where w.UserId = @userid ORDER BY w.WishlistId DESC";
+                String query = "Select w.WishlistId, w.UserId, w.ApparelID, w.DateAdded, s.Name, s.Image, s.Price, s.Quantity, s.Size, s.Availability from [WishList] w INNER JOIN [Seller] s on w.ApparelId = s.Id Where w.UserId = @userid ORDER BY w.WishlistId DESC";
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@userid", Session["userId"]);
 
@@ -78,21 +78,21 @@ namespace CC_Assignment
 
             for (int i = 0; i < gvWishList.Rows.Count; i++)
             {
-                string queryArtAvailable = "SELECT Availability, Quantity FROM Artist WHERE ArtId = (SELECT ApparelId FROM WishList WHERE WishlistId = @WishlistId)";
+                string queryApparelAvailable = "SELECT Availability, Quantity FROM Seller WHERE Id = (SELECT ApparelId FROM WishList WHERE WishlistId = @WishlistId)";
 
-                using (SqlCommand cmdArtAvailable = new SqlCommand(queryArtAvailable, con))
+                using (SqlCommand cmdApparelAvailable = new SqlCommand(queryApparelAvailable, con))
                 {
-                    cmdArtAvailable.Parameters.AddWithValue("@WishlistId", gvWishList.DataKeys[i].Value.ToString());
+                    cmdApparelAvailable.Parameters.AddWithValue("@WishlistId", gvWishList.DataKeys[i].Value.ToString());
                     con.Open();
 
-                    SqlDataReader dtrArt = cmdArtAvailable.ExecuteReader();
+                    SqlDataReader dtrApparel = cmdApparelAvailable.ExecuteReader();
 
-                    if (dtrArt.HasRows)
+                    if (dtrApparel.HasRows)
                     {
-                        while (dtrArt.Read())
+                        while (dtrApparel.Read())
                         {
-                            available = (Boolean)dtrArt["Availability"];
-                            stock = (int)dtrArt["Quantity"];
+                            available = (Boolean)dtrApparel["Availability"];
+                            stock = (int)dtrApparel["Quantity"];
 
                             if (stock == 0 || !available)
                             {
@@ -135,7 +135,7 @@ namespace CC_Assignment
             }
             catch (Exception ex)
             {
-                Response.Write("<script>alert('Sorry, Fail to Delete the Art from your wishlist')</script>");
+                Response.Write("<script>alert('Sorry, Fail to Delete the item from your wishlist')</script>");
             }
         }
 
@@ -312,14 +312,14 @@ namespace CC_Assignment
 
             conn.Open();
 
-            //check whether exist same art (order detail)
+            //check whether exist same apparel (order detail)
             if (orderDetailID != 0)
             {
                 //update order details
                 qtyOrderDetail++;
                 subtotalOrderDetail += unitPrice;
 
-                string sqlUpdatetOrder = "UPDATE  OrderDetails SET qtySelected = " + qtyOrderDetail + ", Subtotal = " + subtotalOrderDetail + " WHERE OrderDetailId = " + orderDetailID;
+                string sqlUpdatetOrder = "UPDATE OrderDetails SET qtySelected = " + qtyOrderDetail + ", Subtotal = " + subtotalOrderDetail + " WHERE OrderDetailId = " + orderDetailID;
 
                 SqlCommand cmdInsertOrder = new SqlCommand();
 
@@ -384,7 +384,7 @@ namespace CC_Assignment
                         Label lblWishlist = (Label)gvWishList.Rows[i].Cells[0].FindControl("lblWishlistID");
                         Int32 wishlistID = Convert.ToInt32(lblWishlist.Text);
 
-                        //get artID
+                        //get apparelID
                         ImageButton apparelImg = (ImageButton)gvWishList.Rows[i].Cells[0].FindControl("wl_apparelImg");
                         Int32 apparelID = Convert.ToInt32(apparelImg.CommandArgument.ToString());
 

@@ -30,7 +30,7 @@
                     <%-- GridView ApparelImage --%>
                     <asp:TemplateField ItemStyle-Width="14%" HeaderText="Apparel" HeaderStyle-Height="50px" HeaderStyle-Font-Size="Large" HeaderStyle-BackColor="#484848" ItemStyle-HorizontalAlign="Center">
                         <ItemTemplate>  
-                            <asp:ImageButton ID="cart_apparelImg" runat="server"  ImageUrl='<%# Eval("ArtImage")%>' Height="100" Width="150" OnClick="cart_apparelImg_click" CommandArgument='<%# Eval("ApparelId")%>' CommandName="viewdetails" CssClass="margin_5"/>
+                            <asp:ImageButton ID="cart_apparelImg" runat="server"  ImageUrl='<%# Eval("Image")%>' Height="100" Width="150" OnClick="cart_apparelImg_click" CommandArgument='<%# Eval("ApparelId")%>' CommandName="viewdetails" CssClass="margin_5"/>
                         </ItemTemplate>
                     </asp:TemplateField> 
 
@@ -38,11 +38,11 @@
                     <asp:TemplateField ItemStyle-Width="20%" HeaderText="Description" HeaderStyle-Height="50px" HeaderStyle-Font-Size="Large" HeaderStyle-BackColor="#484848" ItemStyle-HorizontalAlign="Center">
                         <ItemTemplate>
                             <asp:Label ID="cart_apparelName" runat="server"> 
-                                <p style="font-size:18px; margin-bottom:10px;"><%#Eval("ArtName")%></p>
+                                <p style="font-size:18px; margin-bottom:10px;"><%#Eval("Name")%></p>
                             </asp:Label>
 
                             <asp:Label ID="cart_apparelDes" runat="server"> 
-                                <p style="font-size:15px; color:lightgrey "><%#Eval("ArtDescription")%></p>
+                                <p style="font-size:15px; color:lightgrey "> ( <%#Eval("Size")%> ) </p>
                             </asp:Label> 
                         </ItemTemplate>
                     </asp:TemplateField>

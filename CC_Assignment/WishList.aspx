@@ -54,7 +54,7 @@
                             <%-- GridView ApparelImage --%>
                             <asp:TemplateField HeaderText="Apparel" ItemStyle-Width="20%" HeaderStyle-Width="20%" HeaderStyle-Height="50px" HeaderStyle-Font-Size="Large" HeaderStyle-BackColor="#484848" ItemStyle-HorizontalAlign="Center" ItemStyle-VerticalAlign="Middle">
                                 <ItemTemplate>
-                                        <asp:ImageButton ID="wl_apparelImg" runat="server"  ImageUrl='<%# Eval("ArtImage")%>' Height="160" Width="160" OnClick="wl_apparelImg_Click" CommandArgument='<%# Eval("ApparelID")%>' CommandName="viewdetails" CssClass="apparel-image"/>
+                                        <asp:ImageButton ID="wl_apparelImg" runat="server"  ImageUrl='<%# Eval("Image")%>' Height="160" Width="160" OnClick="wl_apparelImg_Click" CommandArgument='<%# Eval("ApparelID")%>' CommandName="viewdetails" CssClass="apparel-image"/>
                                 </ItemTemplate>
                             </asp:TemplateField>
 
@@ -62,11 +62,11 @@
                             <asp:TemplateField HeaderText="Description" HeaderStyle-Width="40%" ItemStyle-Width="40%" HeaderStyle-Height="50px" HeaderStyle-Font-Size="Large" HeaderStyle-BackColor="#484848" ItemStyle-HorizontalAlign="Center">
                                 <ItemTemplate>
                                     <asp:Label ID="wl_apparelName" runat="server"> 
-                                <h3><%#Eval("ArtName")%></h3>
+                                <h3><%#Eval("Name")%></h3>
                                     </asp:Label>
                                     <br />
                                     <asp:Label ID="wl_apparelDes" runat="server"> 
-                                <%#Eval("ArtDescription")%>
+                                  ( <%#Eval("Size")%> )
                                     </asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>

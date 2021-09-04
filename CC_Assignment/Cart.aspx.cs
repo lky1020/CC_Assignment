@@ -38,9 +38,9 @@ namespace CC_Assignment
                 //pass data into grid
                 SqlConnection con = new SqlConnection(cs);
                 con.Open();
-                String queryGetData = "Select o.ApparelId, a.ArtName, a.ArtImage, a.Price, a.ArtDescription,o.orderDetailId, o.qtySelected, o.Subtotal from [Cart] c " +
+                String queryGetData = "Select o.ApparelId, s.Name, s.Image, s.Price, s.Size, o.orderDetailId, o.qtySelected, o.Subtotal from [Cart] c " +
                     "INNER JOIN [OrderDetails] o on c.CartId = o.CartId " +
-                    "INNER JOIN [Artist] a on o.ApparelId = a.ArtId  " + 
+                    "INNER JOIN [Seller] s on o.ApparelId = s.Id  " + 
                     "Where c.UserId = @userid AND c.status = 'cart'";
                 SqlCommand cmd = new SqlCommand(queryGetData, con);
                 cmd.Parameters.AddWithValue("@userid", Session["userID"]);
@@ -85,7 +85,7 @@ namespace CC_Assignment
 
             for (int i = 0; i < gvCart.Rows.Count; i++)
             {
-                string queryApparelAvailable = "SELECT Availability FROM Artist WHERE ArtId = (SELECT ApparelId FROM OrderDetails WHERE OrderDetailId = @od_Id); ";
+                string queryApparelAvailable = "SELECT Availability FROM Seller WHERE Id = (SELECT ApparelId FROM OrderDetails WHERE OrderDetailId = @od_Id); ";
 
                 using (SqlCommand cmdApparelAvailable = new SqlCommand(queryApparelAvailable, con))
                 {
@@ -108,7 +108,7 @@ namespace CC_Assignment
 
             for (int i = 0; i < gvCart.Rows.Count; i++)
             {
-                string queryApparelAvailable = "SELECT Quantity FROM Artist WHERE ArtId = (SELECT ApparelId FROM OrderDetails WHERE OrderDetailId = @od_Id); ";
+                string queryApparelAvailable = "SELECT Quantity FROM Seller WHERE Id = (SELECT ApparelId FROM OrderDetails WHERE OrderDetailId = @od_Id); ";
 
                 using (SqlCommand cmdApparelAvailable = new SqlCommand(queryApparelAvailable, con))
                 {
@@ -154,7 +154,7 @@ namespace CC_Assignment
                 int qty = 0;
 
                 //retrieve qty left
-                string queryApparelQty = "SELECT Quantity FROM Artist WHERE ArtId = (SELECT ApparelId FROM OrderDetails WHERE OrderDetailId = @od_Id); ";
+                string queryApparelQty = "SELECT Quantity FROM Seller WHERE Id = (SELECT ApparelId FROM OrderDetails WHERE OrderDetailId = @od_Id); ";
 
                 using (SqlCommand cmdApparelQty = new SqlCommand(queryApparelQty, con))
                 {
@@ -175,7 +175,7 @@ namespace CC_Assignment
                 //if input qty more than available qty
                 else if (select_qty > qty)
                 {
-                    Response.Write("<script>alert('There is only " + qty.ToString() + " quantity for this art is available. Therefore, quantity should not more than " + qty.ToString() + ".')</script>");
+                    Response.Write("<script>alert('There is only " + qty.ToString() + " quantity for this apparel is available. Therefore, quantity should not more than " + qty.ToString() + ".')</script>");
                 }
                 else
                 {
@@ -332,7 +332,7 @@ namespace CC_Assignment
                 }
                 else
                 {
-                    Response.Write("<script>alert('Please select art before proceed payment.')</script>");
+                    Response.Write("<script>alert('Please select at least one apparel before proceed payment.')</script>");
                     refreshdata();
                 }
             }

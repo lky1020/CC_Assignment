@@ -26,7 +26,7 @@
 }
 
 /* Add Art Button */
-.btn-wlArt {
+.btn-wlApparel {
     background-color: rgb(13,34,46);
     width: 150px;
     height: 40px;
@@ -39,7 +39,7 @@
     font-size: 17px;
 }
 
-.btn-wlArt:hover {
+.btn-wlApparel:hover {
     background-color: rebeccapurple;
     color: white;
     transition: 0.5s;
@@ -94,7 +94,7 @@
     position: absolute;
 }
 
-.art-image {
+.apparel-image {
     object-fit: cover;
 }
 
