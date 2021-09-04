@@ -9,7 +9,7 @@
                 In the road to capture all the best moments in the life.
                 The best moments in life always surround us, helping us, supporting us, and giving us strength.
             </p>
-            <a href="#apparel" class='btn'>Our Apparel</a>
+            <a href="#apparel" class='btn'>Our Collections</a>
         </div>
 
         <img src="img/video/sky.gif"/>
@@ -59,10 +59,10 @@
         </div>
     </section>
 
-    <%-- Apparel --%>
+    <%-- Collections --%>
     <section class="apparel" id="apparel">
         <div class="title">
-            <h2 class="titleText"><span>A</span>rtWorks</h2>
+            <h2 class="titleText"><span>C</span>ollections</h2>
 
             <p> 
                 The best apparel that launched by Syasha. Captured the 

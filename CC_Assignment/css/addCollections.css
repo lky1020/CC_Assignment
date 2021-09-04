@@ -1,0 +1,122 @@
+﻿.addCollectionsTbl {
+    position: relative;
+    margin-top: 150px;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+}
+
+.addCollectionsform {
+    margin-top: -85px;
+    width: 1000px;
+    height: 850px;
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 25px rgba(255,255,255,0.8);
+}
+
+.addCollectionsttl {
+    margin: 2px 0px 2px 20px;
+    font-size: 35px;
+    color: white;
+}
+
+.addCollectionsSubTtl {
+    margin-left: 20px;
+    font-size: 15px;
+    color: white;
+}
+
+.addCollectionsSepline {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.btnViewApparel {
+    background-color: transparent;
+    position: relative;
+    text-align: center;
+    width: 125px;
+    padding: 10px;
+    font-size: 18px;
+    color: #ff0157;
+    font-weight: 400;
+    border: 2px solid #ff0157;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 100px;
+    transition: 1.5s;
+}
+
+.btnViewApparel:hover {
+    box-shadow: 0 3px 5px 0 #ff0157 inset, 0 3px 5px 0 #ff0157;
+    text-shadow: 0 0 1px #FFFFFF, 0 0 1px #FFFFFF;
+}
+
+.formAddCollections {
+    position: absolute;
+    font-size: 14px;
+    top: 15%;
+    left: 20%;
+}
+
+.formAddCollections p {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.txtBoxApparelName {
+    height: 35px;
+    width: 200px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.txtBoxApparelPrice {
+    height: 35px;
+    width: 200px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+
+.ddlCatApparel {
+    height: 35px;
+    width: 200px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.apparelImgBox img {
+    position: absolute;
+    top: 0;
+    left: 110%;
+    width: 200%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.75s;
+}
+
+.btnViewApparelSubmit {
+    top: 105%;
+    background-color: transparent;
+    position: absolute;
+    text-align: center;
+    width: 125px;
+    padding: 10px;
+    font-size: 18px;
+    color: #ff0157;
+    font-weight: 400;
+    border: 2px solid #ff0157;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 100px;
+    transition: 1.5s;
+}
+
+.btnViewApparelSubmit:hover {
+    box-shadow: 0 3px 5px 0 #ff0157 inset, 0 3px 5px 0 #ff0157;
+    text-shadow: 0 0 1px #FFFFFF, 0 0 1px #FFFFFF;
+}

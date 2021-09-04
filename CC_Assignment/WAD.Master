@@ -11,9 +11,9 @@
     <link rel="stylesheet" href="css/login_register.css" />
     <link rel="stylesheet" href="css/forgotPassword.css" />
     <link rel="stylesheet" href="css/profile.css" />
-    <link rel="stylesheet" href="css/Art.css"/>
-    <link rel="stylesheet" href="css/ArtGallery.css"/>
-    <link rel="stylesheet" href="css/PostArt.css"/>
+    <link rel="stylesheet" href="css/addCollections.css"/>
+    <link rel="stylesheet" href="css/viewCollections.css"/>
+    <link rel="stylesheet" href="css/manageCollecitons.css"/>
     <link rel="stylesheet" href="css/cart.css"/>
     <link rel="stylesheet" href="css/payment.css"/>
     <link rel="stylesheet" href="css/payHistory.css"/>
@@ -56,7 +56,7 @@
                     <ul class='navigation' id="navigation">
                         <li><a href="#banner"">Home</a></li>
                         <li><a href="#about"">About</a></li>
-                        <li><a href="#apparel"">Apparel</a></li>
+                        <li><a href="#apparel"">Collections</a></li>
                         <li><a href="#contact"">Contact</a></li>
                     </ul>
 

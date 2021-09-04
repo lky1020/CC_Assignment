@@ -8,9 +8,9 @@
       <siteMapNode url="~/Profile.aspx" title="Profile"  description="Profile" />
     </siteMapNode>
 
-    <siteMapNode url="~/PostArts.aspx" title="Management"  description="Management">
-      <siteMapNode url="~/Art.aspx" title="Apparel"  description="Apparel" />
-      <siteMapNode url="~/ArtistGallery.aspx" title="Gallery"  description="Gallery" />
+    <siteMapNode url="~/ManageCollections.aspx" title="Management"  description="Management">
+      <siteMapNode url="~/AddCollections.aspx" title="Add Apparel"  description="Add Apparel" />
+      <siteMapNode url="~/ViewCollections.aspx" title="View Apparel"  description="View Apparel" />
     </siteMapNode>
     
     <siteMapNode url="~/ArtWorks.aspx" title="Customer"  description="Customer">

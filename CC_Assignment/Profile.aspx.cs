@@ -287,7 +287,7 @@ namespace CC_Assignment
                     "undisplayCancelEditButton();", true);
 
             ScriptManager.RegisterStartupScript(Page, this.GetType(), "Direct to manage art",
-                    "window.location = 'Art.aspx';", true);
+                    "window.location = 'AddCollections.aspx';", true);
         }
 
         private Boolean CheckUserCurrentPassword()
