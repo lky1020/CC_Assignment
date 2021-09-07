@@ -16,8 +16,8 @@
                                 <ItemTemplate>
                                     <div class="pay_gvItem1">
                                         <strong>  
-                                            <asp:Label runat="server" ID="artItem_Name1" Text='<%# Eval("ApparelName") %>' Width="60%"></asp:Label>
-                                             <asp:TextBox runat="server"  ID="artItem_Name" Text='<%# Eval("ApparelName") %>' Visible="false"></asp:TextBox>
+                                            <asp:Label runat="server" ID="artItem_Name1" Text='<%# Eval("Name") %>' Width="60%"></asp:Label>
+                                             <asp:TextBox runat="server"  ID="artItem_Name" Text='<%# Eval("Name") %>' Visible="false"></asp:TextBox>
                                            
                                         </strong>
 

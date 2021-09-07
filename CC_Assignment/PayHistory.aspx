@@ -40,7 +40,7 @@
                     ItemStyle-HorizontalAlign="Center" ItemStyle-CssClass="payHis_gv_item">
                     <ItemTemplate>
                         <asp:Label ID="his_apparelName" runat="server"> 
-                            <p style="font-size:18px"><%#Eval("ApparelName")%></p>
+                            <p style="font-size:18px"><%#Eval("Name")%></p>
                         </asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>

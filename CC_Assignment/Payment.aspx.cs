@@ -49,8 +49,8 @@ namespace CC_Assignment
                 //assign selected item to gridview
                 SqlConnection con = new SqlConnection(cs);
                 con.Open();
-                String queryGetData = "Select a.ApparelId, a.ApparelName, a.Price, o.OrderDetailId, o.qtySelected, o.Subtotal from [OrderDetails] o " +
-                        "INNER JOIN [Seller] a on o.ApparelId = a.ApparelId INNER JOIN [Cart] c on o.CartId = c.CartId Where c.UserId = @userid AND c.status = 'cart' AND o.Checked = 'True'";
+                String queryGetData = "Select s.Id, s.Name, s.Price, o.OrderDetailId, o.qtySelected, o.Subtotal from [OrderDetails] o " +
+                        "INNER JOIN [Seller] s on o.ApparelId = s.Id INNER JOIN [Cart] c on o.CartId = c.CartId Where c.UserId = @userid AND c.status = 'cart' AND o.Checked = 'True'";
                 SqlCommand cmd = new SqlCommand(queryGetData, con);
                 cmd.Parameters.AddWithValue("@userid", Session["userID"]);
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);

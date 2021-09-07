@@ -48,7 +48,7 @@ namespace CC_Assignment
             using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SyasyaDb"].ConnectionString))
             {
                 con.Open();
-                String query = "SELECT a.Id, a.Name, a.Size, a.Image, c.CategoryName, a.Price, a.Quantity FROM [Seller] a INNER JOIN [Category] c ON c.CategoryID = a.Category WHERE a.UserId =@UserId AND a.Availability='1'";
+                String query = "SELECT s.Id, s.Name, s.Size, s.Image, c.CategoryName, s.Price, s.Quantity FROM [Seller] s INNER JOIN [Category] c ON c.CategoryID = s.Category WHERE s.UserId =@UserId AND s.Availability='1'";
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@UserId", userID);
 
