@@ -71,7 +71,7 @@ namespace CC_Assignment
                         }
                         catch (Exception)
                         {
-                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Email Status", "alert('Sorry, Quad-Core ASG Email Account Down. Please Contact Quad-Core AWS!')", true);
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Email Status", "alert('Sorry, Syasha Design Email Account Down. Please Contact Syasha Design!')", true);
                         }
                     }
                 }
@@ -104,7 +104,7 @@ namespace CC_Assignment
             }
             catch(Exception)
             {
-                ScriptManager.RegisterStartupScript(Page, this.GetType(), "HomepageDBError", "alert('Error Occur in Database. Please Contact Quad-Core AWS!');", true);
+                ScriptManager.RegisterStartupScript(Page, this.GetType(), "HomepageDBError", "alert('Error Occur in Database. Please Contact Syasha Design!');", true);
             }
 
         }
@@ -131,12 +131,12 @@ namespace CC_Assignment
                 }
                 else
                 {
-                    Response.Write("<script>window.location = 'Product.aspx';</script>");
+                    Response.Write("<script>window.location = 'CustApparel.aspx';</script>");
                 }
             }
             else
             {
-                Response.Write("<script>window.location = 'Product.aspx';</script>");
+                Response.Write("<script>window.location = 'CustApparel.aspx';</script>");
             }
 
         }

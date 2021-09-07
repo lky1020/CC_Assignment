@@ -33,9 +33,9 @@ namespace CC_Assignment
                 //pass data into grid
                 SqlConnection con = new SqlConnection(cs);
                 con.Open();
-                String query = "Select p.paymentId, o.OrderDetailId, a.ArtName, a.Price, o.qtySelected, o.Subtotal, p.datePaid from [Payment] p " +
+                String query = "Select p.paymentId, o.OrderDetailId, s.Name, s.Price, o.qtySelected, o.Subtotal, p.datePaid from [Payment] p " +
                     "INNER JOIN [Cart] c on p.CartId = c.CartId INNER JOIN [OrderDetails] o on o.CartId = c.CartId " +
-                    "INNER JOIN [Seller] a on o.ApparelId = a.ApparelId " +
+                    "INNER JOIN [Seller] s on o.ApparelId = s.Id " +
                     "Where c.UserId = @id " +
                     "ORDER BY p.paymentId DESC";
                 SqlCommand cmd = new SqlCommand(query, con);

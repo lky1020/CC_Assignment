@@ -76,7 +76,7 @@
                     <table id="artwork-table">
                         <tr>
                             <td>
-                                <asp:Image ID="Image" runat="server" CssClass="artwork-gallery-image" ImageUrl='<%# Eval("Image") %>' />
+                                <asp:Image ID="Image" runat="server" CssClass="apparel-gallery-image" ImageUrl='<%# Eval("Image") %>' />
                             </td>
                         </tr>
                         <tr class="text-a1 padding-b15">
