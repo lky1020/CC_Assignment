@@ -78,14 +78,23 @@
       <DependentUpon>SyasyaDb.mdf</DependentUpon>
     </Content>
     <Content Include="AddCollections.aspx" />
+    <Content Include="img\apparel\apparel_about.jpg" />
+    <Content Include="img\apparel\header_bg.jpg" />
+    <Content Include="img\apparel\icons8-artist.png" />
+    <Content Include="img\apparel\icons8-cancel-hover.png" />
+    <Content Include="img\apparel\icons8-cancel.png" />
+    <Content Include="img\apparel\icons8-paint-brush.png" />
+    <Content Include="img\apparel\top_01.png" />
+    <Content Include="img\apparel\top_02.png" />
+    <Content Include="img\apparel\top_03.png" />
     <Content Include="ViewCollections.aspx" />
-    <Content Include="ArtWorkDetails.aspx" />
-    <Content Include="ArtWorks.aspx" />
+    <Content Include="ApparelDetails.aspx" />
+    <Content Include="CustApparel.aspx" />
     <Content Include="Cart.aspx" />
     <Content Include="css\addCollections.css" />
     <Content Include="css\viewCollections.css" />
-    <Content Include="css\artworkdetails.css" />
-    <Content Include="css\artworks.css" />
+    <Content Include="css\appareldetails.css" />
+    <Content Include="css\apparel.css" />
     <Content Include="css\cart.css" />
     <Content Include="css\forgotPassword.css" />
     <Content Include="css\login_register.css" />
@@ -231,19 +240,19 @@
     <Compile Include="ViewCollections.aspx.designer.cs">
       <DependentUpon>ViewCollections.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ArtWorkDetails.aspx.cs">
-      <DependentUpon>ArtWorkDetails.aspx</DependentUpon>
+    <Compile Include="ApparelDetails.aspx.cs">
+      <DependentUpon>ApparelDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ArtWorkDetails.aspx.designer.cs">
-      <DependentUpon>ArtWorkDetails.aspx</DependentUpon>
+    <Compile Include="ApparelDetails.aspx.designer.cs">
+      <DependentUpon>ApparelDetails.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ArtWorks.aspx.cs">
-      <DependentUpon>ArtWorks.aspx</DependentUpon>
+    <Compile Include="CustApparel.aspx.cs">
+      <DependentUpon>CustApparel.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ArtWorks.aspx.designer.cs">
-      <DependentUpon>ArtWorks.aspx</DependentUpon>
+    <Compile Include="CustApparel.aspx.designer.cs">
+      <DependentUpon>CustApparel.aspx</DependentUpon>
     </Compile>
     <Compile Include="Cart.aspx.cs">
       <DependentUpon>Cart.aspx</DependentUpon>

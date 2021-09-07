@@ -71,22 +71,17 @@
         </div>
 
         <div class="content">
-            <asp:DataList ID="ArtWorkDataList" runat="server" DataKeyField="ArtId" RepeatColumns="3" RepeatDirection="Horizontal" CellSpacing="60" HorizontalAlign="Center" CellPadding="3">
+            <asp:DataList ID="ProductDataList" runat="server" DataKeyField="Id" RepeatColumns="3" RepeatDirection="Horizontal" CellSpacing="60" HorizontalAlign="Center" CellPadding="3">
                 <ItemTemplate>
                     <table id="artwork-table">
                         <tr>
                             <td>
-                                <asp:Image ID="ArtImage" runat="server" CssClass="artwork-gallery-image" ImageUrl='<%# Eval("ArtImage") %>' />
+                                <asp:Image ID="Image" runat="server" CssClass="artwork-gallery-image" ImageUrl='<%# Eval("Image") %>' />
                             </td>
                         </tr>
                         <tr class="text-a1 padding-b15">
                             <td>
-                                <asp:Label ID="ArtNameLabel" runat="server" Text='<%# Eval("ArtName") %>' />
-                            </td>
-                        </tr>
-                        <tr class="text-a2">
-                            <td>
-                                <asp:Label ID="ArtDescriptionLabel" runat="server" Text='<%# Eval("ArtDescription") %>' />
+                                <asp:Label ID="NameLabel" runat="server" Text='<%# Eval("Name") %>' />
                             </td>
                         </tr>
                         <tr class="text-a3">

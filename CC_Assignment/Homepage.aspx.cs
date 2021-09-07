@@ -89,7 +89,7 @@ namespace CC_Assignment
                 using (SqlConnection con = new SqlConnection(cs))
                 {
                     //sorting feature
-                    SqlDataAdapter da = new SqlDataAdapter("Select TOP 6 * from Artist", con);
+                    SqlDataAdapter da = new SqlDataAdapter("Select TOP 6 * from Seller", con);
 
 
                     con.Open();
@@ -115,8 +115,8 @@ namespace CC_Assignment
             PagedDataSource PD = new PagedDataSource();
 
             PD.DataSource = dt.DefaultView;
-            ArtWorkDataList.DataSource = PD;
-            ArtWorkDataList.DataBind();
+            ProductDataList.DataSource = PD;
+            ProductDataList.DataBind();
 
         }
 
@@ -131,12 +131,12 @@ namespace CC_Assignment
                 }
                 else
                 {
-                    Response.Write("<script>window.location = 'ArtWorks.aspx';</script>");
+                    Response.Write("<script>window.location = 'Product.aspx';</script>");
                 }
             }
             else
             {
-                Response.Write("<script>window.location = 'ArtWorks.aspx';</script>");
+                Response.Write("<script>window.location = 'Product.aspx';</script>");
             }
 
         }
