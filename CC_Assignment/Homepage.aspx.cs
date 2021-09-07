@@ -15,7 +15,7 @@ namespace CC_Assignment
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            // For the artwork
+            // For the apparel
             bindList();
         }
 
@@ -89,7 +89,7 @@ namespace CC_Assignment
                 using (SqlConnection con = new SqlConnection(cs))
                 {
                     //sorting feature
-                    SqlDataAdapter da = new SqlDataAdapter("Select TOP 6 * from Seller", con);
+                    SqlDataAdapter da = new SqlDataAdapter("Select TOP 6 * from Seller where size='L'", con);
 
 
                     con.Open();
@@ -115,8 +115,8 @@ namespace CC_Assignment
             PagedDataSource PD = new PagedDataSource();
 
             PD.DataSource = dt.DefaultView;
-            ProductDataList.DataSource = PD;
-            ProductDataList.DataBind();
+            ApparelDataList.DataSource = PD;
+            ApparelDataList.DataBind();
 
         }
 

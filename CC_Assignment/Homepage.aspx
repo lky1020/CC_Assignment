@@ -71,9 +71,9 @@
         </div>
 
         <div class="content">
-            <asp:DataList ID="ProductDataList" runat="server" DataKeyField="Id" RepeatColumns="3" RepeatDirection="Horizontal" CellSpacing="60" HorizontalAlign="Center" CellPadding="3">
+            <asp:DataList ID="ApparelDataList" runat="server" DataKeyField="Id" RepeatColumns="3" RepeatDirection="Horizontal" CellSpacing="60" HorizontalAlign="Center" CellPadding="3">
                 <ItemTemplate>
-                    <table id="artwork-table">
+                    <table id="apparel-table">
                         <tr>
                             <td>
                                 <asp:Image ID="Image" runat="server" CssClass="apparel-gallery-image" ImageUrl='<%# Eval("Image") %>' />
