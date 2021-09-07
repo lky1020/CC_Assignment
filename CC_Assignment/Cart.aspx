@@ -30,7 +30,7 @@
                     <%-- GridView ApparelImage --%>
                     <asp:TemplateField ItemStyle-Width="14%" HeaderText="Apparel" HeaderStyle-Height="50px" HeaderStyle-Font-Size="Large" HeaderStyle-BackColor="#484848" ItemStyle-HorizontalAlign="Center">
                         <ItemTemplate>  
-                            <asp:ImageButton ID="cart_apparelImg" runat="server"  ImageUrl='<%# Eval("Image")%>' Height="100" Width="150" OnClick="cart_apparelImg_click" CommandArgument='<%# Eval("ApparelId")%>' CommandName="viewdetails" CssClass="margin_5"/>
+                            <asp:ImageButton ID="cart_apparelImg" runat="server"  ImageUrl='<%# Eval("Image")%>' Height="100" Width="150" OnClick="cart_apparelImg_click" CommandArgument='<%# Eval("ApparelId")%>' CommandName="viewdetails" CssClass="margin_5 apparel-image"/>
                         </ItemTemplate>
                     </asp:TemplateField> 
 

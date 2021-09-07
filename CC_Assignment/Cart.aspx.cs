@@ -445,7 +445,7 @@ namespace CC_Assignment
             ImageButton imgButton = sender as ImageButton;
             Int32 apparelID = Convert.ToInt32(imgButton.CommandArgument.ToString());
 
-            Response.Redirect("ArtWorkDetails.aspx?ArtId=" + apparelID);
+            Response.Redirect("ApparelDetails.aspx?Id=" + apparelID);
         }
 
 
