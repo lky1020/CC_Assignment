@@ -211,7 +211,7 @@ namespace CC_Assignment
 
         protected void btnContinueWL_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ArtWorks.aspx");
+            Response.Redirect("CustApparel.aspx");
         }
 
         protected void wl_apparelImg_Click(object sender, ImageClickEventArgs e)
@@ -219,7 +219,7 @@ namespace CC_Assignment
             ImageButton imgButton = sender as ImageButton;
             Int32 apparelID = Convert.ToInt32(imgButton.CommandArgument.ToString());
 
-            Response.Redirect("ArtWorkDetails.aspx?ArtId="+ apparelID);
+            Response.Redirect("ApparelDetails.aspx?Id="+ apparelID);
  
         }
 

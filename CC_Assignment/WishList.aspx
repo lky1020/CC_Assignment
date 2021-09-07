@@ -4,14 +4,14 @@
     <section>
 
         <div>
-            <img src="img/wishlist/wishlist_header.png" alt="" class="artwork-gallery-header-bg" />
+            <img src="img/wishlist/bg.jpeg" alt="" class="apparel-gallery-header-bg" />
 
             <div id="wishlist-header-text" class="wishlist-header-text">
                 WishList
             </div>
             <p class="wishlist-header-quoto">Life is short. Make every outfit count.</p>
             <!-- Continue Add Apparel -->
-            <asp:Button ID="btnContinueWL" runat="server" Text="View Apparel" CssClass=".btn-wlApparel" OnClick="btnContinueWL_Click" />
+            <asp:Button ID="btnContinueWL" runat="server" Text="View Apparel" CssClass="btn-wlApparel" OnClick="btnContinueWL_Click" />
         </div>
 
 
@@ -23,7 +23,7 @@
                 <div class="wl-table-box">
 
                     <!-- Add to Cart Button -->
-                    <asp:Button ID="addToCartBtn" runat="server" Text="Add To Cart" CssClass="float-right art-to-cart-btn add-btn-medium" CommandArgument='<%# Eval("ApparelID")%>' CommandName="addtocart" OnClick="addToCartBtn_Click" AutoPostback = false/>
+                    <asp:Button ID="addToCartBtn" runat="server" Text="Add To Cart" CssClass="float-right add-to-cart-btn add-btn-medium" CommandArgument='<%# Eval("ApparelID")%>' CommandName="addtocart" OnClick="addToCartBtn_Click" AutoPostback = false/>
                     
                     <br />
                     <br />
