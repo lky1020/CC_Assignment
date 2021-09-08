@@ -307,7 +307,7 @@ namespace CC_Assignment
                     ActivateProfileNavigation();
 
                     //Check whether the user is Management or not
-                    //If, yes active the navigation to manage artworks
+                    //If, yes active the navigation to manage Apparel
                     if (userRole.Equals("Management"))
                     {
                         ActiveManagementNavigation();

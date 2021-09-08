@@ -39,7 +39,7 @@
                                 </div>
                                 
                                 <asp:Button ID="btnEdit" CssClass="profileBtn profileBarBtnStyle" runat="server" Text="Edit Password" OnClientClick="showEditBox()" OnClick="btnEdit_Click"></asp:Button>
-                                <asp:Button ID="btnManageArt" CssClass="profileBtn profileBarBtnStyle" runat="server" Text="Manage Art" OnClick="btnManageArt_Click"></asp:Button>
+                                <asp:Button ID="btnManageApparel" CssClass="profileBtn profileBarBtnStyle" runat="server" Text="Manage Apparel" OnClick="btnManageApparel_Click"></asp:Button>
                             </div>
                         </div>
                     </div>
@@ -174,14 +174,14 @@
             document.getElementById('<%= btnUpdatePassword.ClientID %>').style.cursor = "default";
         }
 
-        //display manage art btn when role == Management
-        function displayManageArt() {
-            document.getElementById('<%= btnManageArt.ClientID %>').style.display = "inline-block";
+        //display manage Apparel btn when role == Management
+        function displayManageApparel() {
+            document.getElementById('<%= btnManageApparel.ClientID %>').style.display = "inline-block";
         }
 
-        //undisplay manage art btn when role != Management
-        function undisplayManageArt() {
-            document.getElementById('<%= btnManageArt.ClientID %>').style.display = "none";
+        //undisplay manage Apparel btn when role != Management
+        function undisplayManageApparel() {
+            document.getElementById('<%= btnManageApparel.ClientID %>').style.display = "none";
         }
 
         function toggleCancel() {

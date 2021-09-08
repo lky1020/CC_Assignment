@@ -337,8 +337,8 @@ namespace CC_Assignment.CustApparel
 
                                 cmd.ExecuteNonQuery();
                                 imgButton.ImageUrl = "/img/wishlist/heart-icon-active.png";
-                                //Response.Write("<script>alert('Congratulation, Art Added into Wishlist Successfully')</script>");
-                                System.Diagnostics.Debug.WriteLine("[MSG][WISHLIST] --> Congratulation, Art Added into Wishlist Successfully");
+                                //Response.Write("<script>alert('Congratulation, Apparel Added into Wishlist Successfully')</script>");
+                                System.Diagnostics.Debug.WriteLine("[MSG][WISHLIST] --> Congratulation, Apparel Added into Wishlist Successfully");
                             }
                             else
                             {
@@ -354,7 +354,7 @@ namespace CC_Assignment.CustApparel
                                 //unactive the icon
                                 imgButton.ImageUrl = "/img/wishlist/heart-icon-inactive.png";
 
-                                System.Diagnostics.Debug.WriteLine("[MSG][WISHLIST] --> Congratulation, Art in Wishlist Deleted Successfully");
+                                System.Diagnostics.Debug.WriteLine("[MSG][WISHLIST] --> Congratulation, Apparel in Wishlist Deleted Successfully");
                             }
                             con.Close();
 

@@ -156,7 +156,7 @@ namespace CC_Assignment.CustApparel
                         }
                         else
                         {
-                            //Delete the art in wishlist
+                            //Delete the apparel in wishlist
 
                             query = "DELETE FROM [dbo].[Wishlist] WHERE WishlistId = @wishlistID";
 
@@ -313,7 +313,7 @@ namespace CC_Assignment.CustApparel
                                     {
                                         //insert order details based on cartid
 
-                                        string sqlInsertOrder = "INSERT into OrderDetails (CartId, ApparelId, qtySelected, Subtotal) values('" + cartID + "', '" + Request.QueryString["ArtId"] + "', '" + qtySelected + "', '" + subtotal + "')";
+                                        string sqlInsertOrder = "INSERT into OrderDetails (CartId, ApparelId, qtySelected, Subtotal) values('" + cartID + "', '" + Request.QueryString["Id"] + "', '" + qtySelected + "', '" + subtotal + "')";
 
                                         SqlCommand cmdInsertOrder = new SqlCommand();
 
