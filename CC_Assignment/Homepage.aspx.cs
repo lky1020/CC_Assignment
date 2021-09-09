@@ -39,7 +39,7 @@ namespace CC_Assignment
                         mail.To.Add(txtContactEmail.Text);
                     }
 
-                    mail.To.Add("quadCoreTest@gmail.com");
+                    mail.To.Add("syashadesign@gmail.com");
                     mail.Subject = "Customer's Comment";
 
                     if(Session["username"] != null && Session["userEmail"] != null)
@@ -54,9 +54,9 @@ namespace CC_Assignment
                     mail.IsBodyHtml = true;
                     mail.BodyEncoding = Encoding.UTF8;
 
-                    using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
+                    using (SmtpClient smtp = new SmtpClient("smtp.sendgrid.net", Convert.ToInt32(587)))
                     {
-                        smtp.Credentials = new System.Net.NetworkCredential("quadCoreTest@gmail.com", "quad_core");
+                        smtp.Credentials = new System.Net.NetworkCredential("apikey", "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");
                         smtp.EnableSsl = true;
 
                         try

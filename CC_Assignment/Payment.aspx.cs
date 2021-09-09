@@ -249,7 +249,7 @@ namespace CC_Assignment
                                 byte[] bytes = memoryStream.ToArray();
                                 memoryStream.Close();
 
-                                MailMessage mm = new MailMessage("quadCoreTest@gmail.com", "quadCoreTest@gmail.com");
+                                MailMessage mm = new MailMessage("quadCoreTest@gmail.com", "syashadesign@gmail.com");
                                 mm.Subject = "Syasha Design Apparel Gallery Receipt";
                                 mm.Body = "Thanks for your order!! <br/>Your total payment is: " + total_payment.Text +
                                     "<br/><br/>Details of the Payment Information is in the pdf below." +
@@ -258,11 +258,11 @@ namespace CC_Assignment
                                 mm.Attachments.Add(new Attachment(new MemoryStream(bytes), "Syasha_Design_Apparel_Gallery_Receipt.pdf"));
                                 mm.IsBodyHtml = true;
                                 SmtpClient smtp = new SmtpClient();
-                                smtp.Host = "smtp.gmail.com";
+                                smtp.Host = "smtp.sendgrid.net";
                                 smtp.EnableSsl = true;
                                 NetworkCredential NetworkCred = new NetworkCredential();
-                                NetworkCred.UserName = "quadCoreTest@gmail.com";
-                                NetworkCred.Password = "quad_core";
+                                NetworkCred.UserName = "apikey";
+                                NetworkCred.Password = "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";
                                 smtp.UseDefaultCredentials = true;
                                 smtp.Credentials = NetworkCred;
                                 smtp.Port = 587;
