@@ -158,7 +158,7 @@ namespace CC_Assignment
                     for (int i = 0; i < gvPayment.Rows.Count; i++)
                     {
                         quantity = 0;
-                        string queryApparelQty = "SELECT Quantity FROM Seller WHERE ApparelId = (SELECT ApparelId FROM OrderDetails WHERE OrderDetailId = @od_Id); ";
+                        string queryApparelQty = "SELECT Quantity FROM Seller WHERE Id = (SELECT ApparelId FROM OrderDetails WHERE OrderDetailId = @od_Id); ";
 
                         using (SqlCommand cmdApparelQty = new SqlCommand(queryApparelQty, con))
                         {
@@ -169,7 +169,7 @@ namespace CC_Assignment
                         }
 
                         //update art qty left 
-                        String queryUpdateQty = "Update Seller SET Quantity = @qty WHERE ApparelId = (SELECT ApparelId FROM OrderDetails WHERE OrderDetailId = @od_Id);";
+                        String queryUpdateQty = "Update Seller SET Quantity = @qty WHERE Id = (SELECT ApparelId FROM OrderDetails WHERE OrderDetailId = @od_Id);";
                         SqlCommand cmdUpdateApparelQty = new SqlCommand(queryUpdateQty, con);
 
                         cmdUpdateApparelQty.Parameters.AddWithValue("@qty", quantity);
