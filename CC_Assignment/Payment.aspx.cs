@@ -85,7 +85,7 @@ namespace CC_Assignment
             //validate cart num with card type
             if (!validatedCardNumWithType())
             {
-                Response.Write("<script>alert('Please check your card type. Cart type and cart number not match...')</script>");
+                Response.Write("<script>alert('Please check your card type. Card number validation according to card type failed. (E.g. 4567 8738 4738 4596 for Credit Card & 5567 8738 4738 4596 for Debit Card)')</script>");
 
             }
             else
@@ -184,7 +184,7 @@ namespace CC_Assignment
                 }
                 catch (Exception)
                 {
-                    Response.Write("<script>alert('Something go wrong, please login and try again, thank you.')</script>");
+                    Response.Write("<script>alert('Something went wrong, please login and try again, thank you.')</script>");
                 }
                 con.Close();
 
@@ -235,6 +235,7 @@ namespace CC_Assignment
                                 "<br/>Delivery Fees : " + deliverly_fees.Text +
                                 "<br/>Total         : " + total_payment.Text +
                                 "<br/><br/><br/>  Thank you!");
+                            
 
                             StringReader sr = new StringReader(sb.ToString());
 
@@ -273,7 +274,7 @@ namespace CC_Assignment
                                     //pop up massage then redirect to payment history
                                     ScriptManager.RegisterStartupScript(this, this.GetType(),
                                                         "Email Status",
-                                                        "alert('Your receipt has been send to your email.');window.location ='PayHistory.aspx';",
+                                                        "alert('Your receipt has been sent to your email.');window.location ='PayHistory.aspx';",
                                                         true);
 
                                 }
@@ -288,7 +289,7 @@ namespace CC_Assignment
                 }
                 catch (Exception)
                 {
-                    Response.Write("<script>alert('Server down, please contact Syasya Design. Customer Services to get your digital receipt.')</script>");
+                    Response.Write("<script>alert('Server down, please contact Syasya Design. Customer Service to obtain your digital receipt.')</script>");
                 }
             }
         }
