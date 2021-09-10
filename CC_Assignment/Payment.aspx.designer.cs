@@ -39,7 +39,7 @@ namespace CC_Assignment
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label deliverly_fees;
+        protected global::System.Web.UI.WebControls.Label delivery_fees;
 
         /// <summary>
         /// total_payment control.

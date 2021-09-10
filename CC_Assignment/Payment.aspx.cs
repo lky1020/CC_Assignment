@@ -29,8 +29,8 @@ namespace CC_Assignment
                 pay_subtotal.Text = "RM " + paySubtotal.ToString("F");
 
                 totalPay += subtotalPayment() + (gvPayment.Rows.Count * 3);
-                deliverly_fees.Text = "RM " + (gvPayment.Rows.Count * 3).ToString("F");
-                total_payment.Text = "RM " + totalPay.ToString("F");
+                delivery_fees.Text = (gvPayment.Rows.Count * 3).ToString("F");
+                total_payment.Text = totalPay.ToString("F");
 
                 //set validate date for expiry card
                 ExpDate_RangeValidator.MinimumValue = DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + (DateTime.Now.Day + 1).ToString();
@@ -214,13 +214,13 @@ namespace CC_Assignment
                 try
                 {
                     String emailOrderInfo = "";
-                    String artName, unitPrice, qty;
+                    String apparelName, unitPrice, qty;
                     for (int i = 0; i < gvPayment.Rows.Count; i++)
                     {
-                        artName = (gvPayment.Rows[i].FindControl("Item_Name") as TextBox).Text.Trim();
+                        apparelName = (gvPayment.Rows[i].FindControl("Item_Name") as TextBox).Text.Trim();
                         unitPrice = (gvPayment.Rows[i].FindControl("item_order_summary_price") as TextBox).Text.Trim();
                         qty = (gvPayment.Rows[i].FindControl("item_order_summary_qty") as TextBox).Text.Trim();
-                        emailOrderInfo += "<br/><br/>" + (i + 1).ToString() + ". Apparel Name : " + artName + "<br/>&nbsp;&nbsp;&nbsp;&nbsp;Details  : RM " + unitPrice + " x " + qty;
+                        emailOrderInfo += "<br/><br/>" + (i + 1).ToString() + ". Apparel Name : " + apparelName + "<br/>&nbsp;&nbsp;&nbsp;&nbsp;Details  : RM " + unitPrice + " x " + qty;
 
                     }
                     using (StringWriter sw = new StringWriter())
@@ -232,8 +232,8 @@ namespace CC_Assignment
                                 "<br/>========================</h4>" +
                                 "<br/><b><u>Purchase Information</u></b>" + emailOrderInfo +
                                 "<br/><br/><br/>-------------------------------------" +
-                                "<br/>Delivery Fees : " + deliverly_fees.Text +
-                                "<br/>Total         : " + total_payment.Text +
+                                "<br/>Delivery Fees : RM " + delivery_fees.Text +
+                                "<br/>Total         : RM " + total_payment.Text +
                                 "<br/><br/><br/>  Thank you!");
                             
 
