@@ -4,22 +4,22 @@
 
 <html>
 <head runat="server">
-    <title>Syasha Design</title>
+    <title>Syasya Design</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"/>
     <link rel="stylesheet" href="css/master.css" />
     <link rel="stylesheet" href="css/home.css" />
     <link rel="stylesheet" href="css/login_register.css" />
     <link rel="stylesheet" href="css/forgotPassword.css" />
     <link rel="stylesheet" href="css/profile.css" />
-    <link rel="stylesheet" href="css/Art.css"/>
-    <link rel="stylesheet" href="css/ArtGallery.css"/>
-    <link rel="stylesheet" href="css/PostArt.css"/>
+    <link rel="stylesheet" href="css/addCollections.css"/>
+    <link rel="stylesheet" href="css/viewCollections.css"/>
+    <link rel="stylesheet" href="css/manageCollecitons.css"/>
     <link rel="stylesheet" href="css/cart.css"/>
     <link rel="stylesheet" href="css/payment.css"/>
     <link rel="stylesheet" href="css/payHistory.css"/>
     <link rel="stylesheet" href="css/wishlist.css"/>
-    <link rel="stylesheet" href="css/artworks.css"/>
-    <link rel="stylesheet" href="css/artworkdetails.css"/>
+    <link rel="stylesheet" href="css/apparel.css"/>
+    <link rel="stylesheet" href="css/appareldetails.css"/>
 
     <script src= 
         "https://code.jquery.com/jquery-3.4.0.min.js"> 
@@ -50,13 +50,13 @@
             </div>
 
             <header id="header">
-                <a href="Homepage.aspx#" class='logo' id="logo">Syasha Design<span>.</span></a>
+                <a href="Homepage.aspx#" class='logo' id="logo">Syasya Design<span>.</span></a>
 
                 <div class="headerMenu">
                     <ul class='navigation' id="navigation">
                         <li><a href="#banner"">Home</a></li>
                         <li><a href="#about"">About</a></li>
-                        <li><a href="#apparel"">Apparel</a></li>
+                        <li><a href="#apparel"">Collections</a></li>
                         <li><a href="#contact"">Contact</a></li>
                     </ul>
 
@@ -115,7 +115,7 @@
         </div>
 
         <div class="copyrightText">
-            <p>Copyright 2021 <a href="Homepage.aspx">Syasha Design</a>. All Right reserved</p>
+            <p>Copyright 2021 <a href="Homepage.aspx">Syasya Design</a>. All Right reserved</p>
         </div>
     </form>
 

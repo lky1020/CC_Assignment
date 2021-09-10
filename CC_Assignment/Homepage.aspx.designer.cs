@@ -15,13 +15,13 @@ namespace CC_Assignment
     {
 
         /// <summary>
-        /// ArtWorkDataList control.
+        /// ApparelDataList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList ArtWorkDataList;
+        protected global::System.Web.UI.WebControls.DataList ApparelDataList;
 
         /// <summary>
         /// btnViewAll control.

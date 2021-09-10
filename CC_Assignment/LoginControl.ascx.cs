@@ -66,7 +66,7 @@ namespace CC_Assignment
             }
             catch (Exception)
             {
-                ScriptManager.RegisterStartupScript(Page, this.GetType(), "LoginpageDBError", "alert('Error Occur in Database. Please Contact Quad-Core AWS!');", true);
+                ScriptManager.RegisterStartupScript(Page, this.GetType(), "LoginpageDBError", "alert('Error Occur in Database. Please Contact Syasya Design!');", true);
                 ScriptManager.RegisterStartupScript(Page, this.GetType(), "DirectToHomepage", "alert('Redirecting you to Homepage!'); window.location = 'Homepage.aspx';", true);
             }
 
@@ -93,7 +93,7 @@ namespace CC_Assignment
             }
             catch (Exception)
             {
-                ScriptManager.RegisterStartupScript(Page, this.GetType(), "LoginpageDBError", "alert('Error Occur in Database. Please Contact Quad-Core AWS!');", true);
+                ScriptManager.RegisterStartupScript(Page, this.GetType(), "LoginpageDBError", "alert('Error Occur in Database. Please Contact Syasya Design!');", true);
                 ScriptManager.RegisterStartupScript(Page, this.GetType(), "DirectToHomepage", "alert('Redirecting you to Homepage!'); window.location = 'Homepage.aspx';", true);
             }
 
@@ -131,7 +131,7 @@ namespace CC_Assignment
             }
             catch (Exception)
             {
-                ScriptManager.RegisterStartupScript(Page, this.GetType(), "LoginpageDBError", "alert('Error Occur in Database. Please Contact Quad-Core AWS!');", true);
+                ScriptManager.RegisterStartupScript(Page, this.GetType(), "LoginpageDBError", "alert('Error Occur in Database. Please Contact Syasya Design!');", true);
                 ScriptManager.RegisterStartupScript(Page, this.GetType(), "DirectToHomepage", "alert('Redirecting you to Homepage!'); window.location = 'Homepage.aspx';", true);
             }
 
@@ -168,7 +168,7 @@ namespace CC_Assignment
             }
             catch (Exception)
             {
-                ScriptManager.RegisterStartupScript(Page, this.GetType(), "LoginpageDBError", "alert('Error Occur in Database. Please Contact Quad-Core AWS!');", true);
+                ScriptManager.RegisterStartupScript(Page, this.GetType(), "LoginpageDBError", "alert('Error Occur in Database. Please Contact Syasya Design!');", true);
                 ScriptManager.RegisterStartupScript(Page, this.GetType(), "DirectToHomepage", "alert('Redirecting you to Homepage!'); window.location = 'Homepage.aspx';", true);
             }
 
@@ -193,7 +193,7 @@ namespace CC_Assignment
             }
             catch (Exception)
             {
-                ScriptManager.RegisterStartupScript(Page, this.GetType(), "LoginpageDBError", "alert('Error Occur in Database. Please Contact Quad-Core AWS!');", true);
+                ScriptManager.RegisterStartupScript(Page, this.GetType(), "LoginpageDBError", "alert('Error Occur in Database. Please Contact Syasya Design!');", true);
                 ScriptManager.RegisterStartupScript(Page, this.GetType(), "DirectToHomepage", "alert('Redirecting you to Homepage!'); window.location = 'Homepage.aspx';", true);
             }
         }
@@ -216,7 +216,7 @@ namespace CC_Assignment
             }
             catch (Exception)
             {
-                ScriptManager.RegisterStartupScript(Page, this.GetType(), "LoginpageDBError", "alert('Error Occur in Database. Please Contact Quad-Core AWS!');", true);
+                ScriptManager.RegisterStartupScript(Page, this.GetType(), "LoginpageDBError", "alert('Error Occur in Database. Please Contact Syasya Design!');", true);
                 ScriptManager.RegisterStartupScript(Page, this.GetType(), "DirectToHomepage", "alert('Redirecting you to Homepage!'); window.location = 'Homepage.aspx';", true);
             }
         }
@@ -237,7 +237,7 @@ namespace CC_Assignment
             }
             catch (Exception)
             {
-                ScriptManager.RegisterStartupScript(Page, this.GetType(), "LoginpageDBError", "alert('Error Occur in Database. Please Contact Quad-Core AWS!');", true);
+                ScriptManager.RegisterStartupScript(Page, this.GetType(), "LoginpageDBError", "alert('Error Occur in Database. Please Contact Syasya Design!');", true);
                 ScriptManager.RegisterStartupScript(Page, this.GetType(), "DirectToHomepage", "alert('Redirecting you to Homepage!'); window.location = 'Homepage.aspx';", true);
             }
         }
@@ -258,7 +258,7 @@ namespace CC_Assignment
             }
             catch (Exception)
             {
-                ScriptManager.RegisterStartupScript(Page, this.GetType(), "LoginpageDBError", "alert('Error Occur in Database. Please Contact Quad-Core AWS!');", true);
+                ScriptManager.RegisterStartupScript(Page, this.GetType(), "LoginpageDBError", "alert('Error Occur in Database. Please Contact Syasya Design!');", true);
                 ScriptManager.RegisterStartupScript(Page, this.GetType(), "DirectToHomepage", "alert('Redirecting you to Homepage!'); window.location = 'Homepage.aspx';", true);
             }
         }
@@ -307,7 +307,7 @@ namespace CC_Assignment
                     ActivateProfileNavigation();
 
                     //Check whether the user is Management or not
-                    //If, yes active the navigation to manage artworks
+                    //If, yes active the navigation to manage Apparel
                     if (userRole.Equals("Management"))
                     {
                         ActiveManagementNavigation();

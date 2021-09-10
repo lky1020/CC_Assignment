@@ -9,7 +9,7 @@
                 In the road to capture all the best moments in the life.
                 The best moments in life always surround us, helping us, supporting us, and giving us strength.
             </p>
-            <a href="#apparel" class='btn'>Our Apparel</a>
+            <a href="#apparel" class='btn'>Our Collections</a>
         </div>
 
         <img src="img/video/sky.gif"/>
@@ -21,11 +21,11 @@
             <div class="col50">
                 <h2 class="titleText"><span>A</span>bout Us</h2>
                 <p> &emsp;&emsp;&emsp;
-                    Syasha Design is an online shop selling plus size 
-                    apparel for women. Syasha Design are using Microsoft
-                    Azure to support its daily business. Syasha Design intend 
+                    Syasya Design is an online shop selling plus size 
+                    apparel for women. Syasya Design are using Microsoft
+                    Azure to support its daily business. Syasya Design intend 
                     selling plus size apparel for women to promote to all the world. 
-                    In addition, Syasha Design also intent to launch their plus size apparel
+                    In addition, Syasya Design also intent to launch their plus size apparel
                     to lets the world explore the beauty of plus size apparel and
                     purchase them.
                 </p>
@@ -33,7 +33,7 @@
                 <br/><br/>
 
                 <p> &emsp;&emsp;&emsp;
-                    Syasha Design is founder by Syasya and it is design by 
+                    Syasya Design is founder by Syasya and it is design by 
                     5 students which is Lim Kah Yee, Joan Hau, 
                     Cheong Yin Lam, Lee Ling and Hiew Long Shun. 
                     Currently, we are studying in the software engineering 
@@ -43,10 +43,10 @@
                 <br/><br/>
 
                 <p> &emsp;&emsp;&emsp;
-                    This Syasha Design website is one of our assignment in RSF2 Year 3 
+                    This Syasya Design website is one of our assignment in RSF2 Year 3 
                     Sem 1. This website is used to selling plus size apparel for women. 
                     In this website, it is about the Apparel which is to promote plus size 
-                    apparel for women. All of the data in the Syasha Design will store in
+                    apparel for women. All of the data in the Syasya Design will store in
                     Microsoft Azure.
                 </p>
             </div>
@@ -59,34 +59,29 @@
         </div>
     </section>
 
-    <%-- Apparel --%>
+    <%-- Collections --%>
     <section class="apparel" id="apparel">
         <div class="title">
-            <h2 class="titleText"><span>A</span>rtWorks</h2>
+            <h2 class="titleText"><span>C</span>ollections</h2>
 
             <p> 
-                The best apparel that launched by Syasha. Captured the 
+                The best apparel that launched by Syasya. Captured the 
                 best moment in our life.
             </p>
         </div>
 
         <div class="content">
-            <asp:DataList ID="ArtWorkDataList" runat="server" DataKeyField="ArtId" RepeatColumns="3" RepeatDirection="Horizontal" CellSpacing="60" HorizontalAlign="Center" CellPadding="3">
+            <asp:DataList ID="ApparelDataList" runat="server" DataKeyField="Id" RepeatColumns="3" RepeatDirection="Horizontal" CellSpacing="60" HorizontalAlign="Center" CellPadding="3">
                 <ItemTemplate>
-                    <table id="artwork-table">
+                    <table id="apparel-table">
                         <tr>
                             <td>
-                                <asp:Image ID="ArtImage" runat="server" CssClass="artwork-gallery-image" ImageUrl='<%# Eval("ArtImage") %>' />
+                                <asp:Image ID="Image" runat="server" CssClass="apparel-gallery-image" ImageUrl='<%# Eval("Image") %>' />
                             </td>
                         </tr>
                         <tr class="text-a1 padding-b15">
                             <td>
-                                <asp:Label ID="ArtNameLabel" runat="server" Text='<%# Eval("ArtName") %>' />
-                            </td>
-                        </tr>
-                        <tr class="text-a2">
-                            <td>
-                                <asp:Label ID="ArtDescriptionLabel" runat="server" Text='<%# Eval("ArtDescription") %>' />
+                                <asp:Label ID="NameLabel" runat="server" Text='<%# Eval("Name") %>' />
                             </td>
                         </tr>
                         <tr class="text-a3">

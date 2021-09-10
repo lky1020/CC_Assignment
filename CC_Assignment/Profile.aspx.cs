@@ -38,14 +38,14 @@ namespace CC_Assignment
             //Update the Profile Pic for change pic
             ScriptManager.RegisterStartupScript(Page, this.GetType(), "UpdateBrowsePic", "document.getElementById('previewPic').src ='" + Session["userPicPath"].ToString() + "';", true);
 
-            //Display manage art btn when role == Management
+            //Display manage Apparel btn when role == Management
             if (Session["userRole"].ToString().Equals("Management")){
 
-                ScriptManager.RegisterStartupScript(Page, this.GetType(), "DisplayManageArtBtn", "displayManageArt();", true);
+                ScriptManager.RegisterStartupScript(Page, this.GetType(), "displayManageApparelBtn", "displayManageApparel();", true);
             }
             else
             {
-                ScriptManager.RegisterStartupScript(Page, this.GetType(), "UndisplayManageArtBtn", "undisplayManageArt();", true);
+                ScriptManager.RegisterStartupScript(Page, this.GetType(), "undisplayManageApparelBtn", "undisplayManageApparel();", true);
             }
 
             //Update the Profile Pic for edit username and password
@@ -131,7 +131,7 @@ namespace CC_Assignment
                     }
                     catch (Exception)
                     {
-                        ScriptManager.RegisterStartupScript(Page, this.GetType(), "ProfilepageDBError", "alert('Error Occur in Database. Please Contact Quad-Core AWS!');", true);
+                        ScriptManager.RegisterStartupScript(Page, this.GetType(), "ProfilepageDBError", "alert('Error Occur in Database. Please Contact Syasya Design!');", true);
                         ScriptManager.RegisterStartupScript(Page, this.GetType(), "DirectToHomepage", "alert('Redirecting you to Homepage!'); window.location = 'Homepage.aspx';", true);
                     }
                 }
@@ -169,7 +169,7 @@ namespace CC_Assignment
             }
             catch (Exception)
             {
-                ScriptManager.RegisterStartupScript(Page, this.GetType(), "ProfilepageDBError", "alert('Error Occur in Database. Please Contact Quad-Core AWS!');", true);
+                ScriptManager.RegisterStartupScript(Page, this.GetType(), "ProfilepageDBError", "alert('Error Occur in Database. Please Contact Syasya Design!');", true);
                 ScriptManager.RegisterStartupScript(Page, this.GetType(), "DirectToHomepage", "alert('Redirecting you to Homepage!'); window.location = 'Homepage.aspx';", true);
             }
         }
@@ -201,7 +201,7 @@ namespace CC_Assignment
                 }
                 catch (Exception)
                 {
-                    ScriptManager.RegisterStartupScript(Page, this.GetType(), "ProfilepageDBError", "alert('Error Occur in Database. Please Contact Quad-Core AWS!');", true);
+                    ScriptManager.RegisterStartupScript(Page, this.GetType(), "ProfilepageDBError", "alert('Error Occur in Database. Please Contact Syasya Design!');", true);
                     ScriptManager.RegisterStartupScript(Page, this.GetType(), "DirectToHomepage", "alert('Redirecting you to Homepage!'); window.location = 'Homepage.aspx';", true);
                 }
             }
@@ -276,7 +276,7 @@ namespace CC_Assignment
  
         }
 
-        protected void btnManageArt_Click(object sender, EventArgs e)
+        protected void btnManageApparel_Click(object sender, EventArgs e)
         {
             //Undisplay the txtAreaEditBio
             ScriptManager.RegisterStartupScript(Page, this.GetType(), "UpdateBioUI",
@@ -286,8 +286,8 @@ namespace CC_Assignment
             ScriptManager.RegisterStartupScript(Page, this.GetType(), "UnDisplay Cancel Btn",
                     "undisplayCancelEditButton();", true);
 
-            ScriptManager.RegisterStartupScript(Page, this.GetType(), "Direct to manage art",
-                    "window.location = 'Art.aspx';", true);
+            ScriptManager.RegisterStartupScript(Page, this.GetType(), "Direct to manage apparel",
+                    "window.location = 'AddCollections.aspx';", true);
         }
 
         private Boolean CheckUserCurrentPassword()
@@ -312,7 +312,7 @@ namespace CC_Assignment
             }
             catch (Exception)
             {
-                ScriptManager.RegisterStartupScript(Page, this.GetType(), "ProfilepageDBError", "alert('Error Occur in Database. Please Contact Quad-Core AWS!');", true);
+                ScriptManager.RegisterStartupScript(Page, this.GetType(), "ProfilepageDBError", "alert('Error Occur in Database. Please Contact Syasya Design!');", true);
                 ScriptManager.RegisterStartupScript(Page, this.GetType(), "DirectToHomepage", "alert('Redirecting you to Homepage!'); window.location = 'Homepage.aspx';", true);
             }
 
@@ -338,7 +338,7 @@ namespace CC_Assignment
             }
             catch (Exception)
             {
-                ScriptManager.RegisterStartupScript(Page, this.GetType(), "ProfilepageDBError", "alert('Error Occur in Database. Please Contact Quad-Core AWS!');", true);
+                ScriptManager.RegisterStartupScript(Page, this.GetType(), "ProfilepageDBError", "alert('Error Occur in Database. Please Contact Syasya Design!');", true);
                 ScriptManager.RegisterStartupScript(Page, this.GetType(), "DirectToHomepage", "alert('Redirecting you to Homepage!'); window.location = 'Homepage.aspx';", true);
             }
         }
@@ -361,7 +361,7 @@ namespace CC_Assignment
             }
             catch (Exception)
             {
-                ScriptManager.RegisterStartupScript(Page, this.GetType(), "ProfilepageDBError", "alert('Error Occur in Database. Please Contact Quad-Core AWS!');", true);
+                ScriptManager.RegisterStartupScript(Page, this.GetType(), "ProfilepageDBError", "alert('Error Occur in Database. Please Contact Syasya Design!');", true);
                 ScriptManager.RegisterStartupScript(Page, this.GetType(), "DirectToHomepage", "alert('Redirecting you to Homepage!'); window.location = 'Homepage.aspx';", true);
             }
         }
@@ -382,7 +382,7 @@ namespace CC_Assignment
             }
             catch (Exception)
             {
-                ScriptManager.RegisterStartupScript(Page, this.GetType(), "ProfilepageDBError", "alert('Error Occur in Database. Please Contact Quad-Core AWS!');", true);
+                ScriptManager.RegisterStartupScript(Page, this.GetType(), "ProfilepageDBError", "alert('Error Occur in Database. Please Contact Syasya Design!');", true);
                 ScriptManager.RegisterStartupScript(Page, this.GetType(), "DirectToHomepage", "alert('Redirecting you to Homepage!'); window.location = 'Homepage.aspx';", true);
             }
 

@@ -77,21 +77,30 @@
     <Content Include="App_Data\SyasyaDb_log.ldf">
       <DependentUpon>SyasyaDb.mdf</DependentUpon>
     </Content>
-    <Content Include="Art.aspx" />
-    <Content Include="ArtistGallery.aspx" />
-    <Content Include="ArtWorkDetails.aspx" />
-    <Content Include="ArtWorks.aspx" />
+    <Content Include="AddCollections.aspx" />
+    <Content Include="img\apparel\apparel_about.jpg" />
+    <Content Include="img\apparel\header_bg.jpg" />
+    <Content Include="img\apparel\icons8-artist.png" />
+    <Content Include="img\apparel\icons8-cancel-hover.png" />
+    <Content Include="img\apparel\icons8-cancel.png" />
+    <Content Include="img\apparel\icons8-paint-brush.png" />
+    <Content Include="img\apparel\top_01.png" />
+    <Content Include="img\apparel\top_02.png" />
+    <Content Include="img\apparel\top_03.png" />
+    <Content Include="ViewCollections.aspx" />
+    <Content Include="ApparelDetails.aspx" />
+    <Content Include="CustApparel.aspx" />
     <Content Include="Cart.aspx" />
-    <Content Include="css\Art.css" />
-    <Content Include="css\ArtGallery.css" />
-    <Content Include="css\artworkdetails.css" />
-    <Content Include="css\artworks.css" />
+    <Content Include="css\addCollections.css" />
+    <Content Include="css\viewCollections.css" />
+    <Content Include="css\appareldetails.css" />
+    <Content Include="css\apparel.css" />
     <Content Include="css\cart.css" />
     <Content Include="css\forgotPassword.css" />
     <Content Include="css\login_register.css" />
     <Content Include="css\payHistory.css" />
     <Content Include="css\payment.css" />
-    <Content Include="css\PostArt.css" />
+    <Content Include="css\manageCollecitons.css" />
     <Content Include="css\profile.css" />
     <Content Include="css\wishlist.css" />
     <Content Include="ErrorPages\FileNotFound.htm" />
@@ -158,12 +167,6 @@
     <Content Include="img\Artist\spring1.jpg" />
     <Content Include="img\Artist\summer.png" />
     <Content Include="img\Artist\winter.jpg" />
-    <Content Include="img\artwork\art_about.jpg" />
-    <Content Include="img\artwork\header_bg.jpg" />
-    <Content Include="img\artwork\icons8-artist.png" />
-    <Content Include="img\artwork\icons8-cancel-hover.png" />
-    <Content Include="img\artwork\icons8-cancel.png" />
-    <Content Include="img\artwork\icons8-paint-brush.png" />
     <Content Include="img\header\up-down.png" />
     <Content Include="img\homepage\artWork\africa_elephant.jpg" />
     <Content Include="img\homepage\artWork\beautiful_women.jpg" />
@@ -209,7 +212,7 @@
     <Content Include="LoginControl.ascx" />
     <Content Include="PayHistory.aspx" />
     <Content Include="Payment.aspx" />
-    <Content Include="PostArts.aspx" />
+    <Content Include="ManageCollections.aspx" />
     <Content Include="Profile.aspx" />
     <Content Include="Registration.aspx" />
     <Content Include="RegistrationControl.ascx" />
@@ -217,33 +220,33 @@
     <Content Include="WishList.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Art.aspx.cs">
-      <DependentUpon>Art.aspx</DependentUpon>
+    <Compile Include="AddCollections.aspx.cs">
+      <DependentUpon>AddCollections.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Art.aspx.designer.cs">
-      <DependentUpon>Art.aspx</DependentUpon>
+    <Compile Include="AddCollections.aspx.designer.cs">
+      <DependentUpon>AddCollections.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ArtistGallery.aspx.cs">
-      <DependentUpon>ArtistGallery.aspx</DependentUpon>
+    <Compile Include="ViewCollections.aspx.cs">
+      <DependentUpon>ViewCollections.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ArtistGallery.aspx.designer.cs">
-      <DependentUpon>ArtistGallery.aspx</DependentUpon>
+    <Compile Include="ViewCollections.aspx.designer.cs">
+      <DependentUpon>ViewCollections.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ArtWorkDetails.aspx.cs">
-      <DependentUpon>ArtWorkDetails.aspx</DependentUpon>
+    <Compile Include="ApparelDetails.aspx.cs">
+      <DependentUpon>ApparelDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ArtWorkDetails.aspx.designer.cs">
-      <DependentUpon>ArtWorkDetails.aspx</DependentUpon>
+    <Compile Include="ApparelDetails.aspx.designer.cs">
+      <DependentUpon>ApparelDetails.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ArtWorks.aspx.cs">
-      <DependentUpon>ArtWorks.aspx</DependentUpon>
+    <Compile Include="CustApparel.aspx.cs">
+      <DependentUpon>CustApparel.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ArtWorks.aspx.designer.cs">
-      <DependentUpon>ArtWorks.aspx</DependentUpon>
+    <Compile Include="CustApparel.aspx.designer.cs">
+      <DependentUpon>CustApparel.aspx</DependentUpon>
     </Compile>
     <Compile Include="Cart.aspx.cs">
       <DependentUpon>Cart.aspx</DependentUpon>
@@ -304,12 +307,12 @@
     <Compile Include="Payment.aspx.designer.cs">
       <DependentUpon>Payment.aspx</DependentUpon>
     </Compile>
-    <Compile Include="PostArts.aspx.cs">
-      <DependentUpon>PostArts.aspx</DependentUpon>
+    <Compile Include="ManageCollections.aspx.cs">
+      <DependentUpon>ManageCollections.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="PostArts.aspx.designer.cs">
-      <DependentUpon>PostArts.aspx</DependentUpon>
+    <Compile Include="ManageCollections.aspx.designer.cs">
+      <DependentUpon>ManageCollections.aspx</DependentUpon>
     </Compile>
     <Compile Include="Profile.aspx.cs">
       <DependentUpon>Profile.aspx</DependentUpon>

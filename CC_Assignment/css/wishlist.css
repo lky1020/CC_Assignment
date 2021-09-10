@@ -7,11 +7,12 @@
 }
 
 /* Header Banner */
+
 .wishlist-header-text {
     text-align: center;
     left: 50%;
     color: white;
-    font-size: 58px;
+    font-size: 45px;
     letter-spacing: 5px;
     font-weight: 600;
 }
@@ -20,26 +21,26 @@
     text-align: center;
     left: 50%;
     color: white;
-    font-size: 20px;
+    font-size: 15px;
     letter-spacing: 3px;
-    font-weight: 500;
+    font-weight: 300;
 }
 
-/* Add Art Button */
-.btn-wlArt {
+/* Add Apparel Button */
+.btn-wlApparel {
     background-color: rgb(13,34,46);
-    width: 150px;
+    width: 180px;
     height: 40px;
     color: white;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     border: none;
     margin-top: 2%;
-    margin-left: 43%;
+    margin-left: 41%;
     border-radius: 20px;
-    font-size: 17px;
+    font-size: 15px;
 }
 
-.btn-wlArt:hover {
+.btn-wlApparel:hover {
     background-color: rebeccapurple;
     color: white;
     transition: 0.5s;
@@ -49,7 +50,6 @@
 /* Gridview Table */
 .wl-table-box {
     width: 1000px;
-    margin-top: 2%;
     margin-bottom: 4%;
     display: inline-block;
 }
@@ -94,7 +94,7 @@
     position: absolute;
 }
 
-.art-image {
+.apparel-image {
     object-fit: cover;
 }
 

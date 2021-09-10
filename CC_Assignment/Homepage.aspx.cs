@@ -15,7 +15,7 @@ namespace CC_Assignment
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            // For the artwork
+            // For the apparel
             bindList();
         }
 
@@ -39,7 +39,7 @@ namespace CC_Assignment
                         mail.To.Add(txtContactEmail.Text);
                     }
 
-                    mail.To.Add("quadCoreTest@gmail.com");
+                    mail.To.Add("syasyadesigncc@gmail.com");
                     mail.Subject = "Customer's Comment";
 
                     if(Session["username"] != null && Session["userEmail"] != null)
@@ -54,9 +54,9 @@ namespace CC_Assignment
                     mail.IsBodyHtml = true;
                     mail.BodyEncoding = Encoding.UTF8;
 
-                    using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
+                    using (SmtpClient smtp = new SmtpClient("smtp.sendgrid.net", Convert.ToInt32(587)))
                     {
-                        smtp.Credentials = new System.Net.NetworkCredential("quadCoreTest@gmail.com", "quad_core");
+                        smtp.Credentials = new System.Net.NetworkCredential("apikey", "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");
                         smtp.EnableSsl = true;
 
                         try
@@ -71,7 +71,7 @@ namespace CC_Assignment
                         }
                         catch (Exception)
                         {
-                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Email Status", "alert('Sorry, Quad-Core ASG Email Account Down. Please Contact Quad-Core AWS!')", true);
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Email Status", "alert('Sorry, Syasya Design Email Account Down. Please Contact Syasya Design!')", true);
                         }
                     }
                 }
@@ -89,7 +89,7 @@ namespace CC_Assignment
                 using (SqlConnection con = new SqlConnection(cs))
                 {
                     //sorting feature
-                    SqlDataAdapter da = new SqlDataAdapter("Select TOP 6 * from Artist", con);
+                    SqlDataAdapter da = new SqlDataAdapter("Select TOP 6 * from Seller where size='L'", con);
 
 
                     con.Open();
@@ -104,7 +104,7 @@ namespace CC_Assignment
             }
             catch(Exception)
             {
-                ScriptManager.RegisterStartupScript(Page, this.GetType(), "HomepageDBError", "alert('Error Occur in Database. Please Contact Quad-Core AWS!');", true);
+                ScriptManager.RegisterStartupScript(Page, this.GetType(), "HomepageDBError", "alert('Error Occur in Database. Please Contact Syasya Design!');", true);
             }
 
         }
@@ -115,8 +115,8 @@ namespace CC_Assignment
             PagedDataSource PD = new PagedDataSource();
 
             PD.DataSource = dt.DefaultView;
-            ArtWorkDataList.DataSource = PD;
-            ArtWorkDataList.DataBind();
+            ApparelDataList.DataSource = PD;
+            ApparelDataList.DataBind();
 
         }
 
@@ -127,16 +127,16 @@ namespace CC_Assignment
                 //Direct to gallery
                 if (Session["userRole"].ToString().Equals("Management"))
                 {
-                    Response.Write("<script>window.location = 'ArtistGallery.aspx';</script>");
+                    Response.Write("<script>window.location = 'ViewCollections.aspx';</script>");
                 }
                 else
                 {
-                    Response.Write("<script>window.location = 'ArtWorks.aspx';</script>");
+                    Response.Write("<script>window.location = 'CustApparel.aspx';</script>");
                 }
             }
             else
             {
-                Response.Write("<script>window.location = 'ArtWorks.aspx';</script>");
+                Response.Write("<script>window.location = 'CustApparel.aspx';</script>");
             }
 
         }

@@ -87,13 +87,13 @@ namespace CC_Assignment
         protected global::System.Web.UI.WebControls.Button btnEdit;
 
         /// <summary>
-        /// btnManageArt control.
+        /// btnManageApparel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnManageArt;
+        protected global::System.Web.UI.WebControls.Button btnManageApparel;
 
         /// <summary>
         /// UpdatePanel2 control.

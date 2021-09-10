@@ -71,10 +71,10 @@ namespace CC_Assignment
                             mail.IsBodyHtml = true;
                             mail.BodyEncoding = Encoding.UTF8;
 
-                            using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
+                            using (SmtpClient smtp = new SmtpClient("smtp.sendgrid.net", Convert.ToInt32(587)))
                             {
                                 smtp.UseDefaultCredentials = false;
-                                smtp.Credentials = new System.Net.NetworkCredential("quadCoreTest@gmail.com", "quad_core");
+                                smtp.Credentials = new System.Net.NetworkCredential("apikey", "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");
                                 smtp.EnableSsl = true;
 
                                 try
@@ -85,7 +85,7 @@ namespace CC_Assignment
                                 }
                                 catch (Exception)
                                 {
-                                    ScriptManager.RegisterStartupScript(Page, this.GetType(), "Reset Pin", "alert('Sorry, Quad-Core ASG Email Account Down!');", true);
+                                    ScriptManager.RegisterStartupScript(Page, this.GetType(), "Reset Pin", "alert('Sorry, Syasya Design Email Account Down!');", true);
                                 }
                             }
                         }
@@ -158,7 +158,7 @@ namespace CC_Assignment
             }
             catch (Exception)
             {
-                ScriptManager.RegisterStartupScript(Page, this.GetType(), "ForgotPasswordpageDBError", "alert('Error Occur in Database. Please Contact Quad-Core AWS!');", true);
+                ScriptManager.RegisterStartupScript(Page, this.GetType(), "ForgotPasswordpageDBError", "alert('Error Occur in Database. Please Contact Syasya Design!');", true);
                 ScriptManager.RegisterStartupScript(Page, this.GetType(), "DirectToHomepage", "alert('Redirecting you to Homepage!'); window.location = 'Homepage.aspx';", true);
             }
 
@@ -190,7 +190,7 @@ namespace CC_Assignment
             }
             catch (Exception)
             {
-                ScriptManager.RegisterStartupScript(Page, this.GetType(), "ForgotPasswordpageDBError", "alert('Error Occur in Database. Please Contact Quad-Core AWS!');", true);
+                ScriptManager.RegisterStartupScript(Page, this.GetType(), "ForgotPasswordpageDBError", "alert('Error Occur in Database. Please Contact Syasya Design!');", true);
                 ScriptManager.RegisterStartupScript(Page, this.GetType(), "DirectToHomepage", "alert('Redirecting you to Homepage!'); window.location = 'Homepage.aspx';", true);
             }
 
@@ -219,7 +219,7 @@ namespace CC_Assignment
                 }
                 catch (Exception)
                 {
-                    ScriptManager.RegisterStartupScript(Page, this.GetType(), "ForgotPasswordpageDBError", "alert('Error Occur in Database. Please Contact Quad-Core AWS!');", true);
+                    ScriptManager.RegisterStartupScript(Page, this.GetType(), "ForgotPasswordpageDBError", "alert('Error Occur in Database. Please Contact Syasya Design!');", true);
                     ScriptManager.RegisterStartupScript(Page, this.GetType(), "DirectToHomepage", "alert('Redirecting you to Homepage!'); window.location = 'Homepage.aspx';", true);
                 }
             }
@@ -255,7 +255,7 @@ namespace CC_Assignment
             }
             catch (Exception)
             {
-                ScriptManager.RegisterStartupScript(Page, this.GetType(), "ForgotPasswordpageDBError", "alert('Error Occur in Database. Please Contact Quad-Core AWS!');", true);
+                ScriptManager.RegisterStartupScript(Page, this.GetType(), "ForgotPasswordpageDBError", "alert('Error Occur in Database. Please Contact Syasya Design!');", true);
                 ScriptManager.RegisterStartupScript(Page, this.GetType(), "DirectToHomepage", "alert('Redirecting you to Homepage!'); window.location = 'Homepage.aspx';", true);
             }
 
@@ -293,7 +293,7 @@ namespace CC_Assignment
             }
             catch (Exception)
             {
-                ScriptManager.RegisterStartupScript(Page, this.GetType(), "ForgotPasswordpageDBError", "alert('Error Occur in Database. Please Contact Quad-Core AWS!');", true);
+                ScriptManager.RegisterStartupScript(Page, this.GetType(), "ForgotPasswordpageDBError", "alert('Error Occur in Database. Please Contact Syasya Design!');", true);
                 ScriptManager.RegisterStartupScript(Page, this.GetType(), "DirectToHomepage", "alert('Redirecting you to Homepage!'); window.location = 'Homepage.aspx';", true);
             }
 

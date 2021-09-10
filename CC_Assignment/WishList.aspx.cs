@@ -32,7 +32,7 @@ namespace CC_Assignment
 
                 SqlConnection con = new SqlConnection(cs);
                 con.Open();
-                String query = "Select w.WishlistId, w.UserId, w.ArtId, w.DateAdded, a.ArtName, a.ArtImage, a.Price, a.Quantity, a.ArtDescription, a.Availability from [WishList] w INNER JOIN [Artist] a on w.ArtId = a.ArtId Where w.UserId = @userid ORDER BY w.WishlistId DESC";
+                String query = "Select w.WishlistId, w.UserId, w.ApparelID, w.DateAdded, s.Name, s.Image, s.Price, s.Quantity, s.Size, s.Availability from [WishList] w INNER JOIN [Seller] s on w.ApparelId = s.Id Where w.UserId = @userid ORDER BY w.WishlistId DESC";
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@userid", Session["userId"]);
 
@@ -78,28 +78,28 @@ namespace CC_Assignment
 
             for (int i = 0; i < gvWishList.Rows.Count; i++)
             {
-                string queryArtAvailable = "SELECT Availability, Quantity FROM Artist WHERE ArtId = (SELECT ArtId FROM WishList WHERE WishlistId = @WishlistId)";
+                string queryApparelAvailable = "SELECT Availability, Quantity FROM Seller WHERE Id = (SELECT ApparelId FROM WishList WHERE WishlistId = @WishlistId)";
 
-                using (SqlCommand cmdArtAvailable = new SqlCommand(queryArtAvailable, con))
+                using (SqlCommand cmdApparelAvailable = new SqlCommand(queryApparelAvailable, con))
                 {
-                    cmdArtAvailable.Parameters.AddWithValue("@WishlistId", gvWishList.DataKeys[i].Value.ToString());
+                    cmdApparelAvailable.Parameters.AddWithValue("@WishlistId", gvWishList.DataKeys[i].Value.ToString());
                     con.Open();
 
-                    SqlDataReader dtrArt = cmdArtAvailable.ExecuteReader();
+                    SqlDataReader dtrApparel = cmdApparelAvailable.ExecuteReader();
 
-                    if (dtrArt.HasRows)
+                    if (dtrApparel.HasRows)
                     {
-                        while (dtrArt.Read())
+                        while (dtrApparel.Read())
                         {
-                            available = (Boolean)dtrArt["Availability"];
-                            stock = (int)dtrArt["Quantity"];
+                            available = (Boolean)dtrApparel["Availability"];
+                            stock = (int)dtrApparel["Quantity"];
 
                             if (stock == 0 || !available)
                             {
                                 CheckBox chkbox = gvWishList.Rows[i].FindControl("chkItems") as CheckBox;
                                 chkbox.Enabled = false;
 
-                                Label lblDescription = gvWishList.Rows[i].FindControl("wl_artDes") as Label;
+                                Label lblDescription = gvWishList.Rows[i].FindControl("wl_apparelDes") as Label;
                                 lblDescription.Text = "Item is not available";
 
                             }
@@ -129,13 +129,13 @@ namespace CC_Assignment
                     cmd.ExecuteNonQuery();
                     refreshdata();
 
-                    Response.Write("<script>alert('Congratulation, this art had remove from your wishlist successfully')</script>");
+                    Response.Write("<script>alert('Congratulation, this apparel had remove from your wishlist successfully')</script>");
 
                 }
             }
             catch (Exception ex)
             {
-                Response.Write("<script>alert('Sorry, Fail to Delete the Art from your wishlist')</script>");
+                Response.Write("<script>alert('Sorry, Fail to Delete the item from your wishlist')</script>");
             }
         }
 
@@ -211,15 +211,15 @@ namespace CC_Assignment
 
         protected void btnContinueWL_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ArtWorks.aspx");
+            Response.Redirect("CustApparel.aspx");
         }
 
-        protected void wl_artImg_Click(object sender, ImageClickEventArgs e)
+        protected void wl_apparelImg_Click(object sender, ImageClickEventArgs e)
         {
             ImageButton imgButton = sender as ImageButton;
-            Int32 artID = Convert.ToInt32(imgButton.CommandArgument.ToString());
+            Int32 apparelID = Convert.ToInt32(imgButton.CommandArgument.ToString());
 
-            Response.Redirect("ArtWorkDetails.aspx?ArtId="+ artID);
+            Response.Redirect("ApparelDetails.aspx?Id="+ apparelID);
  
         }
 
@@ -240,7 +240,7 @@ namespace CC_Assignment
             }
         }
 
-        protected void insertCart(Int32 artID, decimal unitPrice)
+        protected void insertCart(Int32 apparelId, decimal unitPrice)
         {
             Int32 cartID = 0;
             Int32 orderDetailID = 0;
@@ -293,9 +293,9 @@ namespace CC_Assignment
 
             conn.Open();
 
-            SqlCommand cmdOrderDetailID = new SqlCommand("SELECT OrderDetailId, qtySelected, Subtotal from [OrderDetails] Where CartId = @CartId AND ArtId = @ArtId", conn);
+            SqlCommand cmdOrderDetailID = new SqlCommand("SELECT OrderDetailId, qtySelected, Subtotal from [OrderDetails] Where CartId = @CartId AND ApparelID = @ApparelID", conn);
             cmdOrderDetailID.Parameters.AddWithValue("@CartId", cartID);
-            cmdOrderDetailID.Parameters.AddWithValue("@ArtId", artID);
+            cmdOrderDetailID.Parameters.AddWithValue("@ApparelID", apparelId);
 
             SqlDataReader dtrOrderDetail = cmdOrderDetailID.ExecuteReader();
             if (dtrOrderDetail.HasRows)
@@ -312,14 +312,14 @@ namespace CC_Assignment
 
             conn.Open();
 
-            //check whether exist same art (order detail)
+            //check whether exist same apparel (order detail)
             if (orderDetailID != 0)
             {
                 //update order details
                 qtyOrderDetail++;
                 subtotalOrderDetail += unitPrice;
 
-                string sqlUpdatetOrder = "UPDATE  OrderDetails SET qtySelected = " + qtyOrderDetail + ", Subtotal = " + subtotalOrderDetail + " WHERE OrderDetailId = " + orderDetailID;
+                string sqlUpdatetOrder = "UPDATE OrderDetails SET qtySelected = " + qtyOrderDetail + ", Subtotal = " + subtotalOrderDetail + " WHERE OrderDetailId = " + orderDetailID;
 
                 SqlCommand cmdInsertOrder = new SqlCommand();
 
@@ -334,7 +334,7 @@ namespace CC_Assignment
             {
                 //insert order details based on cartid
 
-                string sqlInsertOrder = "INSERT into OrderDetails (CartId, ArtId, qtySelected, Subtotal) values('" + cartID + "', '" + artID + "', '" + 1 + "', '" + unitPrice + "')";
+                string sqlInsertOrder = "INSERT into OrderDetails (CartId, ApparelId, qtySelected, Subtotal) values('" + cartID + "', '" + apparelId + "', '" + 1 + "', '" + unitPrice + "')";
 
                 SqlCommand cmdInsertOrder = new SqlCommand();
 
@@ -384,16 +384,16 @@ namespace CC_Assignment
                         Label lblWishlist = (Label)gvWishList.Rows[i].Cells[0].FindControl("lblWishlistID");
                         Int32 wishlistID = Convert.ToInt32(lblWishlist.Text);
 
-                        //get artID
-                        ImageButton artImg = (ImageButton)gvWishList.Rows[i].Cells[0].FindControl("wl_artImg");
-                        Int32 artID = Convert.ToInt32(artImg.CommandArgument.ToString());
+                        //get apparelID
+                        ImageButton apparelImg = (ImageButton)gvWishList.Rows[i].Cells[0].FindControl("wl_apparelImg");
+                        Int32 apparelID = Convert.ToInt32(apparelImg.CommandArgument.ToString());
 
                         //get unit price
                         Label lblPrice = (Label)gvWishList.Rows[i].Cells[0].FindControl("wl_price");
                         decimal unitPrice = Convert.ToDecimal(lblPrice.Text);
                         try
                         {
-                            insertCart(artID, unitPrice);
+                            insertCart(apparelID, unitPrice);
                             removeItem(wishlistID);
                         }
                         catch (Exception ex)
@@ -406,7 +406,7 @@ namespace CC_Assignment
                 }
                 catch (Exception ex)
                 {
-                    Response.Write("<script>alert('Server down, please contact QUAD-CORE ASG. Customer Services.')</script>");
+                    Response.Write("<script>alert('Server down, please contact Syasya Design. Customer Services.')</script>");
                     System.Diagnostics.Debug.WriteLine("[DEBUG][EXCEPTION] --> " + ex.Message);
                 }
             }
@@ -414,7 +414,7 @@ namespace CC_Assignment
             if (haveItemChk)
             {
                 //print successfully message
-                Response.Write("<script>alert('Congratulation, Art in Wishlist Deleted Successfully')</script>");
+                Response.Write("<script>alert('Congratulation, Apparel add to the cart successfully.')</script>");
                 refreshdata();
             }
             else

@@ -1,0 +1,165 @@
+﻿.manageApparel {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: normal;
+    background-size: cover;
+}
+
+.Slider {
+    margin-top: -100px;
+    margin-left: -100px;
+    margin-right: -100px;
+    width: 500%;
+    height: 725px;
+    overflow: hidden;
+}
+
+.Slides {
+    width: 500%;
+    height: 500px;
+    display: flex;
+}
+
+.Slides input {
+    display: none;
+}
+
+.slide {
+    width: 20%;
+    transition: 1s;
+}
+
+.slide img {
+    width: 100%;
+    height: 800px;
+}
+
+.manual-nav-image {
+    position: absolute;
+    width: 800px;
+    margin-top: -40px;
+    display: flex;
+    justify-content: center;
+}
+
+.manual-btn:not(:last-child) {
+    margin-right: 40px;
+}
+
+#radioNavImage1:checked ~ .first {
+    margin-left: 0;
+}
+
+#radioNavImage2:checked ~ .first {
+    margin-left: -20%;
+}
+
+#radioNavImage3:checked ~ .first {
+    margin-left: -40%;
+}
+
+#radioNavImage4:checked ~ .first {
+    margin-left: -60%;
+}
+
+.auto-nav-image {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.auto-nav-image div {
+    display: none;
+    padding: 5px;
+    border-radius: 10px;
+    transition: 1s;
+}
+
+.auto-nav-image div:not(:last-child) {
+    margin-right: 40px;
+}
+
+.manageApparel .Apparel {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10%;
+}
+
+.Apparel .ApparelQuote p {
+    font-size: 1em;
+    color: white;
+    text-shadow: 1px -1px 0 #767676, -1px 2px 1px #737272, -2px 4px 1px #767474, -3px 6px 1px #787777, -4px 8px 1px #7b7a7a;
+}
+
+.apparelTitle {
+    color: #fff;
+    font-size: 5.0em;
+    font-weight: 700;
+    text-shadow: 1px -1px 0 #767676, -1px 2px 1px #737272, -2px 4px 1px #767474, -3px 6px 1px #787777, -4px 8px 1px #7b7a7a;
+}
+
+.apparelTitle span {
+    color: #ff0157;
+    font-weight: 700;
+    font-size: 1.5em;
+    text-shadow: 1px -1px 0 #767676, -1px 2px 1px #737272, -2px 4px 1px #767474, -3px 6px 1px #787777, -4px 8px 1px #7b7a7a;
+}
+
+.ApparelQuote p {
+    position: relative;
+    width: 350px;
+    height: 60px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.ApparelQuote p:before {
+    content: 'Score the Latest Trends!';
+    padding-top: 25px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../img/Collections/btn-bg1.png);
+    background-size: cover;
+}
+
+.setGrid {
+    border: 1px solid white;
+    box-shadow: 0 5px 25px rgba(255,255,255,0.5);
+}
+
+.thumbnail:hover {
+    position: relative;
+    top: -25px;
+    left: -35px;
+    width: 500px;
+    height: auto;
+    display: inline-flex;
+    z-index: 999;
+}
+
+.btnApparelCss {
+    margin-top: 40px;
+    text-align: right;
+}
+
+.btnApparelCss .btnApparel {
+    box-shadow: 0 2px 15px rgba(255,255,255,0.5);
+    background: rgba(255,255,255,0.8);
+    border-radius: 7px;
+    margin-left: 8px;
+    margin-right: 8px;
+    width: 55px;
+    height: 35px;
+}

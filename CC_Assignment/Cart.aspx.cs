@@ -38,9 +38,9 @@ namespace CC_Assignment
                 //pass data into grid
                 SqlConnection con = new SqlConnection(cs);
                 con.Open();
-                String queryGetData = "Select a.ArtId, a.ArtName, a.ArtImage, a.Price, a.ArtDescription,o.orderDetailId, o.qtySelected, o.Subtotal from [Cart] c " +
+                String queryGetData = "Select o.ApparelId, s.Name, s.Image, s.Price, s.Size, o.orderDetailId, o.qtySelected, o.Subtotal from [Cart] c " +
                     "INNER JOIN [OrderDetails] o on c.CartId = o.CartId " +
-                    "INNER JOIN [Artist] a on o.ArtId = a.ArtId  " + 
+                    "INNER JOIN [Seller] s on o.ApparelId = s.Id  " + 
                     "Where c.UserId = @userid AND c.status = 'cart'";
                 SqlCommand cmd = new SqlCommand(queryGetData, con);
                 cmd.Parameters.AddWithValue("@userid", Session["userID"]);
@@ -68,7 +68,7 @@ namespace CC_Assignment
                     totalPrice.Visible = false;
                     cart_orderBtn.Visible = false;
                 }
-                checkArtAvailability();
+                checkApparelAvailability();
             }catch(Exception)
             {
                 ScriptManager.RegisterStartupScript(Page, this.GetType(), "CartDenied",
@@ -76,8 +76,8 @@ namespace CC_Assignment
             }
         }
 
-        //detect art product availability
-        private void checkArtAvailability()
+        //detect apparel product availability
+        private void checkApparelAvailability()
         {
             SqlConnection con = new SqlConnection(cs);
             con.Open();
@@ -85,12 +85,12 @@ namespace CC_Assignment
 
             for (int i = 0; i < gvCart.Rows.Count; i++)
             {
-                string queryArtAvailable = "SELECT Availability FROM Artist WHERE ArtId = (SELECT ArtId FROM OrderDetails WHERE OrderDetailId = @od_Id); ";
+                string queryApparelAvailable = "SELECT Availability FROM Seller WHERE Id = (SELECT ApparelId FROM OrderDetails WHERE OrderDetailId = @od_Id); ";
 
-                using (SqlCommand cmdArtAvailable = new SqlCommand(queryArtAvailable, con))
+                using (SqlCommand cmdApparelAvailable = new SqlCommand(queryApparelAvailable, con))
                 {
-                    cmdArtAvailable.Parameters.AddWithValue("@od_Id", gvCart.DataKeys[i].Value.ToString());
-                    availability = (Boolean)((cmdArtAvailable.ExecuteScalar()) ?? '0');
+                    cmdApparelAvailable.Parameters.AddWithValue("@od_Id", gvCart.DataKeys[i].Value.ToString());
+                    availability = (Boolean)((cmdApparelAvailable.ExecuteScalar()) ?? '0');
 
                     if (!availability)
                     {
@@ -108,12 +108,12 @@ namespace CC_Assignment
 
             for (int i = 0; i < gvCart.Rows.Count; i++)
             {
-                string queryArtAvailable = "SELECT Quantity FROM Artist WHERE ArtId = (SELECT ArtId FROM OrderDetails WHERE OrderDetailId = @od_Id); ";
+                string queryApparelAvailable = "SELECT Quantity FROM Seller WHERE Id = (SELECT ApparelId FROM OrderDetails WHERE OrderDetailId = @od_Id); ";
 
-                using (SqlCommand cmdArtAvailable = new SqlCommand(queryArtAvailable, con))
+                using (SqlCommand cmdApparelAvailable = new SqlCommand(queryApparelAvailable, con))
                 {
-                    cmdArtAvailable.Parameters.AddWithValue("@od_Id", gvCart.DataKeys[i].Value.ToString());
-                    qtyAvailable = (int)((cmdArtAvailable.ExecuteScalar()) ?? 0);
+                    cmdApparelAvailable.Parameters.AddWithValue("@od_Id", gvCart.DataKeys[i].Value.ToString());
+                    qtyAvailable = (int)((cmdApparelAvailable.ExecuteScalar()) ?? 0);
 
                     if (qtyAvailable == 0)
                     {
@@ -129,7 +129,7 @@ namespace CC_Assignment
         }
 
 
-        //edit art qty fn (based on row)
+        //edit cart qty fn (based on row)
         protected void gvCart_RowEditing(object sender, GridViewEditEventArgs e)
         {
 
@@ -154,12 +154,12 @@ namespace CC_Assignment
                 int qty = 0;
 
                 //retrieve qty left
-                string queryArtQty = "SELECT Quantity FROM Artist WHERE ArtId = (SELECT ArtId FROM OrderDetails WHERE OrderDetailId = @od_Id); ";
+                string queryApparelQty = "SELECT Quantity FROM Seller WHERE Id = (SELECT ApparelId FROM OrderDetails WHERE OrderDetailId = @od_Id); ";
 
-                using (SqlCommand cmdArtQty = new SqlCommand(queryArtQty, con))
+                using (SqlCommand cmdApparelQty = new SqlCommand(queryApparelQty, con))
                 {
-                    cmdArtQty.Parameters.AddWithValue("@od_Id", gvCart.DataKeys[e.RowIndex].Value.ToString());
-                    qty = ((Int32?)cmdArtQty.ExecuteScalar()) ?? 0;
+                    cmdApparelQty.Parameters.AddWithValue("@od_Id", gvCart.DataKeys[e.RowIndex].Value.ToString());
+                    qty = ((Int32?)cmdApparelQty.ExecuteScalar()) ?? 0;
 
                 }
                 con.Close();
@@ -175,7 +175,7 @@ namespace CC_Assignment
                 //if input qty more than available qty
                 else if (select_qty > qty)
                 {
-                    Response.Write("<script>alert('There is only " + qty.ToString() + " quantity for this art is available. Therefore, quantity should not more than " + qty.ToString() + ".')</script>");
+                    Response.Write("<script>alert('There is only " + qty.ToString() + " quantity for this apparel is available. Therefore, quantity should not more than " + qty.ToString() + ".')</script>");
                 }
                 else
                 {
@@ -188,7 +188,7 @@ namespace CC_Assignment
                         SqlCommand cmd = new SqlCommand(query, con);
 
                         int itemQty = int.Parse((gvCart.Rows[e.RowIndex].FindControl("cart_qtySelect") as TextBox).Text.Trim());
-                        double price = double.Parse((gvCart.Rows[e.RowIndex].FindControl("cart_artPrice") as TextBox).Text.Trim());
+                        double price = double.Parse((gvCart.Rows[e.RowIndex].FindControl("cart_apparelPrice") as TextBox).Text.Trim());
 
                         double subTotal = price * itemQty;
 
@@ -226,7 +226,7 @@ namespace CC_Assignment
 
                 refreshdata();
 
-                Response.Write("<script>alert('Art Information Deleted Successfully')</script>");
+                Response.Write("<script>alert('Apparel Information Deleted from Cart Successfully')</script>");
             }
         }
 
@@ -280,7 +280,7 @@ namespace CC_Assignment
                 }
                 catch (Exception)
                 {
-                    Response.Write("<script>alert('Server down, please contact QUAD-CORE ASG. Customer Services.')</script>");
+                    Response.Write("<script>alert('Server down, please contact Syasya Design. Customer Services.')</script>");
                 }
             }
 
@@ -332,13 +332,13 @@ namespace CC_Assignment
                 }
                 else
                 {
-                    Response.Write("<script>alert('Please select art before proceed payment.')</script>");
+                    Response.Write("<script>alert('Please select at least one apparel before proceed payment.')</script>");
                     refreshdata();
                 }
             }
             catch (Exception)
             {
-                Response.Write("<script>alert('Server down, please contact QUAD-CORE ASG. Customer Services.')</script>");
+                Response.Write("<script>alert('Server down, please contact Syasya Design. Customer Services.')</script>");
             }
 
         }
@@ -392,7 +392,7 @@ namespace CC_Assignment
 
                 if (chkb.Checked && gvCart.Rows[i].Cells[0].Enabled == true)
                 {
-                    totalSelectPrice += double.Parse((gvCart.Rows[i].FindControl("cart_artSubPrice") as TextBox).Text.ToString());
+                    totalSelectPrice += double.Parse((gvCart.Rows[i].FindControl("cart_apparelSubPrice") as TextBox).Text.ToString());
                     
                 }
                 else if (chckheader.Checked == true && chkb.Checked == false && gvCart.Rows[i].Cells[0].Enabled == true)
@@ -440,12 +440,12 @@ namespace CC_Assignment
 
         }
 
-        protected void cart_artImg_click(object sender, ImageClickEventArgs e)
+        protected void cart_apparelImg_click(object sender, ImageClickEventArgs e)
         {
             ImageButton imgButton = sender as ImageButton;
-            Int32 artID = Convert.ToInt32(imgButton.CommandArgument.ToString());
+            Int32 apparelID = Convert.ToInt32(imgButton.CommandArgument.ToString());
 
-            Response.Redirect("ArtWorkDetails.aspx?ArtId=" + artID);
+            Response.Redirect("ApparelDetails.aspx?Id=" + apparelID);
         }
 
 
