@@ -49,7 +49,7 @@ namespace CC_Assignment
                 //assign selected item to gridview
                 SqlConnection con = new SqlConnection(cs);
                 con.Open();
-                String queryGetData = "Select s.Id, s.Name, s.Price, o.OrderDetailId, o.qtySelected, o.Subtotal from [OrderDetails] o " +
+                String queryGetData = "Select s.Id, s.Name, s.Price, s.Size, o.OrderDetailId, o.qtySelected, o.Subtotal from [OrderDetails] o " +
                         "INNER JOIN [Seller] s on o.ApparelId = s.Id INNER JOIN [Cart] c on o.CartId = c.CartId Where c.UserId = @userid AND c.status = 'cart' AND o.Checked = 'True'";
                 SqlCommand cmd = new SqlCommand(queryGetData, con);
                 cmd.Parameters.AddWithValue("@userid", Session["userID"]);
@@ -217,7 +217,7 @@ namespace CC_Assignment
                     String artName, unitPrice, qty;
                     for (int i = 0; i < gvPayment.Rows.Count; i++)
                     {
-                        artName = (gvPayment.Rows[i].FindControl("artItem_Name") as TextBox).Text.Trim();
+                        artName = (gvPayment.Rows[i].FindControl("Item_Name") as TextBox).Text.Trim();
                         unitPrice = (gvPayment.Rows[i].FindControl("item_order_summary_price") as TextBox).Text.Trim();
                         qty = (gvPayment.Rows[i].FindControl("item_order_summary_qty") as TextBox).Text.Trim();
                         emailOrderInfo += "<br/><br/>" + (i + 1).ToString() + ". Apparel Name : " + artName + "<br/>&nbsp;&nbsp;&nbsp;&nbsp;Details  : RM " + unitPrice + " x " + qty;
