@@ -45,6 +45,16 @@
                     </ItemTemplate>
                 </asp:TemplateField>
 
+                <%-- Apparel Size --%>
+                <asp:TemplateField ItemStyle-Width="20%" HeaderText="Size" HeaderStyle-Height="50px" HeaderStyle-Font-Size="Large" HeaderStyle-BackColor="#484848" 
+                    ItemStyle-HorizontalAlign="Center" ItemStyle-CssClass="payHis_gv_item">
+                    <ItemTemplate>
+                        <asp:Label ID="his_apparelSize" runat="server"> 
+                            <p style="font-size:18px"><%#Eval("Size")%></p>
+                        </asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+
                  <%-- Unit Price --%>
                 <asp:TemplateField ItemStyle-Width="20%" HeaderText="Unit Price" HeaderStyle-Height="50px" HeaderStyle-Font-Size="Large" HeaderStyle-BackColor="#484848" 
                     ItemStyle-HorizontalAlign="Center" ItemStyle-CssClass="payHis_gv_item">
