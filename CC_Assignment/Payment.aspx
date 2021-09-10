@@ -73,7 +73,7 @@
                                 </td>
 
                                 <td>
-                                    <asp:Label runat="server" ID="deliverly_fees" style="color:antiquewhite"> </asp:Label>
+                                    <asp:Label runat="server" ID="delivery_fees" style="color:antiquewhite"> </asp:Label>
                                 </td>
                             </tr>
                             <tr>
