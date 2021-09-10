@@ -280,7 +280,7 @@ namespace CC_Assignment
                 }
                 catch (Exception)
                 {
-                    Response.Write("<script>alert('Server down, please contact Syasha Design. Customer Services.')</script>");
+                    Response.Write("<script>alert('Server down, please contact Syasya Design. Customer Services.')</script>");
                 }
             }
 
@@ -338,7 +338,7 @@ namespace CC_Assignment
             }
             catch (Exception)
             {
-                Response.Write("<script>alert('Server down, please contact Syasha Design. Customer Services.')</script>");
+                Response.Write("<script>alert('Server down, please contact Syasya Design. Customer Services.')</script>");
             }
 
         }

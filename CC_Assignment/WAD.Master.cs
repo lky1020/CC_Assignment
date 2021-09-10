@@ -86,7 +86,7 @@ namespace CC_Assignment
             }
             else
             {
-                ScriptManager.RegisterStartupScript(Page, this.GetType(), "MasterpageDBError", "alert('Error Occur in Database. Please Contact Syasha Design!');", true);
+                ScriptManager.RegisterStartupScript(Page, this.GetType(), "MasterpageDBError", "alert('Error Occur in Database. Please Contact Syasya Design!');", true);
             }
             
         }
@@ -110,7 +110,7 @@ namespace CC_Assignment
             }
             catch (Exception)
             {
-                ScriptManager.RegisterStartupScript(Page, this.GetType(), "MasterpageDBError", "alert('Error Occur in Database. Please Contact Syasha Design!');", true);
+                ScriptManager.RegisterStartupScript(Page, this.GetType(), "MasterpageDBError", "alert('Error Occur in Database. Please Contact Syasya Design!');", true);
             }
 
             return null;
@@ -177,7 +177,7 @@ namespace CC_Assignment
             }
             catch (Exception)
             {
-                ScriptManager.RegisterStartupScript(Page, this.GetType(), "MasterpageDBError", "alert('Error Occur in Database. Please Contact Syasha Design!');", true);
+                ScriptManager.RegisterStartupScript(Page, this.GetType(), "MasterpageDBError", "alert('Error Occur in Database. Please Contact Syasya Design!');", true);
             }
 
             return false;
@@ -250,7 +250,7 @@ namespace CC_Assignment
             }
             catch (Exception)
             {
-                ScriptManager.RegisterStartupScript(Page, this.GetType(), "MasterpageDBError", "alert('Error Occur in Database. Please Contact Syasha Design!');", true);
+                ScriptManager.RegisterStartupScript(Page, this.GetType(), "MasterpageDBError", "alert('Error Occur in Database. Please Contact Syasya Design!');", true);
             }
         }
 
@@ -270,7 +270,7 @@ namespace CC_Assignment
             }
             catch (Exception)
             {
-                ScriptManager.RegisterStartupScript(Page, this.GetType(), "MasterpageDBError", "alert('Error Occur in Database. Please Contact Syasha Design!');", true);
+                ScriptManager.RegisterStartupScript(Page, this.GetType(), "MasterpageDBError", "alert('Error Occur in Database. Please Contact Syasya Design!');", true);
             }
         }
 
@@ -290,7 +290,7 @@ namespace CC_Assignment
             }
             catch (Exception)
             {
-                ScriptManager.RegisterStartupScript(Page, this.GetType(), "MasterpageDBError", "alert('Error Occur in Database. Please Contact Syasha Design!');", true);
+                ScriptManager.RegisterStartupScript(Page, this.GetType(), "MasterpageDBError", "alert('Error Occur in Database. Please Contact Syasya Design!');", true);
             }
         }
     }

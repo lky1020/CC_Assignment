@@ -39,7 +39,7 @@ namespace CC_Assignment
                         mail.To.Add(txtContactEmail.Text);
                     }
 
-                    mail.To.Add("syashadesign@gmail.com");
+                    mail.To.Add("syasyadesigncc@gmail.com");
                     mail.Subject = "Customer's Comment";
 
                     if(Session["username"] != null && Session["userEmail"] != null)
@@ -71,7 +71,7 @@ namespace CC_Assignment
                         }
                         catch (Exception)
                         {
-                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Email Status", "alert('Sorry, Syasha Design Email Account Down. Please Contact Syasha Design!')", true);
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Email Status", "alert('Sorry, Syasya Design Email Account Down. Please Contact Syasya Design!')", true);
                         }
                     }
                 }
@@ -104,7 +104,7 @@ namespace CC_Assignment
             }
             catch(Exception)
             {
-                ScriptManager.RegisterStartupScript(Page, this.GetType(), "HomepageDBError", "alert('Error Occur in Database. Please Contact Syasha Design!');", true);
+                ScriptManager.RegisterStartupScript(Page, this.GetType(), "HomepageDBError", "alert('Error Occur in Database. Please Contact Syasya Design!');", true);
             }
 
         }

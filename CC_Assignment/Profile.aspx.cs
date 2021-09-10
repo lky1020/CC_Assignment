@@ -131,7 +131,7 @@ namespace CC_Assignment
                     }
                     catch (Exception)
                     {
-                        ScriptManager.RegisterStartupScript(Page, this.GetType(), "ProfilepageDBError", "alert('Error Occur in Database. Please Contact Syasha Design!');", true);
+                        ScriptManager.RegisterStartupScript(Page, this.GetType(), "ProfilepageDBError", "alert('Error Occur in Database. Please Contact Syasya Design!');", true);
                         ScriptManager.RegisterStartupScript(Page, this.GetType(), "DirectToHomepage", "alert('Redirecting you to Homepage!'); window.location = 'Homepage.aspx';", true);
                     }
                 }
@@ -169,7 +169,7 @@ namespace CC_Assignment
             }
             catch (Exception)
             {
-                ScriptManager.RegisterStartupScript(Page, this.GetType(), "ProfilepageDBError", "alert('Error Occur in Database. Please Contact Syasha Design!');", true);
+                ScriptManager.RegisterStartupScript(Page, this.GetType(), "ProfilepageDBError", "alert('Error Occur in Database. Please Contact Syasya Design!');", true);
                 ScriptManager.RegisterStartupScript(Page, this.GetType(), "DirectToHomepage", "alert('Redirecting you to Homepage!'); window.location = 'Homepage.aspx';", true);
             }
         }
@@ -201,7 +201,7 @@ namespace CC_Assignment
                 }
                 catch (Exception)
                 {
-                    ScriptManager.RegisterStartupScript(Page, this.GetType(), "ProfilepageDBError", "alert('Error Occur in Database. Please Contact Syasha Design!');", true);
+                    ScriptManager.RegisterStartupScript(Page, this.GetType(), "ProfilepageDBError", "alert('Error Occur in Database. Please Contact Syasya Design!');", true);
                     ScriptManager.RegisterStartupScript(Page, this.GetType(), "DirectToHomepage", "alert('Redirecting you to Homepage!'); window.location = 'Homepage.aspx';", true);
                 }
             }
@@ -312,7 +312,7 @@ namespace CC_Assignment
             }
             catch (Exception)
             {
-                ScriptManager.RegisterStartupScript(Page, this.GetType(), "ProfilepageDBError", "alert('Error Occur in Database. Please Contact Syasha Design!');", true);
+                ScriptManager.RegisterStartupScript(Page, this.GetType(), "ProfilepageDBError", "alert('Error Occur in Database. Please Contact Syasya Design!');", true);
                 ScriptManager.RegisterStartupScript(Page, this.GetType(), "DirectToHomepage", "alert('Redirecting you to Homepage!'); window.location = 'Homepage.aspx';", true);
             }
 
@@ -338,7 +338,7 @@ namespace CC_Assignment
             }
             catch (Exception)
             {
-                ScriptManager.RegisterStartupScript(Page, this.GetType(), "ProfilepageDBError", "alert('Error Occur in Database. Please Contact Syasha Design!');", true);
+                ScriptManager.RegisterStartupScript(Page, this.GetType(), "ProfilepageDBError", "alert('Error Occur in Database. Please Contact Syasya Design!');", true);
                 ScriptManager.RegisterStartupScript(Page, this.GetType(), "DirectToHomepage", "alert('Redirecting you to Homepage!'); window.location = 'Homepage.aspx';", true);
             }
         }
@@ -361,7 +361,7 @@ namespace CC_Assignment
             }
             catch (Exception)
             {
-                ScriptManager.RegisterStartupScript(Page, this.GetType(), "ProfilepageDBError", "alert('Error Occur in Database. Please Contact Syasha Design!');", true);
+                ScriptManager.RegisterStartupScript(Page, this.GetType(), "ProfilepageDBError", "alert('Error Occur in Database. Please Contact Syasya Design!');", true);
                 ScriptManager.RegisterStartupScript(Page, this.GetType(), "DirectToHomepage", "alert('Redirecting you to Homepage!'); window.location = 'Homepage.aspx';", true);
             }
         }
@@ -382,7 +382,7 @@ namespace CC_Assignment
             }
             catch (Exception)
             {
-                ScriptManager.RegisterStartupScript(Page, this.GetType(), "ProfilepageDBError", "alert('Error Occur in Database. Please Contact Syasha Design!');", true);
+                ScriptManager.RegisterStartupScript(Page, this.GetType(), "ProfilepageDBError", "alert('Error Occur in Database. Please Contact Syasya Design!');", true);
                 ScriptManager.RegisterStartupScript(Page, this.GetType(), "DirectToHomepage", "alert('Redirecting you to Homepage!'); window.location = 'Homepage.aspx';", true);
             }
 

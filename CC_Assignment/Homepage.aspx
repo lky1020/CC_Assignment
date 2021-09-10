@@ -21,11 +21,11 @@
             <div class="col50">
                 <h2 class="titleText"><span>A</span>bout Us</h2>
                 <p> &emsp;&emsp;&emsp;
-                    Syasha Design is an online shop selling plus size 
-                    apparel for women. Syasha Design are using Microsoft
-                    Azure to support its daily business. Syasha Design intend 
+                    Syasya Design is an online shop selling plus size 
+                    apparel for women. Syasya Design are using Microsoft
+                    Azure to support its daily business. Syasya Design intend 
                     selling plus size apparel for women to promote to all the world. 
-                    In addition, Syasha Design also intent to launch their plus size apparel
+                    In addition, Syasya Design also intent to launch their plus size apparel
                     to lets the world explore the beauty of plus size apparel and
                     purchase them.
                 </p>
@@ -33,7 +33,7 @@
                 <br/><br/>
 
                 <p> &emsp;&emsp;&emsp;
-                    Syasha Design is founder by Syasya and it is design by 
+                    Syasya Design is founder by Syasya and it is design by 
                     5 students which is Lim Kah Yee, Joan Hau, 
                     Cheong Yin Lam, Lee Ling and Hiew Long Shun. 
                     Currently, we are studying in the software engineering 
@@ -43,10 +43,10 @@
                 <br/><br/>
 
                 <p> &emsp;&emsp;&emsp;
-                    This Syasha Design website is one of our assignment in RSF2 Year 3 
+                    This Syasya Design website is one of our assignment in RSF2 Year 3 
                     Sem 1. This website is used to selling plus size apparel for women. 
                     In this website, it is about the Apparel which is to promote plus size 
-                    apparel for women. All of the data in the Syasha Design will store in
+                    apparel for women. All of the data in the Syasya Design will store in
                     Microsoft Azure.
                 </p>
             </div>
@@ -65,7 +65,7 @@
             <h2 class="titleText"><span>C</span>ollections</h2>
 
             <p> 
-                The best apparel that launched by Syasha. Captured the 
+                The best apparel that launched by Syasya. Captured the 
                 best moment in our life.
             </p>
         </div>

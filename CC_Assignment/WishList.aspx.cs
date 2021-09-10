@@ -406,7 +406,7 @@ namespace CC_Assignment
                 }
                 catch (Exception ex)
                 {
-                    Response.Write("<script>alert('Server down, please contact Syasha Design. Customer Services.')</script>");
+                    Response.Write("<script>alert('Server down, please contact Syasya Design. Customer Services.')</script>");
                     System.Diagnostics.Debug.WriteLine("[DEBUG][EXCEPTION] --> " + ex.Message);
                 }
             }
