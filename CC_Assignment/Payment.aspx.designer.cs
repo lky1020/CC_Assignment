@@ -33,13 +33,13 @@ namespace CC_Assignment
         protected global::System.Web.UI.WebControls.Label pay_subtotal;
 
         /// <summary>
-        /// deliverly_fees control.
+        /// delivery_fees control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label deliverly_fees;
+        protected global::System.Web.UI.WebControls.Label delivery_fees;
 
         /// <summary>
         /// total_payment control.

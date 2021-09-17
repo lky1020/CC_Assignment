@@ -16,9 +16,10 @@
                                 <ItemTemplate>
                                     <div class="pay_gvItem1">
                                         <strong>  
-                                            <asp:Label runat="server" ID="artItem_Name1" Text='<%# Eval("ArtName") %>' Width="60%"></asp:Label>
-                                             <asp:TextBox runat="server"  ID="artItem_Name" Text='<%# Eval("ArtName") %>' Visible="false"></asp:TextBox>
-                                           
+                                            <asp:Label runat="server" ID="Item_Name1" Text='<%# Eval("Name")%>' Width="60%"></asp:Label>
+                                             <asp:TextBox runat="server"  ID="Item_Name" Text='<%# Eval("Name") + " (" + Eval("Size") + ") "%>' Visible="false"></asp:TextBox>
+                                            <asp:Label runat="server" ID="Item_Size1" Text='<%# " (" + Eval("Size") + ")" %>' Width="60%"></asp:Label>
+                                            <asp:TextBox runat="server"  ID="Item_Size" Text='<%# " (" + Eval("Size") + ")" %>' Visible="false"></asp:TextBox>
                                         </strong>
 
                                         <br />
@@ -72,7 +73,7 @@
                                 </td>
 
                                 <td>
-                                    <asp:Label runat="server" ID="deliverly_fees" style="color:antiquewhite"> </asp:Label>
+                                    <asp:Label runat="server" ID="delivery_fees" style="color:antiquewhite"> </asp:Label>
                                 </td>
                             </tr>
                             <tr>
@@ -119,9 +120,8 @@
                     <!-- input type="text" placeholder="Card Number" /-->
                     <asp:TextBox ID="Card_Number" runat="server" Height="40px" class="text_box"/>
                     <asp:RequiredFieldValidator ID="CardNum_RequiredField" runat="server" ErrorMessage="Card Number is Required." ForeColor="Red" ControlToValidate="Card_Number">*</asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="CardNum_RegularExpression" runat="server" ErrorMessage="Invalid Card Number (E.g. 4567 8738 4738 4596)" 
+                    <asp:RegularExpressionValidator ID="CardNum_RegularExpression" runat="server" ErrorMessage="Invalid Card Number (E.g. 4567 8738 4738 4596 for Credit Card & 5567 8738 4738 4596 for Debit Card)" 
                         ForeColor="Red" ControlToValidate="Card_Number" ValidationExpression="^[4-5][0-9]{3} [0-9]{4} [0-9]{4} [0-9]{4}$" Font-Size="11px"></asp:RegularExpressionValidator>
-                    
                 </div>
 
                 <div class="payment_section">
@@ -140,9 +140,8 @@
                         <!-- input type="text" placeholder="Expiry Date" /-->
                         <asp:TextBox ID="Exp_Date" runat="server" Height="40px" class="payment_item_box" TextMode="Date"/>
                         <asp:RequiredFieldValidator ID="ExpDate_RequiredField" runat="server" ErrorMessage="Expiry Date is Required." ForeColor="Red" ControlToValidate="Exp_Date" Font-Size="11px">*</asp:RequiredFieldValidator>
-                        <asp:RangeValidator ID="ExpDate_RangeValidator" runat="server" ErrorMessage="Invalid Expiry Date!" ControlToValidate="Exp_Date" Type="Date"
+                        <asp:RangeValidator ID="ExpDate_RangeValidator" runat="server" ErrorMessage="Card Expired!" ControlToValidate="Exp_Date" Type="Date"
                             ForeColor="Red" Font-Size="11px"></asp:RangeValidator>
-                       
                     </div>
                     <div>
                         <p style="font-size:10px;margin-bottom:0px">CVV</p>

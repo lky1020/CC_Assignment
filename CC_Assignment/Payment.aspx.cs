@@ -29,8 +29,8 @@ namespace CC_Assignment
                 pay_subtotal.Text = "RM " + paySubtotal.ToString("F");
 
                 totalPay += subtotalPayment() + (gvPayment.Rows.Count * 3);
-                deliverly_fees.Text = "RM " + (gvPayment.Rows.Count * 3).ToString("F");
-                total_payment.Text = "RM " + totalPay.ToString("F");
+                delivery_fees.Text = (gvPayment.Rows.Count * 3).ToString("F");
+                total_payment.Text = totalPay.ToString("F");
 
                 //set validate date for expiry card
                 ExpDate_RangeValidator.MinimumValue = DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + (DateTime.Now.Day + 1).ToString();
@@ -49,7 +49,7 @@ namespace CC_Assignment
                 //assign selected item to gridview
                 SqlConnection con = new SqlConnection(cs);
                 con.Open();
-                String queryGetData = "Select s.Id, s.Name, s.Price, o.OrderDetailId, o.qtySelected, o.Subtotal from [OrderDetails] o " +
+                String queryGetData = "Select s.Id, s.Name, s.Price, s.Size, o.OrderDetailId, o.qtySelected, o.Subtotal from [OrderDetails] o " +
                         "INNER JOIN [Seller] s on o.ApparelId = s.Id INNER JOIN [Cart] c on o.CartId = c.CartId Where c.UserId = @userid AND c.status = 'cart' AND o.Checked = 'True'";
                 SqlCommand cmd = new SqlCommand(queryGetData, con);
                 cmd.Parameters.AddWithValue("@userid", Session["userID"]);
@@ -85,7 +85,7 @@ namespace CC_Assignment
             //validate cart num with card type
             if (!validatedCardNumWithType())
             {
-                Response.Write("<script>alert('Please check your card type. Cart type and cart number not match...')</script>");
+                Response.Write("<script>alert('Please check your card type. Card number validation according to card type failed. (E.g. 4567 8738 4738 4596 for Credit Card & 5567 8738 4738 4596 for Debit Card)')</script>");
 
             }
             else
@@ -184,7 +184,7 @@ namespace CC_Assignment
                 }
                 catch (Exception)
                 {
-                    Response.Write("<script>alert('Something go wrong, please login and try again, thank you.')</script>");
+                    Response.Write("<script>alert('Something went wrong, please login and try again, thank you.')</script>");
                 }
                 con.Close();
 
@@ -214,13 +214,13 @@ namespace CC_Assignment
                 try
                 {
                     String emailOrderInfo = "";
-                    String artName, unitPrice, qty;
+                    String apparelName, unitPrice, qty;
                     for (int i = 0; i < gvPayment.Rows.Count; i++)
                     {
-                        artName = (gvPayment.Rows[i].FindControl("artItem_Name") as TextBox).Text.Trim();
+                        apparelName = (gvPayment.Rows[i].FindControl("Item_Name") as TextBox).Text.Trim();
                         unitPrice = (gvPayment.Rows[i].FindControl("item_order_summary_price") as TextBox).Text.Trim();
                         qty = (gvPayment.Rows[i].FindControl("item_order_summary_qty") as TextBox).Text.Trim();
-                        emailOrderInfo += "<br/><br/>" + (i + 1).ToString() + ". Apparel Name : " + artName + "<br/>&nbsp;&nbsp;&nbsp;&nbsp;Details  : RM " + unitPrice + " x " + qty;
+                        emailOrderInfo += "<br/><br/>" + (i + 1).ToString() + ". Apparel Name : " + apparelName + "<br/>&nbsp;&nbsp;&nbsp;&nbsp;Details  : RM " + unitPrice + " x " + qty;
 
                     }
                     using (StringWriter sw = new StringWriter())
@@ -228,14 +228,18 @@ namespace CC_Assignment
                         using (HtmlTextWriter hw = new HtmlTextWriter(sw))
                         {
                             StringBuilder sb = new StringBuilder();
+                            // for product details
                             sb.Append("<h4 style='text-align: center;'><b>Syasya Design</b>" +
                                 "<br/>========================</h4>" +
                                 "<br/><b><u>Purchase Information</u></b>" + emailOrderInfo +
-                                "<br/><br/><br/>-------------------------------------" +
-                                "<br/>Delivery Fees : " + deliverly_fees.Text +
-                                "<br/>Total         : " + total_payment.Text +
-                                "<br/><br/><br/>  Thank you!");
-
+                                "<br/><br/><br/>----------------------------");
+                            // for summary
+                            sb.Append(@"<table>
+                                        <thead><tr><th><b>Order Summary</b></th><th></th><th style='text-align:right;'><b>RM</b></th></tr></thead>
+                                        <tbody><tr><td>----------------------------</td><td style='text-align:center;'>---</td><td style='text-align:right;'>----</td></tr><tr>
+                                                   <td>Delivery Fees</td><td style='text-align:center;'>:</td><td style='text-align:right;'>" + delivery_fees.Text + "</td></tr><tr>" +
+                                                  "<td><u>Total</u></td><td style='text-align:center;'>:</td><td style='text-align:right;'><u>" + total_payment.Text + "</u></td></tr></tbody></table>" +
+                                                  "<br/><br/><br/>  Thank you!");
                             StringReader sr = new StringReader(sb.ToString());
 
                             Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
@@ -251,10 +255,10 @@ namespace CC_Assignment
 
                                 MailMessage mm = new MailMessage("quadCoreTest@gmail.com", "syasyadesigncc@gmail.com");
                                 mm.Subject = "Syasya Design Apparel Gallery Receipt";
-                                mm.Body = "Thanks for your order!! <br/>Your total payment is: " + total_payment.Text +
-                                    "<br/><br/>Details of the Payment Information is in the pdf below." +
+                                mm.Body = "Thanks for your order! <br/>Your total payment is: " + total_payment.Text +
+                                    "<br/><br/>Details of the payment information is in the PDF document below." +
                                 "<br/><br/><br/>  Thank you!" +
-                                "<br/><br/> Receipt Generated By: Syasya Design AUTO SYSTEM"; ;
+                                "<br/><br/> Receipt Generated By: Syasya Design Auto System"; ;
                                 mm.Attachments.Add(new Attachment(new MemoryStream(bytes), "Syasya_Design_Apparel_Gallery_Receipt.pdf"));
                                 mm.IsBodyHtml = true;
                                 SmtpClient smtp = new SmtpClient();
@@ -273,7 +277,7 @@ namespace CC_Assignment
                                     //pop up massage then redirect to payment history
                                     ScriptManager.RegisterStartupScript(this, this.GetType(),
                                                         "Email Status",
-                                                        "alert('Your receipt has been send to your email.');window.location ='PayHistory.aspx';",
+                                                        "alert('Your receipt has been sent to your email.');window.location ='PayHistory.aspx';",
                                                         true);
 
                                 }
@@ -288,7 +292,7 @@ namespace CC_Assignment
                 }
                 catch (Exception)
                 {
-                    Response.Write("<script>alert('Server down, please contact Syasya Design. Customer Services to get your digital receipt.')</script>");
+                    Response.Write("<script>alert('Server down, please contact Syasya Design. Customer Service to obtain your digital receipt.')</script>");
                 }
             }
         }

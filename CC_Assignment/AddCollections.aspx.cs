@@ -56,7 +56,7 @@ namespace CC_Assignment
 
                 if (FileUpload1.HasFile)
                 {
-                    System.Drawing.Image image = System.Drawing.Image.FromStream(FileUpload1.FileContent);
+                    //System.Drawing.Image image = System.Drawing.Image.FromStream(FileUpload1.FileContent);
 
                     FileUpload1.SaveAs(Server.MapPath("~/img/Collections/") + FileUpload1.FileName);
 
